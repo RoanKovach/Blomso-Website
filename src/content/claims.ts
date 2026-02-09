@@ -186,7 +186,7 @@ export const claims: Claim[] = [
   {
     id: "first-pilot",
     category: "milestone",
-    headline: "First pilot launched",
+    headline: "First Pilot Launched",
     value: 2026,
     evidenceTier: "self",
     verified: true,
@@ -194,7 +194,7 @@ export const claims: Claim[] = [
   {
     id: "bayer-lifehub-2026",
     category: "milestone",
-    headline: "Bayer LifeHub golden ticket",
+    headline: "Bayer LifeHub Golden Ticket",
     value: 2026,
     evidenceTier: "self",
     verified: true,

@@ -30,9 +30,6 @@ export default function HomePage() {
           <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">
             Blomso unifies fragmented agricultural data into source linked digital twins so AI agents can run field trials before you do.
           </p>
-          <p className="mx-auto mt-6 max-w-xl text-base italic text-muted-foreground sm:text-lg">
-            Next: As this record grows, we layer soil intelligence, benchmarked predictions and scenario testing, on top of your verified data.
-          </p>
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <Button asChild size="lg" className="w-full sm:w-auto">
               <Link href="/contact">Request a walkthrough</Link>
@@ -114,7 +111,7 @@ export default function HomePage() {
           </h2>
           <div className="mt-10 grid gap-8 sm:mt-12 md:grid-cols-3">
             <div className="rounded-lg border border-border/60 bg-background p-6">
-              <h3 className="text-lg font-semibold text-primary">Now (Track A)</h3>
+              <h3 className="text-lg font-semibold text-primary">Now</h3>
               <p className="mt-2 text-sm text-muted-foreground">Ingest → Standardize → QC → Report</p>
               <ul className="mt-4 list-inside list-disc space-y-1 text-sm text-muted-foreground">
                 <li>Lab and field data ingestion</li>

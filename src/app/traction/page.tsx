@@ -79,19 +79,26 @@ export default function TractionPage() {
             Milestones
           </h2>
           <Separator className="mt-4" />
-          <ol className="mt-8 space-y-6 border-l-2 pl-6">
-            {milestones.map((m) => (
-              <li key={m.id} className="relative">
-                <span
-                  className="absolute top-1.5 h-3 w-3 -translate-x-1/2 rounded-full bg-primary"
-                  style={{ left: "calc(1px - 1.5rem)" }}
-                />
-                <p className="font-semibold">
-                  {m.value ?? ""} &mdash; {m.headline}
-                </p>
-              </li>
-            ))}
-          </ol>
+          <div className="relative mt-8">
+            {/* Line: runs through circle centers, from top of first to bottom of last circle */}
+            <div
+              className="absolute left-[11px] top-[6px] bottom-[10px] w-0.5 -translate-x-1/2 bg-border"
+              aria-hidden="true"
+            />
+            <ol className="space-y-6 pl-6">
+              {milestones.map((m) => (
+                <li key={m.id} className="relative">
+                  <span
+                    className="absolute left-[11px] top-1.5 h-3 w-3 -translate-x-1/2 rounded-full bg-primary"
+                    aria-hidden="true"
+                  />
+                  <p className="font-semibold">
+                    {m.value ?? ""} &mdash; {m.headline}
+                  </p>
+                </li>
+              ))}
+            </ol>
+          </div>
         </section>
       )}
 

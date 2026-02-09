@@ -9,7 +9,7 @@ import { TraceNumberDemo } from "@/components/trace-number-demo";
 export const metadata: Metadata = {
   title: "Platform",
   description:
-    "How Blomso unifies soil samples, sensor feeds, and field observations into a single source of agronomic intelligence.",
+    "Audit-ready, source-linked soil and field data for reporting and decisions. Ingestion, QC, provenance, and export today.",
 };
 
 export default function PlatformPage() {
@@ -21,15 +21,16 @@ export default function PlatformPage() {
         The platform
       </h1>
       <p className="mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
-        Blomso unifies soil samples, sensor feeds, and field observations
-        into one structured record of land health, traceable from source
-        to report.
+        Audit-ready, source-linked soil and field data for reporting and decisions. Soil is the beachhead; we also ingest sensors, weather, and field notes into one traceable record.
+      </p>
+      <p className="mt-6 text-sm font-medium text-muted-foreground">
+        Today: dashboards, reports, and evidence links. Next: baselines, benchmarks, and early prediction. Later: scenario testing and simulation on verified data.
       </p>
 
-      {/* ── Pipeline: Collect → Link → Simulate → Prove ─────── */}
+      {/* ── Pipeline: Collect → Link → Model → Prove ─────────── */}
       <section aria-labelledby="pipeline-heading" className="mt-12 sm:mt-16">
         <h2 id="pipeline-heading" className="text-2xl font-bold tracking-tight">
-          Collect &rarr; Link &rarr; Simulate &rarr; Prove
+          Collect &rarr; Link &rarr; Model &rarr; Prove
         </h2>
         <div className="bg-field-map mt-8 grid gap-8 rounded-lg border border-border/60 p-6 sm:grid-cols-2 lg:grid-cols-4 sm:p-8">
           {[
@@ -45,8 +46,8 @@ export default function PlatformPage() {
             },
             {
               step: "03",
-              title: "Simulate",
-              desc: "Digital twins and simulation, coming next. We are building tools to model field baselines and test scenarios before field spend.",
+              title: "Model (Coming next)",
+              desc: "As the verified dataset grows, we build field baselines and early prediction. Scenario testing and simulation on top of your data, later.",
             },
             {
               step: "04",
@@ -64,7 +65,7 @@ export default function PlatformPage() {
           ))}
         </div>
         <p className="mt-6 text-sm font-medium text-muted-foreground">
-          Today: dashboards, reports, and evidence links. Roadmap: simulation and ranked recommendations.
+          Today: dashboards, reports, and evidence links. Roadmap: modeling, simulation, and ranked recommendations.
         </p>
       </section>
 
@@ -82,15 +83,15 @@ export default function PlatformPage() {
             },
             {
               title: "Timestamped ingestion",
-              desc: "Incoming data is timestamped at the point of capture, creating a record of when each observation entered the system.",
+              desc: "Each value is timestamped at capture, so you know when it entered the system and where it came from.",
             },
             {
               title: "Anomaly flagging",
-              desc: "Automated checks flag readings outside expected ranges, prompting review before they influence downstream models.",
+              desc: "Automated checks flag readings outside expected ranges. Review before they feed into reports or models.",
             },
             {
               title: "Export-ready reports",
-              desc: "Generated reports include source references and data lineage, so stakeholders can trace any figure back to field-level data.",
+              desc: "Reports and exports include source references and lineage. Trace any figure back to its field-level source.",
             },
           ].map((v) => (
             <Card key={v.title} className="border-border/60 motion-safe:transition-[transform,box-shadow] motion-safe:duration-200 motion-safe:hover:-translate-y-0.5 motion-safe:hover:shadow-md">
@@ -104,6 +105,9 @@ export default function PlatformPage() {
 
         {/* ── Trace a number ─────────────────────────────────── */}
         <h3 className="mt-10 text-lg font-semibold">Trace a number</h3>
+        <p className="mt-2 text-sm text-muted-foreground">
+          When you trace a metric, you see its source document, timestamp, validation status, and where it appears in reports.
+        </p>
         <TraceNumberDemo />
       </section>
 

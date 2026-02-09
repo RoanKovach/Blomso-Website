@@ -1,0 +1,195 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, "Fira Code", monospace;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+}
+
+/* ── Brand palette from src/brand/colors.ts ────────────────────────
+ *   green.800 #3B7D28 → primary CTA
+ *   green.700 #4E9433 → primary hover
+ *   green.500 #7ED957 → focus ring / accent
+ *   green.100 #EDFBE5 → muted / section backgrounds
+ *   green.50  #F7FDF4 → subtle page tint
+ *   neutral.200 #E0E4DD → borders with green undertone
+ */
+
+:root {
+  --radius: 0.625rem;
+  --background: #FFFFFF;
+  --foreground: #1A2414;
+  --card: #FFFFFF;
+  --card-foreground: #1A2414;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A2414;
+  --primary: #3B7D28;
+  --primary-foreground: #FFFFFF;
+  --secondary: #EDFBE5;
+  --secondary-foreground: #2A5B1A;
+  --muted: #F7FDF4;
+  --muted-foreground: #4A5544;
+  --accent: #EDFBE5;
+  --accent-foreground: #2A5B1A;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: #E0E4DD;
+  --input: #E0E4DD;
+  --ring: #7ED957;
+  --chart-1: #3B7D28;
+  --chart-2: #6DB344;
+  --chart-3: #7ED957;
+  --chart-4: #B8EE9D;
+  --chart-5: #D7F5C8;
+  --sidebar: #F7FDF4;
+  --sidebar-foreground: #1A2414;
+  --sidebar-primary: #3B7D28;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #EDFBE5;
+  --sidebar-accent-foreground: #2A5B1A;
+  --sidebar-border: #E0E4DD;
+  --sidebar-ring: #7ED957;
+}
+
+.dark {
+  --background: #0F1A0B;
+  --foreground: #F0F2EE;
+  --card: #1A2414;
+  --card-foreground: #F0F2EE;
+  --popover: #1A2414;
+  --popover-foreground: #F0F2EE;
+  --primary: #7ED957;
+  --primary-foreground: #0F1A0B;
+  --secondary: #2E3A28;
+  --secondary-foreground: #F0F2EE;
+  --muted: #2E3A28;
+  --muted-foreground: #8E968A;
+  --accent: #2E3A28;
+  --accent-foreground: #F0F2EE;
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: #7ED957;
+  --chart-1: #7ED957;
+  --chart-2: #6DB344;
+  --chart-3: #B8EE9D;
+  --chart-4: #3B7D28;
+  --chart-5: #D7F5C8;
+  --sidebar: #1A2414;
+  --sidebar-foreground: #F0F2EE;
+  --sidebar-primary: #7ED957;
+  --sidebar-primary-foreground: #0F1A0B;
+  --sidebar-accent: #2E3A28;
+  --sidebar-accent-foreground: #F0F2EE;
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: #7ED957;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ── Agriculture visual system ─────────────────────────────────────
+ *   Gradient, noise texture, and field-map pattern — all inline,
+ *   no external assets required.
+ */
+
+/* Subtle green gradient wash — use on hero & CTA sections */
+.bg-field-gradient {
+  background:
+    linear-gradient(
+      175deg,
+      #F7FDF4 0%,
+      #EDFBE5 35%,
+      #FFFFFF 100%
+    );
+}
+
+/* SVG noise overlay — adds a paper/soil grain to any section.
+   Apply via ::after pseudo on a relative container. */
+.bg-grain {
+  position: relative;
+  isolation: isolate;
+}
+.bg-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.35;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* Abstract field-map pattern — irregular grid evoking aerial parcel views.
+   Inline SVG, no downloads needed. Use as a subtle section background. */
+/* Indeterminate progress bar for navigation indicator */
+@keyframes nav-progress {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(300%); }
+}
+.animate-nav-progress {
+  animation: nav-progress 900ms ease-in-out infinite;
+}
+
+/* Hide native scrollbar — used by partner logo carousel */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.bg-field-map {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' fill='none'%3E%3Cpath d='M0 30h120M0 60h120M0 90h120' stroke='%23E0E4DD' stroke-width='0.5'/%3E%3Cpath d='M30 0v120M60 0v120M90 0v120' stroke='%23E0E4DD' stroke-width='0.5'/%3E%3Cpath d='M15 0v120M75 0v120' stroke='%23EDFBE5' stroke-width='0.5'/%3E%3Cpath d='M0 45h120M0 105h120' stroke='%23EDFBE5' stroke-width='0.5'/%3E%3Cpath d='M10 20 Q30 5 50 25 T90 20' stroke='%23D7F5C8' stroke-width='0.75' fill='none'/%3E%3Cpath d='M5 70 Q25 55 55 75 T110 65' stroke='%23D7F5C8' stroke-width='0.75' fill='none'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 120px 120px;
+}

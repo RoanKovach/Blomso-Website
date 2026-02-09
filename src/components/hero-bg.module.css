@@ -1,0 +1,24 @@
+.heroBg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Fallback for browsers without image-set() support */
+  background-image: url("/hero/hero-bg.jpg");
+
+  /* Safari / older WebKit */
+  background-image: -webkit-image-set(
+    url("/hero/hero-bg.avif") type("image/avif"),
+    url("/hero/hero-bg.webp") type("image/webp"),
+    url("/hero/hero-bg.jpg") type("image/jpeg")
+  );
+
+  /* Standard: browser picks the best format it supports */
+  background-image: image-set(
+    url("/hero/hero-bg.avif") type("image/avif"),
+    url("/hero/hero-bg.webp") type("image/webp"),
+    url("/hero/hero-bg.jpg") type("image/jpeg")
+  );
+}

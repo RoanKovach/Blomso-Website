@@ -80,9 +80,9 @@ export default function TractionPage() {
           </h2>
           <Separator className="mt-4" />
           <div className="relative mt-8">
-            {/* Line: runs through circle centers, from top of first to bottom of last circle */}
+            {/* Line: through circle centers, starts at first circle top, ends at last circle bottom */}
             <div
-              className="absolute left-[11px] top-[6px] bottom-[10px] w-0.5 -translate-x-1/2 bg-border"
+              className="absolute bottom-[6px] left-[11px] top-[6px] w-0.5 -translate-x-1/2 bg-border"
               aria-hidden="true"
             />
             <ol className="space-y-6 pl-6">

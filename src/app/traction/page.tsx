@@ -89,7 +89,8 @@ export default function TractionPage() {
               {milestones.map((m) => (
                 <li key={m.id} className="relative">
                   <span
-                    className="absolute left-[11px] top-1.5 h-3 w-3 -translate-x-1/2 rounded-full bg-primary"
+                    className="absolute top-1.5 h-3 w-3 -translate-x-1/2 rounded-full bg-primary"
+                    style={{ left: "-13px" }}
                     aria-hidden="true"
                   />
                   <p className="font-semibold">

@@ -82,7 +82,10 @@ export default function TractionPage() {
           <ol className="mt-8 space-y-6 border-l-2 pl-6">
             {milestones.map((m) => (
               <li key={m.id} className="relative">
-                <span className="absolute -left-[1.6rem] top-1 h-3 w-3 rounded-full bg-primary" />
+                <span
+                  className="absolute top-1.5 h-3 w-3 -translate-x-1/2 rounded-full bg-primary"
+                  style={{ left: "calc(1px - 1.5rem)" }}
+                />
                 <p className="font-semibold">
                   {m.value ?? ""} &mdash; {m.headline}
                 </p>

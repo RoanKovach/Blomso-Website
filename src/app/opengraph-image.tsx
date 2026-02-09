@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const dynamic = "force-static";
 
-export const alt = "Blomso — A Biospheric Operating System rooted in the soil";
+export const alt = "Blomso — Proof-grade soil data for operators and investors";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -79,7 +79,7 @@ export default function OGImage() {
             display: "flex",
           }}
         >
-          A Biospheric Operating System rooted in the soil
+          Proof-grade soil data for operators and investors
         </div>
       </div>
     ),

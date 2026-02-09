@@ -46,7 +46,7 @@ export default function PlatformPage() {
             {
               step: "03",
               title: "Simulate",
-              desc: "AI agents test practices, inputs, and strains on digital twins — running trials before committing resources in the field.",
+              desc: "Digital twins and simulation — coming next. We are building tools to model field baselines and test scenarios before field spend.",
             },
             {
               step: "04",
@@ -64,7 +64,7 @@ export default function PlatformPage() {
           ))}
         </div>
         <p className="mt-6 text-sm font-medium text-muted-foreground">
-          Output: ranked recommendations + confidence scores + evidence links.
+          Today: dashboards, reports, and evidence links. Roadmap: simulation and ranked recommendations.
         </p>
       </section>
 

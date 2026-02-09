@@ -26,16 +26,12 @@ export default function HomePage() {
 
         <div className="relative z-20 mx-auto max-w-3xl px-4 py-20 text-center sm:px-6 sm:py-24 lg:py-28">
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            A Biospheric Operating System rooted in the soil.
+            Proof-grade soil data for operators and investors.
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">
-            Blomso unifies lab results, sensor feeds, and field observations
-            into source-linked digital twins&mdash;so AI agents can run trials
-            before you do.
-          </p>
-          <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground/80 italic">
-            Translation: We turn biological complexity into testable, auditable
-            decisions.
+            Blomso ingests lab results, sensor feeds, and field observations
+            into one traceable record. Every metric links back to its source.
+            Operator-ready workflows and faster reporting, today.
           </p>
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <Button asChild size="lg" className="w-full sm:w-auto">
@@ -48,7 +44,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Supported by ──────────────────────────────────────── */}
+      {/* ── Partners & Programs ─────────────────────────────────── */}
       <SupportStrip />
 
       {/* ── Evidence ──────────────────────────────────────────── */}
@@ -89,12 +85,12 @@ export default function HomePage() {
               desc: "One structured record across labs, sensors, and field notes.",
             },
             {
-              title: "Slow trial cycles",
-              desc: "Simulated trials on digital twins before committing time and inputs.",
-            },
-            {
               title: "Unverifiable claims",
               desc: "Every metric traceable back to its source.",
+            },
+            {
+              title: "Slow, manual reporting",
+              desc: "Automated report generation with full provenance.",
             },
           ].map((p) => (
             <Card
@@ -131,7 +127,7 @@ export default function HomePage() {
               {
                 step: "3",
                 title: "Simulate",
-                desc: "AI agents test practices, inputs, and strains on digital twins before committing resources in the field.",
+                desc: "Digital twins and simulation: coming next. We are building tools to model field baselines and test scenarios before field spend.",
               },
               {
                 step: "4",
@@ -149,23 +145,23 @@ export default function HomePage() {
             ))}
           </div>
           <p className="mt-10 text-center text-sm font-medium text-muted-foreground">
-            Output: ranked recommendations + confidence scores + evidence links.
+            Today: dashboards, reports, and evidence links. Roadmap: simulation and ranked recommendations.
           </p>
         </div>
       </section>
 
-      {/* ── OS map ──────────────────────────────────────────────── */}
+      {/* ── Platform layers ──────────────────────────────────────── */}
       <section className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
         <h2 className="text-center text-2xl font-bold tracking-tight sm:text-3xl">
-          The operating system, layer by layer
+          Platform layers
         </h2>
-        <div className="mt-10 flex flex-col" role="list" aria-label="Blomso OS layers">
+        <div className="mt-10 flex flex-col" role="list" aria-label="Blomso platform layers">
           {[
             { layer: "Data ingestion", desc: "Labs, sensors, and field observations arrive continuously." },
             { layer: "Integrity & provenance", desc: "Every value is timestamped and source-linked." },
-            { layer: "Digital twins", desc: "Field baselines and context are modeled across seasons." },
-            { layer: "AI agents", desc: "Agents run trials and compare outcomes before field spend." },
-            { layer: "Decision outputs", desc: "Reports and recommendations ship with evidence links." },
+            { layer: "Digital twins (roadmap)", desc: "Field baselines and context modeling — coming next." },
+            { layer: "AI agents (roadmap)", desc: "Trials and outcome comparison — coming next." },
+            { layer: "Decision outputs", desc: "Reports and dashboards ship with evidence links today." },
           ].map((l, i) => (
             <div
               key={l.layer}

@@ -159,6 +159,9 @@ export function PartnerLogoCarousel({ partners }: PartnerLogoCarouselProps) {
             />
           );
 
+          const linkLabel = s.relationshipLabel
+            ? `${s.name}, ${s.relationshipLabel} (opens in a new tab)`
+            : `${s.name} (opens in a new tab)`;
           return s.href ? (
             <a
               key={s.id}
@@ -167,7 +170,7 @@ export function PartnerLogoCarousel({ partners }: PartnerLogoCarouselProps) {
               rel="noopener noreferrer"
               className="group shrink-0 px-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring sm:snap-start"
               role="listitem"
-              aria-label={`${s.name} (opens in a new tab)`}
+              aria-label={linkLabel}
             >
               {img}
             </a>

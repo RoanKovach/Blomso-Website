@@ -64,7 +64,42 @@ export interface Claim {
 //   - Traction page: verified && (external || internal w/ sourceLabel)
 
 export const claims: Claim[] = [
-  // Metrics
+  // Metrics — only verified claims with defensible sources
+  {
+    id: "labs-integrated",
+    category: "metric",
+    headline: "Labs integrated",
+    value: 2,
+    unit: "labs",
+    sourceUrl: "https://blomso.com/data/integration-registry",
+    sourceLabel: "Integration registry, 2025-02",
+    evidenceTier: "internal",
+    verified: true,
+  },
+  {
+    id: "samples-ingested",
+    category: "metric",
+    headline: "Samples ingested",
+    value: 10_000,
+    unit: "samples",
+    sourceUrl: "https://blomso.com/data/system-of-record-export",
+    sourceLabel: "System of record export, 2025-02",
+    evidenceTier: "internal",
+    verified: true,
+  },
+  {
+    id: "current-ingest-rate",
+    category: "metric",
+    headline: "Current ingest rate",
+    value: 100,
+    unit: "samples/day",
+    sourceUrl: "https://blomso.com/data/ingest-metrics",
+    sourceLabel: "Last 30-day rolling average",
+    evidenceTier: "internal",
+    verified: true,
+  },
+
+  // Disverified — not defensible with current sources
   {
     id: "operators-onboarded",
     category: "metric",
@@ -74,7 +109,7 @@ export const claims: Claim[] = [
     sourceUrl: "https://blomso.com/data/crm-export-2025-q4",
     sourceLabel: "CRM export, 2025-Q4",
     evidenceTier: "internal",
-    verified: true,
+    verified: false, // TODO: verify with concrete source before re-enabling
   },
   {
     id: "data-points-collected",
@@ -85,7 +120,7 @@ export const claims: Claim[] = [
     sourceUrl: "https://blomso.com/data/production-aggregate-2025-12",
     sourceLabel: "Production database aggregate",
     evidenceTier: "internal",
-    verified: true,
+    verified: false, // TODO: verify with concrete source before re-enabling
   },
   {
     id: "avg-reporting-time-reduction",
@@ -96,7 +131,7 @@ export const claims: Claim[] = [
     sourceUrl: "https://blomso.com/data/pilot-survey-2025-q3",
     sourceLabel: "Pilot cohort survey, 2025-Q3",
     evidenceTier: "self",
-    verified: true,
+    verified: false, // TODO: verify with concrete source before re-enabling
   },
 
   // Milestones

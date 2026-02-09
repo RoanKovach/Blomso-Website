@@ -25,18 +25,18 @@ export default function HomePage() {
 
         <div className="relative z-20 mx-auto max-w-3xl px-4 py-20 text-center sm:px-6 sm:py-24 lg:py-28">
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            Soil data you can actually trust—ready for reporting and decisions.
+            We build the soil system of record (trusted ingestion + QC + lineage), and use it to unlock decision tools and, later, in-silico modeling.
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">
-            Blomso unifies lab results and field context into a source-linked soil record, then automates QC and reporting—so you spend less time cleaning spreadsheets and more time acting.
+            Blomso unifies lab results and field context into a source-linked soil record, then automates QC and reporting, so you spend less time cleaning spreadsheets and more time acting.
           </p>
           <ul className="mx-auto mt-6 max-w-lg list-inside list-disc space-y-2 text-left text-sm text-muted-foreground sm:text-base">
             <li>Ingest lab PDFs/CSVs + normalize results into one schema</li>
             <li>QC + anomaly flags + audit trail (every value traceable)</li>
             <li>Auto-generate reports + exports (investor, sustainability, agronomy)</li>
           </ul>
-          <p className="mx-auto mt-6 max-w-xl text-sm italic text-muted-foreground">
-            Next: As this record grows, we layer soil intelligence—benchmarked predictions and scenario testing—on top of your verified data.
+          <p className="mx-auto mt-6 max-w-xl text-base italic text-muted-foreground sm:text-lg">
+            Next: As this record grows, we layer soil intelligence, benchmarked predictions and scenario testing, on top of your verified data.
           </p>
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <Button asChild size="lg" className="w-full sm:w-auto">
@@ -111,15 +111,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Now / Next / Later ────────────────────────────────────── */}
+      {/* ── Biospheric OS ─────────────────────────────────────────── */}
       <section className="bg-field-map border-t border-border/60 px-4 py-16 sm:px-6 sm:py-20">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-center text-2xl font-bold tracking-tight sm:text-3xl">
-            Now / Next / Later
+            We&rsquo;re building a biospheric OS
           </h2>
           <div className="mt-10 grid gap-8 sm:mt-12 md:grid-cols-3">
             <div className="rounded-lg border border-border/60 bg-background p-6">
-              <h3 className="text-lg font-semibold text-primary">Now (Track A)</h3>
+              <h3 className="text-lg font-semibold text-primary">Now</h3>
               <p className="mt-2 text-sm text-muted-foreground">Ingest → Standardize → QC → Report</p>
               <ul className="mt-4 list-inside list-disc space-y-1 text-sm text-muted-foreground">
                 <li>Lab and field data ingestion</li>
@@ -129,7 +129,7 @@ export default function HomePage() {
               </ul>
             </div>
             <div className="rounded-lg border border-border/60 bg-background p-6">
-              <h3 className="text-lg font-semibold text-primary">Next (early Track B)</h3>
+              <h3 className="text-lg font-semibold text-primary">Next</h3>
               <p className="mt-2 text-sm text-muted-foreground">Baselines → predictions → assistant workflows</p>
               <ul className="mt-4 list-inside list-disc space-y-1 text-sm text-muted-foreground">
                 <li>Field baselines and context modeling</li>
@@ -138,7 +138,7 @@ export default function HomePage() {
               </ul>
             </div>
             <div className="rounded-lg border border-border/60 bg-background p-6">
-              <h3 className="text-lg font-semibold text-primary">Later (full Track B)</h3>
+              <h3 className="text-lg font-semibold text-primary">Later</h3>
               <p className="mt-2 text-sm text-muted-foreground">Digital twin + in-silico trials</p>
               <ul className="mt-4 list-inside list-disc space-y-1 text-sm text-muted-foreground">
                 <li>Digital twin across practices</li>

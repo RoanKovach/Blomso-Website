@@ -6,11 +6,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Blomso — Operational results, not promises",
+    default: "Blomso | Operational results, not promises",
     template: "%s | Blomso",
   },
   description:
-    "Soil data you can trust—ready for reporting and decisions. Blomso unifies lab results and field context into a source-linked soil record, then automates QC and reporting.",
+    "Soil data you can trust, ready for reporting and decisions. Blomso unifies lab results and field context into a source-linked soil record, then automates QC and reporting.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "32x32" },

@@ -5,8 +5,8 @@ import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
 const trailSteps = [
-  { label: "Origin", value: "Lab report — Brookside Laboratories, sample #BL-4471" },
-  { label: "Timestamp", value: "2025-02-03 14:22 UTC" },
+  { label: "Origin", value: "Lab report, Brookside Laboratories, sample #BL-4471" },
+  { label: "Timestamp", value: "2026-02-03 14:22 UTC" },
   { label: "Validation", value: "Anomaly check: passed (within expected range)" },
   { label: "Included in", value: "Soil Health Report → Section 2" },
 ] as const;

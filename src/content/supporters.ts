@@ -40,7 +40,7 @@ export const supporters: Supporter[] = [
     band: "partners",
     logo: "/partners/ohio-state-university-seal.png",
     invertOnLight: false,
-    ariaLabel: "University partner — founded by Ohio State alumni",
+    ariaLabel: "University partner, founded by Ohio State alumni",
     relationshipLabel: "University partner",
   },
   {

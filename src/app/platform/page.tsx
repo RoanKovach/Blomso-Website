@@ -22,7 +22,7 @@ export default function PlatformPage() {
       </h1>
       <p className="mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
         Blomso unifies soil samples, sensor feeds, and field observations
-        into one structured record of land health — traceable from source
+        into one structured record of land health, traceable from source
         to report.
       </p>
 
@@ -46,12 +46,12 @@ export default function PlatformPage() {
             {
               step: "03",
               title: "Simulate",
-              desc: "Digital twins and simulation — coming next. We are building tools to model field baselines and test scenarios before field spend.",
+              desc: "Digital twins and simulation, coming next. We are building tools to model field baselines and test scenarios before field spend.",
             },
             {
               step: "04",
               title: "Prove",
-              desc: "Source-linked reports, dashboards, and alerts with evidence trails — so agronomists and investors can trace any figure back to field-level data.",
+              desc: "Source-linked reports, dashboards, and alerts with evidence trails, so agronomists and investors can trace any figure back to field-level data.",
             },
           ].map((s) => (
             <div key={s.step}>
@@ -78,7 +78,7 @@ export default function PlatformPage() {
           {[
             {
               title: "Source-linked data",
-              desc: "Every metric traces back to its original source — a lab report, sensor reading, or field entry. No orphaned numbers.",
+              desc: "Every metric traces back to its original source: a lab report, sensor reading, or field entry. No orphaned numbers.",
             },
             {
               title: "Timestamped ingestion",

@@ -86,14 +86,6 @@ export default function TractionPage() {
                 <p className="font-semibold">
                   {m.value ?? ""} &mdash; {m.headline}
                 </p>
-                {m.detail && (
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    {m.detail}
-                  </p>
-                )}
-                <div className="mt-1">
-                  <SourceLabel claim={m} />
-                </div>
               </li>
             ))}
           </ol>

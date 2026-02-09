@@ -28,13 +28,8 @@ export default function HomePage() {
             A Biospheric Operating System rooted in the soil.
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">
-            Blomso unifies lab results and field context into a source-linked soil record, then automates QC and reporting, so you spend less time cleaning spreadsheets and more time acting.
+            Blomso unifies fragmented agricultural data into source linked digital twins so AI agents can run field trials before you do.
           </p>
-          <ul className="mx-auto mt-6 max-w-lg list-inside list-disc space-y-2 text-left text-sm text-muted-foreground sm:text-base">
-            <li>Ingest lab PDFs/CSVs + normalize results into one schema</li>
-            <li>QC + anomaly flags + audit trail (every value traceable)</li>
-            <li>Auto-generate reports + exports (investor, sustainability, agronomy)</li>
-          </ul>
           <p className="mx-auto mt-6 max-w-xl text-base italic text-muted-foreground sm:text-lg">
             Next: As this record grows, we layer soil intelligence, benchmarked predictions and scenario testing, on top of your verified data.
           </p>
@@ -119,7 +114,7 @@ export default function HomePage() {
           </h2>
           <div className="mt-10 grid gap-8 sm:mt-12 md:grid-cols-3">
             <div className="rounded-lg border border-border/60 bg-background p-6">
-              <h3 className="text-lg font-semibold text-primary">Now</h3>
+              <h3 className="text-lg font-semibold text-primary">Now (Track A)</h3>
               <p className="mt-2 text-sm text-muted-foreground">Ingest → Standardize → QC → Report</p>
               <ul className="mt-4 list-inside list-disc space-y-1 text-sm text-muted-foreground">
                 <li>Lab and field data ingestion</li>

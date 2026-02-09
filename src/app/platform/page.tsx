@@ -9,7 +9,7 @@ import { TraceNumberDemo } from "@/components/trace-number-demo";
 export const metadata: Metadata = {
   title: "Platform",
   description:
-    "Audit-ready, source-linked soil and field data for reporting and decisions. Ingestion, QC, provenance, and export today.",
+    "Audit-ready, source-linked soil and field data for reporting and decisions. Ingestion, extraction, QC, provenance, and export today.",
 };
 
 export default function PlatformPage() {
@@ -21,7 +21,7 @@ export default function PlatformPage() {
         The platform
       </h1>
       <p className="mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
-        Audit-ready, source-linked soil and field data for reporting and decisions. Soil is the beachhead; we also ingest sensors, weather, and field notes into one traceable record.
+        Audit-ready, source-linked soil and field data for reporting and decisions. Soil is the beachhead. We also ingest sensors, weather, and field notes into the same traceable record, including uploaded PDFs/photos/CSVs that we extract into structured data.
       </p>
       <p className="mt-6 text-sm font-medium text-muted-foreground">
         Today: dashboards, reports, and evidence links. Next: baselines, benchmarks, and early prediction. Later: scenario testing and simulation on verified data.
@@ -37,16 +37,16 @@ export default function PlatformPage() {
             {
               step: "01",
               title: "Collect",
-              desc: "Soil lab results, IoT sensor streams, weather data, and field scout notes. Connect existing sources through the API or enter data through mobile forms.",
+              desc: "Soil lab results, IoT sensor streams, weather data, and field scout notes. Upload PDFs/photos/CSVs or connect sources through the API. We extract key fields into a normalized dataset for aggregation and reporting.",
             },
             {
               step: "02",
               title: "Link",
-              desc: "Provenance and integrity: every data point is timestamped at capture, anomaly-flagged against expected ranges, and linked to its original source.",
+              desc: "Provenance and integrity: every data point is timestamped at capture, anomaly-flagged against expected ranges, and linked to its original source. Lineage is preserved across transformations (raw → extracted fields → standardized units → aggregated views).",
             },
             {
               step: "03",
-              title: "Model",
+              title: "Model (Coming next)",
               desc: "As the verified dataset grows, we build field baselines and early prediction. Scenario testing and simulation on top of your data, later.",
             },
             {
@@ -106,7 +106,7 @@ export default function PlatformPage() {
         {/* ── Trace a number ─────────────────────────────────── */}
         <h3 className="mt-10 text-lg font-semibold">Trace a number</h3>
         <p className="mt-2 text-sm text-muted-foreground">
-          When you trace a metric, you see its source document, timestamp, validation status, and where it appears in reports.
+          When you trace a metric, you see its source document, timestamp, QC flags, and the transformation steps used to produce it.
         </p>
         <TraceNumberDemo />
       </section>

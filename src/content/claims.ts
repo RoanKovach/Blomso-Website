@@ -210,6 +210,17 @@ export const claims: Claim[] = [
 
   // Capabilities
   {
+    id: "document-extraction",
+    category: "capability",
+    headline: "Document extraction & normalization",
+    detail:
+      "Turn lab PDFs and photos into structured results, standardized across formats for aggregation and reporting.",
+    evidenceTier: "self",
+    sourceUrl: "https://blomso.com/platform#collect",
+    sourceLabel: "Product page",
+    verified: true,
+  },
+  {
     id: "real-time-dashboards",
     category: "capability",
     headline: "Soil health dashboards",

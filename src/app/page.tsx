@@ -25,7 +25,7 @@ export default function HomePage() {
 
         <div className="relative z-20 mx-auto max-w-3xl px-4 py-20 text-center sm:px-6 sm:py-24 lg:py-28">
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            We build the soil system of record (trusted ingestion + QC + lineage), and use it to unlock decision tools and, later, in-silico modeling.
+            A Biospheric Operating System rooted in the soil.
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">
             Blomso unifies lab results and field context into a source-linked soil record, then automates QC and reporting, so you spend less time cleaning spreadsheets and more time acting.

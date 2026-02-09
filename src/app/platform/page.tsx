@@ -46,7 +46,7 @@ export default function PlatformPage() {
             },
             {
               step: "03",
-              title: "Model (Coming next)",
+              title: "Model",
               desc: "As the verified dataset grows, we build field baselines and early prediction. Scenario testing and simulation on top of your data, later.",
             },
             {

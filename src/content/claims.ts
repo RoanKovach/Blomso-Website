@@ -258,7 +258,7 @@ export const claims: Claim[] = [
     category: "capability",
     headline: "Sensor & ERP integration API",
     detail:
-      "Connect Blomso to soil sensors, weather stations, ERP, and accounting systems.",
+      "Connect Blomso to weather stations, ERP, and accounting systems.",
     evidenceTier: "self",
     sourceUrl: "https://blomso.com/platform#api",
     sourceLabel: "Product page",

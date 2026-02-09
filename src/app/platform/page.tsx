@@ -9,7 +9,7 @@ import { TraceNumberDemo } from "@/components/trace-number-demo";
 export const metadata: Metadata = {
   title: "Platform",
   description:
-    "How blomso unifies soil samples, sensor feeds, and field observations into a single source of agronomic intelligence.",
+    "How Blomso unifies soil samples, sensor feeds, and field observations into a single source of agronomic intelligence.",
 };
 
 export default function PlatformPage() {
@@ -21,7 +21,7 @@ export default function PlatformPage() {
         The platform
       </h1>
       <p className="mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
-        blomso unifies soil samples, sensor feeds, and field observations
+        Blomso unifies soil samples, sensor feeds, and field observations
         into one structured record of land health — traceable from source
         to report.
       </p>

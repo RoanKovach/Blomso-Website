@@ -27,7 +27,7 @@ export function SiteFooter() {
           <Link
             href="/"
             className="flex items-center gap-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-            aria-label="blomso home"
+            aria-label="Blomso home"
           >
             <Image
               src="/logo-mark.png"
@@ -37,7 +37,7 @@ export function SiteFooter() {
               className="h-5 w-auto"
               unoptimized
             />
-            <span className="text-sm font-semibold tracking-tight">blomso</span>
+            <span className="text-sm font-semibold tracking-tight">Blomso</span>
           </Link>
 
           <nav aria-label="Footer navigation" className="flex gap-12">
@@ -113,7 +113,7 @@ export function SiteFooter() {
         </div>
 
         <p className="mt-8 text-xs text-muted-foreground sm:text-center">
-          &copy; {new Date().getFullYear()} blomso. All rights reserved.
+          &copy; {new Date().getFullYear()} Blomso. All rights reserved.
         </p>
       </div>
     </footer>

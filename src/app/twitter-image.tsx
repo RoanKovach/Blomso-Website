@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const dynamic = "force-static";
 
-export const alt = "blomso — A Biospheric Operating System rooted in the soil";
+export const alt = "Blomso — A Biospheric Operating System rooted in the soil";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -67,7 +67,7 @@ export default function TwitterImage() {
             display: "flex",
           }}
         >
-          blomso
+          Blomso
         </div>
 
         {/* Tagline */}

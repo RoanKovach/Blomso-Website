@@ -6,11 +6,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "blomso — Operational results, not promises",
-    template: "%s | blomso",
+    default: "Blomso — Operational results, not promises",
+    template: "%s | Blomso",
   },
   description:
-    "blomso gives operators the data infrastructure to measure, prove, and improve what matters.",
+    "Blomso gives operators the data infrastructure to measure, prove, and improve what matters.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "32x32" },
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL("https://blomso.com"),
   openGraph: {
-    siteName: "blomso",
+    siteName: "Blomso",
     type: "website",
     locale: "en_US",
   },

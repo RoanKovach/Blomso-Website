@@ -174,7 +174,7 @@ export function SiteHeader() {
         <Link
           href="/"
           className="flex items-center gap-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-          aria-label="blomso home"
+          aria-label="Blomso home"
         >
           <Image
             src="/logo-mark.png"
@@ -184,7 +184,7 @@ export function SiteHeader() {
             className="h-6 w-auto"
             unoptimized
           />
-          <span className="text-lg font-bold tracking-tight">blomso</span>
+          <span className="text-lg font-bold tracking-tight">Blomso</span>
         </Link>
 
         {/* ── Desktop nav ─────────────────────────────────────── */}

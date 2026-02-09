@@ -104,7 +104,7 @@ export const claims: Claim[] = [
     id: "founded",
     category: "milestone",
     headline: "Company founded",
-    detail: "blomso incorporated",
+    detail: "Blomso incorporated",
     value: 2024,
     sourceUrl: "https://blomso.com/data/incorporation-docs",
     sourceLabel: "Incorporation docs",
@@ -170,7 +170,7 @@ export const claims: Claim[] = [
     category: "capability",
     headline: "Sensor & ERP integration API",
     detail:
-      "Connect blomso to soil sensors, weather stations, ERP, and accounting systems.",
+      "Connect Blomso to soil sensors, weather stations, ERP, and accounting systems.",
     evidenceTier: "self",
     sourceUrl: "https://blomso.com/platform#api",
     sourceLabel: "Product page",

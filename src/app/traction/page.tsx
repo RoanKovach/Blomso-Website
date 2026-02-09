@@ -10,7 +10,7 @@ import { SupportStrip } from "@/components/support-strip";
 export const metadata: Metadata = {
   title: "Traction",
   description:
-    "Soil intelligence metrics and milestones from blomso. Every number traces to its source.",
+    "Soil intelligence metrics and milestones from Blomso. Every number traces to its source.",
 };
 
 export default function TractionPage() {

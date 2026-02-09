@@ -47,6 +47,9 @@ export default function TractionPage() {
           <h2 id="metrics-heading" className="text-2xl font-bold tracking-tight">
             Key metrics
           </h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            ~10,000 soil samples ingested (and growing ~100/day). Every number traces to its source.
+          </p>
           <Separator className="mt-4" />
           <div className="mt-8 grid gap-6 sm:grid-cols-3">
             {metrics.map((m) => (

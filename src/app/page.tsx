@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { getVerifiedClaims, getTractionClaims } from "@/content/claims";
 import { externalLinks } from "@/content/links";
 import { SourceLabel } from "@/components/source-label";
@@ -26,12 +25,18 @@ export default function HomePage() {
 
         <div className="relative z-20 mx-auto max-w-3xl px-4 py-20 text-center sm:px-6 sm:py-24 lg:py-28">
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            Proof-grade soil data for operators and investors.
+            Soil data you can actually trust—ready for reporting and decisions.
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">
-            Blomso ingests lab results, sensor feeds, and field observations
-            into one traceable record. Every metric links back to its source.
-            Operator-ready workflows and faster reporting, today.
+            Blomso unifies lab results and field context into a source-linked soil record, then automates QC and reporting—so you spend less time cleaning spreadsheets and more time acting.
+          </p>
+          <ul className="mx-auto mt-6 max-w-lg list-inside list-disc space-y-2 text-left text-sm text-muted-foreground sm:text-base">
+            <li>Ingest lab PDFs/CSVs + normalize results into one schema</li>
+            <li>QC + anomaly flags + audit trail (every value traceable)</li>
+            <li>Auto-generate reports + exports (investor, sustainability, agronomy)</li>
+          </ul>
+          <p className="mx-auto mt-6 max-w-xl text-sm italic text-muted-foreground">
+            Next: As this record grows, we layer soil intelligence—benchmarked predictions and scenario testing—on top of your verified data.
           </p>
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <Button asChild size="lg" className="w-full sm:w-auto">
@@ -106,77 +111,41 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── How it works ────────────────────────────────────────── */}
+      {/* ── Now / Next / Later ────────────────────────────────────── */}
       <section className="bg-field-map border-t border-border/60 px-4 py-16 sm:px-6 sm:py-20">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-center text-2xl font-bold tracking-tight sm:text-3xl">
-            How Blomso works
+            Now / Next / Later
           </h2>
-          <div className="mt-10 grid gap-10 sm:mt-12 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                step: "1",
-                title: "Collect",
-                desc: "Labs, sensors, and field notes — ingested through mobile forms or direct API integrations.",
-              },
-              {
-                step: "2",
-                title: "Link",
-                desc: "Provenance and integrity: timestamps, anomaly flags, and source references on every data point.",
-              },
-              {
-                step: "3",
-                title: "Simulate",
-                desc: "Digital twins and simulation: coming next. We are building tools to model field baselines and test scenarios before field spend.",
-              },
-              {
-                step: "4",
-                title: "Prove",
-                desc: "Reports and dashboards where every metric links back to its field-level source.",
-              },
-            ].map((s) => (
-              <div key={s.step} className="flex flex-col items-center text-center">
-                <Badge variant="secondary" className="mb-4 h-10 w-10 items-center justify-center rounded-full text-lg font-bold">
-                  {s.step}
-                </Badge>
-                <h3 className="text-lg font-semibold">{s.title}</h3>
-                <p className="mt-2 max-w-xs text-sm text-muted-foreground">{s.desc}</p>
-              </div>
-            ))}
-          </div>
-          <p className="mt-10 text-center text-sm font-medium text-muted-foreground">
-            Today: dashboards, reports, and evidence links. Roadmap: simulation and ranked recommendations.
-          </p>
-        </div>
-      </section>
-
-      {/* ── Platform layers ──────────────────────────────────────── */}
-      <section className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-20">
-        <h2 className="text-center text-2xl font-bold tracking-tight sm:text-3xl">
-          Platform layers
-        </h2>
-        <div className="mt-10 flex flex-col" role="list" aria-label="Blomso platform layers">
-          {[
-            { layer: "Data ingestion", desc: "Labs, sensors, and field observations arrive continuously." },
-            { layer: "Integrity & provenance", desc: "Every value is timestamped and source-linked." },
-            { layer: "Digital twins (roadmap)", desc: "Field baselines and context modeling — coming next." },
-            { layer: "AI agents (roadmap)", desc: "Trials and outcome comparison — coming next." },
-            { layer: "Decision outputs", desc: "Reports and dashboards ship with evidence links today." },
-          ].map((l, i) => (
-            <div
-              key={l.layer}
-              role="listitem"
-              className={`flex items-baseline gap-4 border-x border-b border-border/60 px-5 py-4 first:rounded-t-lg first:border-t last:rounded-b-lg ${i % 2 === 0 ? "bg-muted/40" : "bg-background"}`}
-            >
-              <span className="shrink-0 text-xs font-semibold tabular-nums text-primary">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <div>
-                <span className="text-sm font-semibold">{l.layer}</span>
-                <span className="ml-2 text-sm text-muted-foreground">{l.desc}</span>
-              </div>
+          <div className="mt-10 grid gap-8 sm:mt-12 md:grid-cols-3">
+            <div className="rounded-lg border border-border/60 bg-background p-6">
+              <h3 className="text-lg font-semibold text-primary">Now (Track A)</h3>
+              <p className="mt-2 text-sm text-muted-foreground">Ingest → Standardize → QC → Report</p>
+              <ul className="mt-4 list-inside list-disc space-y-1 text-sm text-muted-foreground">
+                <li>Lab and field data ingestion</li>
+                <li>Normalization into one schema</li>
+                <li>QC + anomaly flags + audit trail</li>
+                <li>Automated reports and exports</li>
+              </ul>
             </div>
-          ))}
+            <div className="rounded-lg border border-border/60 bg-background p-6">
+              <h3 className="text-lg font-semibold text-primary">Next (early Track B)</h3>
+              <p className="mt-2 text-sm text-muted-foreground">Baselines → predictions → assistant workflows</p>
+              <ul className="mt-4 list-inside list-disc space-y-1 text-sm text-muted-foreground">
+                <li>Field baselines and context modeling</li>
+                <li>Simple predictions</li>
+                <li>Agronomy assistant workflows</li>
+              </ul>
+            </div>
+            <div className="rounded-lg border border-border/60 bg-background p-6">
+              <h3 className="text-lg font-semibold text-primary">Later (full Track B)</h3>
+              <p className="mt-2 text-sm text-muted-foreground">Digital twin + in-silico trials</p>
+              <ul className="mt-4 list-inside list-disc space-y-1 text-sm text-muted-foreground">
+                <li>Digital twin across practices</li>
+                <li>In-silico trials across biologicals and inputs</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 

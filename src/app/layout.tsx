@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     template: "%s | Blomso",
   },
   description:
-    "Blomso gives operators the data infrastructure to measure, prove, and improve what matters.",
+    "Soil data you can trust—ready for reporting and decisions. Blomso unifies lab results and field context into a source-linked soil record, then automates QC and reporting.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "32x32" },

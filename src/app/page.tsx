@@ -28,7 +28,7 @@ export default function HomePage() {
             A Biospheric Operating System rooted in the soil.
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">
-            Blomso unifies fragmented agricultural data into source linked digital twins so AI agents can run field trials before you do.
+            Blomso unifies fragmented agricultural data into data-driven digital twins, so AI can test field decisions before you do, turning biological complexity into practical insight.
           </p>
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <Button asChild size="lg" className="w-full sm:w-auto">

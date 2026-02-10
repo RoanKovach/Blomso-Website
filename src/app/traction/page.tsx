@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -92,24 +91,9 @@ export default function TractionPage() {
                     style={{ left: "-13px" }}
                     aria-hidden="true"
                   />
-                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:gap-6">
-                    <div className="min-w-0">
-                      <p className="font-semibold">
-                        {m.value ?? ""} &mdash; {m.headline}
-                      </p>
-                    </div>
-                    {m.imagePath && (
-                      <div className="relative h-48 w-full shrink-0 overflow-hidden rounded-lg border border-border bg-muted/40 sm:h-40 sm:w-64">
-                        <Image
-                          src={m.imagePath}
-                          alt=""
-                          fill
-                          className="object-cover object-center"
-                          sizes="(max-width: 640px) 100vw, 256px"
-                        />
-                      </div>
-                    )}
-                  </div>
+                  <p className="font-semibold">
+                    {m.value ?? ""} &mdash; {m.headline}
+                  </p>
                 </li>
               ))}
             </ol>

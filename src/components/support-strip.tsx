@@ -11,7 +11,7 @@ const BAND_LABELS: Record<SupporterBand, string> = {
 function TrustColumn({ band, items }: { band: SupporterBand; items: Supporter[] }) {
   if (items.length === 0) return null;
   return (
-    <div className="flex flex-col items-center gap-4">
+    <div className="flex min-w-0 flex-col items-center gap-4">
       <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
         {BAND_LABELS[band]}
       </p>
@@ -73,11 +73,11 @@ export function SupportStrip() {
       aria-label="Trust"
       className="border-y border-border/60 bg-muted/40 px-4 py-8 sm:px-6"
     >
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-7xl">
         <p className="mb-6 text-center text-xs font-semibold uppercase tracking-wide text-muted-foreground">
           Trust
         </p>
-        <div className="grid gap-8 sm:grid-cols-3">
+        <div className="grid gap-8 sm:grid-cols-3 lg:grid-cols-[1fr_1.5fr_1fr]">
           <TrustColumn band="partners" items={byBand.partners} />
           <TrustColumn band="programs" items={byBand.programs} />
           <TrustColumn band="ecosystem" items={byBand.ecosystem} />

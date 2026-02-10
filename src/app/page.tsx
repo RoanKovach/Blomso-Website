@@ -42,7 +42,7 @@ export default function HomePage() {
           aria-label="Evidence"
           className="border-y border-border/60 bg-muted/40"
         >
-          <div className="mx-auto grid max-w-6xl gap-px sm:grid-cols-3">
+          <div className="mx-auto grid max-w-6xl gap-px sm:grid-cols-2 lg:grid-cols-4">
             {metrics.map((m) => (
               <div
                 key={m.id}

@@ -51,7 +51,7 @@ export default function TractionPage() {
             ~10,000 soil samples ingested (and growing ~100/day). Every number traces to its source.
           </p>
           <Separator className="mt-4" />
-          <div className="mt-8 grid gap-6 sm:grid-cols-3">
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {metrics.map((m) => (
               <Card key={m.id}>
                 <CardHeader>

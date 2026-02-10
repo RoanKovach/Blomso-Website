@@ -22,7 +22,7 @@ function TrustColumn({ band, items }: { band: SupporterBand; items: Supporter[] 
               src={s.logo}
               alt={`${s.name} logo`}
               className={cn(
-                "h-7 w-auto max-w-[140px] object-contain sm:h-8 sm:max-w-[160px]",
+                "h-9 w-auto max-w-[180px] object-contain sm:h-11 sm:max-w-[220px]",
                 "grayscale opacity-60 transition-[filter,opacity] duration-200",
                 "hover:grayscale-0 hover:opacity-100 focus-within:grayscale-0 focus-within:opacity-100",
                 s.invertOnLight && "invert",

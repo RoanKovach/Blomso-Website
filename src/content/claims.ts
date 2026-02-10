@@ -147,6 +147,14 @@ export const claims: Claim[] = [
 
   // Milestones (chronological)
   {
+    id: "cofounders-meet",
+    category: "milestone",
+    headline: "Co-Founders Kalib and Roan meet as college roommates",
+    value: 2022,
+    evidenceTier: "self",
+    verified: true,
+  },
+  {
     id: "founded",
     category: "milestone",
     headline: "Company founded",

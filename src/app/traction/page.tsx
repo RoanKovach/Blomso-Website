@@ -62,9 +62,6 @@ export default function TractionPage() {
                   <CardDescription>
                     {m.unit === "%" ? m.headline : m.unit}
                   </CardDescription>
-                  <div className="mt-1">
-                    <SourceLabel claim={m} />
-                  </div>
                 </CardHeader>
               </Card>
             ))}

@@ -73,8 +73,8 @@ export function SupportStrip() {
       aria-label="Partners and programs"
       className="border-y border-border/60 bg-muted/40 px-4 py-8 sm:px-6"
     >
-      <div className="mx-auto max-w-7xl">
-        <div className="grid justify-items-center gap-8 sm:grid-cols-3 lg:grid-cols-[1fr_minmax(460px,auto)_1fr]">
+      <div className="mx-auto max-w-[100rem]">
+        <div className="grid justify-items-center gap-8 sm:grid-cols-3 lg:grid-cols-[minmax(480px,1fr)_minmax(460px,auto)_minmax(480px,1fr)]">
           <TrustColumn band="partners" items={byBand.partners} />
           <TrustColumn band="programs" items={byBand.programs} />
           <TrustColumn band="ecosystem" items={byBand.ecosystem} />

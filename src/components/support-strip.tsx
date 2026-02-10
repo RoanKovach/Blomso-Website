@@ -11,7 +11,7 @@ const BAND_LABELS: Record<SupporterBand, string> = {
 function TrustColumn({ band, items }: { band: SupporterBand; items: Supporter[] }) {
   if (items.length === 0) return null;
   return (
-    <div className="flex min-w-0 flex-col items-center gap-4">
+    <div className="flex min-w-0 w-full flex-col items-center justify-center gap-4 text-center">
       <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
         {BAND_LABELS[band]}
       </p>

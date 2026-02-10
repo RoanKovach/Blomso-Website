@@ -98,17 +98,17 @@ export default function TractionPage() {
                     {m.id === "techstars-2024" && (
                       <div className="grid gap-4 pt-2 sm:grid-cols-3">
                         <img
-                          src="/timeline/cofounders-meet.png"
+                          src="/timeline/zoom-grid.png"
                           alt="Techstars cohort on a video call"
                           className="h-40 w-full rounded-md object-cover"
                         />
                         <img
-                          src="/timeline/cofounders-meet.png"
+                          src="/timeline/techstars-cohort-room.png"
                           alt="Techstars Columbus cohort group photo"
                           className="h-40 w-full rounded-md object-cover"
                         />
                         <img
-                          src="/timeline/cofounders-meet.png"
+                          src="/timeline/blomso-team-banner.png"
                           alt="Blomso founding team under Blomso banner"
                           className="h-40 w-full rounded-md object-cover"
                         />

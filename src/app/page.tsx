@@ -1,13 +1,12 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { getVerifiedClaims, getTractionClaims } from "@/content/claims";
+import { getVerifiedClaims } from "@/content/claims";
 import { externalLinks } from "@/content/links";
 import { SupportStrip } from "@/components/support-strip";
 import { HeroBg } from "@/components/hero-bg";
 
 export default function HomePage() {
-  const metrics = getTractionClaims("metric");
   const capabilities = getVerifiedClaims("capability");
 
   return (
@@ -35,30 +34,49 @@ export default function HomePage() {
       {/* ── Partners & Programs ─────────────────────────────────── */}
       <SupportStrip />
 
-      {/* ── Evidence ──────────────────────────────────────────── */}
-      {metrics.length > 0 && (
-        <section
-          aria-label="Evidence"
-          className="border-y border-border/60 bg-muted/40"
-        >
-          <div className="mx-auto grid max-w-6xl gap-px sm:grid-cols-2 lg:grid-cols-4">
-            {metrics.map((m) => (
-              <div
-                key={m.id}
-                className="flex flex-col items-center gap-1 bg-background px-6 py-6 sm:py-8"
+      {/* ── Take a deeper dive strip ─────────────────────────────── */}
+      <section className="border-y border-border/60 bg-muted/40 px-4 py-8 sm:px-6 sm:py-10">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-6">
+          <span className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+            Take a deeper dive
+          </span>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Button asChild variant="outline" size="sm">
+              <a
+                href={externalLinks.demo.href}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <span className="text-3xl font-bold tabular-nums">
-                  {m.value?.toLocaleString()}
-                  {m.unit === "%" ? "%" : ""}
-                </span>
-                <span className="text-sm text-muted-foreground">
-                  {m.unit === "%" ? m.headline : (m.unit || m.headline)}
-                </span>
-              </div>
-            ))}
+                {externalLinks.demo.label}
+                <svg aria-hidden="true" className="ml-1 inline-block h-3 w-3 opacity-50" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            </Button>
+            <Button asChild variant="outline" size="sm">
+              <a
+                href={externalLinks.roadmap.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {externalLinks.roadmap.label}
+                <svg aria-hidden="true" className="ml-1 inline-block h-3 w-3 opacity-50" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            </Button>
+            <Button asChild variant="outline" size="sm">
+              <a
+                href={externalLinks.feedback.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {externalLinks.feedback.label}
+                <svg aria-hidden="true" className="ml-1 inline-block h-3 w-3 opacity-50" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            </Button>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {/* ── What it replaces ──────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
@@ -127,50 +145,6 @@ export default function HomePage() {
                 <li>In-silico trials across biologicals and inputs</li>
               </ul>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Take a deeper dive strip ─────────────────────────────── */}
-      <section className="border-y border-border/60 bg-muted/40 px-4 py-8 sm:px-6 sm:py-10">
-        <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-6">
-          <span className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-            Take a deeper dive
-          </span>
-          <div className="flex flex-wrap justify-center gap-3">
-            <Button asChild variant="outline" size="sm">
-              <a
-                href={externalLinks.demo.href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {externalLinks.demo.label}
-                <svg aria-hidden="true" className="ml-1 inline-block h-3 w-3 opacity-50" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
-                <span className="sr-only"> (opens in a new tab)</span>
-              </a>
-            </Button>
-            <Button asChild variant="outline" size="sm">
-              <a
-                href={externalLinks.roadmap.href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {externalLinks.roadmap.label}
-                <svg aria-hidden="true" className="ml-1 inline-block h-3 w-3 opacity-50" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
-                <span className="sr-only"> (opens in a new tab)</span>
-              </a>
-            </Button>
-            <Button asChild variant="outline" size="sm">
-              <a
-                href={externalLinks.feedback.href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {externalLinks.feedback.label}
-                <svg aria-hidden="true" className="ml-1 inline-block h-3 w-3 opacity-50" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
-                <span className="sr-only"> (opens in a new tab)</span>
-              </a>
-            </Button>
           </div>
         </div>
       </section>

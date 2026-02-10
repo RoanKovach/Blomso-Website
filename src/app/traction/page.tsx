@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { getTractionClaims } from "@/content/claims";
+import { externalLinks } from "@/content/links";
 import { SourceLabel } from "@/components/source-label";
 import { SupportStrip } from "@/components/support-strip";
 import { TechstarsTimelineItem } from "@/components/techstars-timeline-item";
+import { CompanyFoundedTimelineItem } from "@/components/company-founded-timeline-item";
 
 export const metadata: Metadata = {
   title: "Traction",
@@ -15,11 +16,10 @@ export const metadata: Metadata = {
 };
 
 export default function TractionPage() {
-  const metrics = getTractionClaims("metric");
   const milestones = getTractionClaims("milestone");
   const press = getTractionClaims("press");
 
-  const hasProof = metrics.length > 0 || milestones.length > 0 || press.length > 0;
+  const hasProof = milestones.length > 0 || press.length > 0;
 
   return (
     <>
@@ -35,40 +35,56 @@ export default function TractionPage() {
       {/* ── Partners & Programs (same full-width strip as homepage) ── */}
       <SupportStrip />
 
+      {/* ── Take a deeper dive strip ─────────────────────────────── */}
+      <section className="border-y border-border/60 bg-muted/40 px-4 py-8 sm:px-6 sm:py-10">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-6">
+          <span className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+            Take a deeper dive
+          </span>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Button asChild variant="outline" size="sm">
+              <a
+                href={externalLinks.demo.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {externalLinks.demo.label}
+                <svg aria-hidden="true" className="ml-1 inline-block h-3 w-3 opacity-50" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            </Button>
+            <Button asChild variant="outline" size="sm">
+              <a
+                href={externalLinks.roadmap.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {externalLinks.roadmap.label}
+                <svg aria-hidden="true" className="ml-1 inline-block h-3 w-3 opacity-50" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            </Button>
+            <Button asChild variant="outline" size="sm">
+              <a
+                href={externalLinks.feedback.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {externalLinks.feedback.label}
+                <svg aria-hidden="true" className="ml-1 inline-block h-3 w-3 opacity-50" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
       {!hasProof && (
         <p className="mt-12 text-muted-foreground">
           No verified proof data available yet. Claims will appear here once
           they are added to the claims registry with verification.
         </p>
-      )}
-
-      {/* ── Metrics ───────────────────────────────────────────── */}
-      {metrics.length > 0 && (
-        <section aria-labelledby="metrics-heading" className="mt-12">
-          <h2 id="metrics-heading" className="text-2xl font-bold tracking-tight">
-            Key metrics
-          </h2>
-          <p className="mt-2 text-sm text-muted-foreground">
-            ~10,000 soil samples ingested (and growing ~100/day). Every number traces to its source.
-          </p>
-          <Separator className="mt-4" />
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {metrics.map((m) => (
-              <Card key={m.id}>
-                <CardHeader>
-                  <CardTitle className="text-3xl tabular-nums">
-                    {m.value?.toLocaleString()}
-                    {m.unit === "%" ? "%" : ""}
-                  </CardTitle>
-                  <CardDescription>
-                    {m.unit === "%" ? m.headline : (m.unit || m.headline)}
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-            ))}
-          </div>
-        </section>
       )}
 
       {/* ── Timeline ───────────────────────────────────────────── */}
@@ -85,10 +101,14 @@ export default function TractionPage() {
               aria-hidden="true"
             />
             <ol className="space-y-6 pl-6">
-              {milestones.map((m) =>
-                m.id === "techstars-2024" ? (
-                  <TechstarsTimelineItem key={m.id} milestone={m} />
-                ) : (
+              {milestones.map((m) => {
+                if (m.id === "founded") {
+                  return <CompanyFoundedTimelineItem key={m.id} milestone={m} />;
+                }
+                if (m.id === "techstars-2024") {
+                  return <TechstarsTimelineItem key={m.id} milestone={m} />;
+                }
+                return (
                   <li key={m.id} className="relative">
                     <span
                       className="absolute top-1.5 h-3 w-3 -translate-x-1/2 rounded-full bg-primary"
@@ -101,8 +121,8 @@ export default function TractionPage() {
                       </p>
                     </div>
                   </li>
-                ),
-              )}
+                );
+              })}
             </ol>
           </div>
         </section>

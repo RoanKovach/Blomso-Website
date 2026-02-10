@@ -2,7 +2,12 @@
 
 import { useState, useEffect } from "react";
 
-const PHOTOS = [
+type Photo = {
+  src: string;
+  alt: string;
+};
+
+const DEFAULT_PHOTOS: readonly Photo[] = [
   { src: "/timeline/zoom-grid.png", alt: "Techstars cohort on a video call" },
   {
     src: "/timeline/techstars-cohort-room.png",
@@ -14,7 +19,7 @@ const PHOTOS = [
   },
 ] as const;
 
-export function TimelinePhotoGrid() {
+export function TimelinePhotoGrid({ photos = DEFAULT_PHOTOS }: { photos?: readonly Photo[] }) {
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
 
   useEffect(() => {
@@ -33,7 +38,7 @@ export function TimelinePhotoGrid() {
   return (
     <>
       <div className="grid gap-4 pt-2 sm:grid-cols-3">
-        {PHOTOS.map(({ src, alt }) => (
+        {photos.map(({ src, alt }) => (
           <button
             key={src}
             type="button"

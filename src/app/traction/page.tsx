@@ -10,7 +10,7 @@ import { SupportStrip } from "@/components/support-strip";
 export const metadata: Metadata = {
   title: "Traction",
   description:
-    "Soil intelligence metrics and milestones from Blomso. Every number traces to its source.",
+    "Soil intelligence metrics and timeline from Blomso. Every number traces to its source.",
 };
 
 export default function TractionPage() {
@@ -21,19 +21,20 @@ export default function TractionPage() {
   const hasProof = metrics.length > 0 || milestones.length > 0 || press.length > 0;
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-      <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-        Traction
-      </h1>
-      <p className="mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
-        Every number traces to its source. Nothing projected, nothing estimated.
-      </p>
-
-      {/* ── Support ─────────────────────────────────────────────── */}
-      <div className="mt-10">
-        <SupportStrip />
+    <>
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+          Traction
+        </h1>
+        <p className="mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
+          Every number traces to its source. Nothing projected, nothing estimated.
+        </p>
       </div>
 
+      {/* ── Partners & Programs (same full-width strip as homepage) ── */}
+      <SupportStrip />
+
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
       {!hasProof && (
         <p className="mt-12 text-muted-foreground">
           No verified proof data available yet. Claims will appear here once
@@ -69,11 +70,11 @@ export default function TractionPage() {
         </section>
       )}
 
-      {/* ── Milestones ────────────────────────────────────────── */}
+      {/* ── Timeline ───────────────────────────────────────────── */}
       {milestones.length > 0 && (
-        <section aria-labelledby="milestones-heading" className="mt-12">
-          <h2 id="milestones-heading" className="text-2xl font-bold tracking-tight">
-            Milestones
+        <section aria-labelledby="timeline-heading" className="mt-12">
+          <h2 id="timeline-heading" className="text-2xl font-bold tracking-tight">
+            Timeline
           </h2>
           <Separator className="mt-4" />
           <div className="relative mt-8">
@@ -134,6 +135,7 @@ export default function TractionPage() {
           <Link href="/contact">Request materials</Link>
         </Button>
       </section>
-    </div>
+      </div>
+    </>
   );
 }

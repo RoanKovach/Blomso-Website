@@ -77,7 +77,7 @@ export function SupportStrip() {
         <p className="mb-6 text-center text-xs font-semibold uppercase tracking-wide text-muted-foreground">
           Trust
         </p>
-        <div className="grid gap-8 sm:grid-cols-3 lg:grid-cols-[1fr_1.5fr_1fr]">
+        <div className="grid gap-8 sm:grid-cols-3 lg:grid-cols-[1fr_1.5fr_minmax(480px,1fr)]">
           <TrustColumn band="partners" items={byBand.partners} />
           <TrustColumn band="programs" items={byBand.programs} />
           <TrustColumn band="ecosystem" items={byBand.ecosystem} />

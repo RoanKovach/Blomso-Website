@@ -60,7 +60,7 @@ export default function TractionPage() {
                     {m.unit === "%" ? "%" : ""}
                   </CardTitle>
                   <CardDescription>
-                    {m.unit === "%" ? m.headline : m.unit}
+                    {m.unit === "%" ? m.headline : (m.unit || m.headline)}
                   </CardDescription>
                 </CardHeader>
               </Card>

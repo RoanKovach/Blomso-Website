@@ -101,9 +101,9 @@ export const claims: Claim[] = [
   {
     id: "public-datasets-integrated",
     category: "metric",
-    headline: "Public data sets integrated",
+    headline: "Integrated public data sets",
     value: 4,
-    unit: "data sets",
+    unit: "",
     sourceUrl: "https://blomso.com/data/integration-registry",
     sourceLabel: "Integration registry, 2026-02",
     evidenceTier: "internal",

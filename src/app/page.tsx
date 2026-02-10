@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { getVerifiedClaims, getTractionClaims } from "@/content/claims";
 import { externalLinks } from "@/content/links";
-import { SourceLabel } from "@/components/source-label";
 import { SupportStrip } from "@/components/support-strip";
 import { HeroBg } from "@/components/hero-bg";
 
@@ -53,9 +52,8 @@ export default function HomePage() {
                   {m.unit === "%" ? "%" : ""}
                 </span>
                 <span className="text-sm text-muted-foreground">
-                  {m.unit === "%" ? m.headline : m.unit}
+                  {m.unit === "%" ? m.headline : (m.unit || m.headline)}
                 </span>
-                <SourceLabel claim={m} />
               </div>
             ))}
           </div>

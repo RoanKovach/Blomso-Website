@@ -91,9 +91,30 @@ export default function TractionPage() {
                     style={{ left: "-13px" }}
                     aria-hidden="true"
                   />
-                  <p className="font-semibold">
-                    {m.value ?? ""} &mdash; {m.headline}
-                  </p>
+                  <div className="space-y-4">
+                    <p className="font-semibold">
+                      {m.value ?? ""} &mdash; {m.headline}
+                    </p>
+                    {m.id === "techstars-2024" && (
+                      <div className="grid gap-4 pt-2 sm:grid-cols-3">
+                        <img
+                          src="/timeline/zoom-grid.png"
+                          alt="Techstars cohort on a video call"
+                          className="h-40 w-full rounded-md object-cover"
+                        />
+                        <img
+                          src="/timeline/techstars-cohort-room.png"
+                          alt="Techstars Columbus cohort group photo"
+                          className="h-40 w-full rounded-md object-cover"
+                        />
+                        <img
+                          src="/timeline/blomso-team-banner.png"
+                          alt="Blomso founding team under Blomso banner"
+                          className="h-40 w-full rounded-md object-cover"
+                        />
+                      </div>
+                    )}
+                  </div>
                 </li>
               ))}
             </ol>

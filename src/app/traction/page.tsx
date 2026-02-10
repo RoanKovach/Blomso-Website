@@ -6,7 +6,7 @@ import { Separator } from "@/components/ui/separator";
 import { getTractionClaims } from "@/content/claims";
 import { SourceLabel } from "@/components/source-label";
 import { SupportStrip } from "@/components/support-strip";
-import { TimelinePhotoGrid } from "@/components/timeline-photo-grid";
+import { TechstarsTimelineItem } from "@/components/techstars-timeline-item";
 
 export const metadata: Metadata = {
   title: "Traction",
@@ -85,21 +85,24 @@ export default function TractionPage() {
               aria-hidden="true"
             />
             <ol className="space-y-6 pl-6">
-              {milestones.map((m) => (
-                <li key={m.id} className="relative">
-                  <span
-                    className="absolute top-1.5 h-3 w-3 -translate-x-1/2 rounded-full bg-primary"
-                    style={{ left: "-13px" }}
-                    aria-hidden="true"
-                  />
-                  <div className="space-y-4">
-                    <p className="font-semibold">
-                      {m.value ?? ""} &mdash; {m.headline}
-                    </p>
-                    {m.id === "techstars-2024" && <TimelinePhotoGrid />}
-                  </div>
-                </li>
-              ))}
+              {milestones.map((m) =>
+                m.id === "techstars-2024" ? (
+                  <TechstarsTimelineItem key={m.id} milestone={m} />
+                ) : (
+                  <li key={m.id} className="relative">
+                    <span
+                      className="absolute top-1.5 h-3 w-3 -translate-x-1/2 rounded-full bg-primary"
+                      style={{ left: "-13px" }}
+                      aria-hidden="true"
+                    />
+                    <div className="space-y-4">
+                      <p className="font-semibold">
+                        {m.value ?? ""} &mdash; {m.headline}
+                      </p>
+                    </div>
+                  </li>
+                ),
+              )}
             </ol>
           </div>
         </section>

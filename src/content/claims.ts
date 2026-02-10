@@ -98,6 +98,17 @@ export const claims: Claim[] = [
     evidenceTier: "internal",
     verified: true,
   },
+  {
+    id: "public-datasets-integrated",
+    category: "metric",
+    headline: "Public data sets integrated",
+    value: 4,
+    unit: "data sets",
+    sourceUrl: "https://blomso.com/data/integration-registry",
+    sourceLabel: "Integration registry, 2026-02",
+    evidenceTier: "internal",
+    verified: true,
+  },
 
   // Disverified — not defensible with current sources
   {

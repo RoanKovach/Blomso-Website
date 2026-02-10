@@ -131,11 +131,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Live product strip ──────────────────────────────────── */}
+      {/* ── Take a deeper dive strip ─────────────────────────────── */}
       <section className="border-y border-border/60 bg-muted/40 px-4 py-8 sm:px-6 sm:py-10">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-6">
           <span className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-            Live product
+            Take a deeper dive
           </span>
           <div className="flex flex-wrap justify-center gap-3">
             <Button asChild variant="outline" size="sm">

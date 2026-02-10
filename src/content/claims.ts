@@ -46,6 +46,11 @@ export interface Claim {
    * text badge using the headline.
    */
   logoPath?: string;
+  /**
+   * Path to an image asset relative to /public (e.g. "/timeline/photo.png").
+   * Used for milestone timeline entries to show a photo alongside the text.
+   */
+  imagePath?: string;
   /** Evidence tier — controls where the claim may be rendered. */
   evidenceTier: EvidenceTier;
   /** Only render on public pages when true */
@@ -151,6 +156,7 @@ export const claims: Claim[] = [
     category: "milestone",
     headline: "Co-Founders Kalib and Roan meet as college roommates",
     value: 2022,
+    imagePath: "/timeline/cofounders-meet.png",
     evidenceTier: "self",
     verified: true,
   },

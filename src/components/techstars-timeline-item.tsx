@@ -31,7 +31,7 @@ export function TechstarsTimelineItem({ milestone }: TechstarsTimelineItemProps)
             {milestone.value ?? ""} &mdash; {milestone.headline}
           </span>
           <span className="text-xs font-normal text-muted-foreground">
-            {expanded ? "Hide photos" : "Show photos"}
+            {expanded ? "Collapse timeline" : "Expand timeline"}
           </span>
         </button>
         {expanded && <TimelinePhotoGrid />}

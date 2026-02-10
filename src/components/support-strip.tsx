@@ -70,14 +70,11 @@ export function SupportStrip() {
 
   return (
     <section
-      aria-label="Trust"
+      aria-label="Partners and programs"
       className="border-y border-border/60 bg-muted/40 px-4 py-8 sm:px-6"
     >
       <div className="mx-auto max-w-7xl">
-        <p className="mb-6 text-center text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-          Trust
-        </p>
-        <div className="grid gap-8 sm:grid-cols-3 lg:grid-cols-[1fr_1.5fr_minmax(480px,1fr)]">
+        <div className="grid justify-items-center gap-8 sm:grid-cols-3 lg:grid-cols-[1fr_1.5fr_minmax(480px,1fr)]">
           <TrustColumn band="partners" items={byBand.partners} />
           <TrustColumn band="programs" items={byBand.programs} />
           <TrustColumn band="ecosystem" items={byBand.ecosystem} />

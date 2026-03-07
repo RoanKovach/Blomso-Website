@@ -8,7 +8,7 @@
 
 export const externalLinks = {
   demo: {
-    href: "https://blomsoconsulting.com/",
+    href: "https://app.blomso.com/",
     label: "Demo",
     description: "Try the live product",
   },

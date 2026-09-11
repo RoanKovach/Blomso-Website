@@ -28,13 +28,20 @@ export function TechstarsTimelineItem({ milestone }: TechstarsTimelineItemProps)
           aria-expanded={expanded}
         >
           <span>
-            {milestone.value ?? ""} &mdash; {milestone.headline}
+            {milestone.value ?? ""} &middot; {milestone.headline}
           </span>
           <span className="text-xs font-normal text-muted-foreground">
             {expanded ? "Collapse timeline" : "Expand timeline"}
           </span>
         </button>
-        {expanded && <TimelinePhotoGrid />}
+        {expanded && (
+          <>
+            <TimelinePhotoGrid />
+            <p className="max-w-2xl text-sm text-muted-foreground">
+              The program that turned the idea into a company, and where our first advisor at Ohio State signed on.
+            </p>
+          </>
+        )}
       </div>
     </li>
   );

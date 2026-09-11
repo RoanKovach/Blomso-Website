@@ -9,6 +9,16 @@ import { HeroBg } from "@/components/hero-bg";
 import { TechstarsTimelineItem } from "@/components/techstars-timeline-item";
 import { CompanyFoundedTimelineItem } from "@/components/company-founded-timeline-item";
 import { FirstPilotTimelineItem } from "@/components/first-pilot-timeline-item";
+import { StoryTimelineItem } from "@/components/story-timeline-item";
+
+/** Narrative shown when a timeline entry without photos is expanded. */
+const milestoneStories: Record<string, string> = {
+  "cofounders-meet":
+    "Two Ohio State students, both in research and both building things on the side, end up roommates and start arguing about which system is worth fixing.",
+  "brookside-2025":
+    "A soil lab with decades of ground truth and agronomists who do the work. Our first partner with real fields.",
+  "bayer-lifehub-2026": "A bigger room for the same idea.",
+};
 
 export default function HomePage() {
   const capabilities = getVerifiedClaims("capability");
@@ -219,6 +229,12 @@ export default function HomePage() {
                 if (m.id === "first-pilot") {
                   return <FirstPilotTimelineItem key={m.id} milestone={m} />;
                 }
+                const story = milestoneStories[m.id];
+                if (story) {
+                  return (
+                    <StoryTimelineItem key={m.id} milestone={m} story={story} />
+                  );
+                }
                 return (
                   <li key={m.id} className="relative">
                     <span
@@ -228,7 +244,7 @@ export default function HomePage() {
                     />
                     <div className="space-y-4">
                       <p className="font-semibold">
-                        {m.value ?? ""} &mdash; {m.headline}
+                        {m.value ?? ""} &middot; {m.headline}
                       </p>
                     </div>
                   </li>

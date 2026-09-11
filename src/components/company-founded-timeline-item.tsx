@@ -41,13 +41,20 @@ export function CompanyFoundedTimelineItem({
           aria-expanded={expanded}
         >
           <span>
-            {milestone.value ?? ""} &mdash; {milestone.headline}
+            {milestone.value ?? ""} &middot; {milestone.headline}
           </span>
           <span className="text-xs font-normal text-muted-foreground">
             {expanded ? "Collapse timeline" : "Expand timeline"}
           </span>
         </button>
-        {expanded && <TimelinePhotoGrid photos={COMPANY_FOUNDED_PHOTOS} />}
+        {expanded && (
+          <>
+            <TimelinePhotoGrid photos={COMPANY_FOUNDED_PHOTOS} />
+            <p className="max-w-2xl text-sm text-muted-foreground">
+              The argument settled on agriculture: the system everything else rests on, running on data that never meets.
+            </p>
+          </>
+        )}
       </div>
     </li>
   );

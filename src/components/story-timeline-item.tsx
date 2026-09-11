@@ -2,16 +2,20 @@
 
 import { useState } from "react";
 
-type FirstPilotTimelineItemProps = {
+type StoryTimelineItemProps = {
   milestone: {
     value?: number | null;
     headline: string;
   };
+  /** One or two short lines shown when the entry is expanded. */
+  story: string;
 };
 
-export function FirstPilotTimelineItem({
-  milestone,
-}: FirstPilotTimelineItemProps) {
+/**
+ * Timeline entry whose expanded content is narrative only, for milestones
+ * that carry a story but no photos or supporting detail block.
+ */
+export function StoryTimelineItem({ milestone, story }: StoryTimelineItemProps) {
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -36,19 +40,7 @@ export function FirstPilotTimelineItem({
           </span>
         </button>
         {expanded && (
-          <div className="rounded-lg border border-border/60 bg-background p-4 sm:p-5">
-            <p className="text-sm font-medium">What the pilot runs on</p>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Ingest, Standardize, QC, Report
-            </p>
-            <ul className="mt-3 list-inside list-disc space-y-1 text-sm text-muted-foreground">
-              <li>Lab and field data ingestion</li>
-              <li>QC + anomaly flags + audit trail</li>
-            </ul>
-            <p className="mt-4 max-w-2xl text-sm text-muted-foreground">
-              Real advisors, real fields, real feedback, weekly.
-            </p>
-          </div>
+          <p className="max-w-2xl text-sm text-muted-foreground">{story}</p>
         )}
       </div>
     </li>

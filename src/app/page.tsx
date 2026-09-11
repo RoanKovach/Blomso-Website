@@ -64,9 +64,6 @@ export default function HomePage() {
               <Link href="/contact">Request a walkthrough</Link>
             </Button>
           </div>
-          <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">
-            The Portal is the Blomso OS application. It starts with management zones.
-          </p>
         </div>
       </section>
 

@@ -50,7 +50,7 @@ export default function HomePage() {
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <Button asChild size="lg" className="w-full sm:w-auto">
               <a
-                href={externalLinks.demo.href}
+                href={externalLinks.portal.href}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -81,11 +81,11 @@ export default function HomePage() {
           <div className="flex flex-wrap justify-center gap-3">
             <Button asChild variant="outline" size="sm">
               <a
-                href={externalLinks.demo.href}
+                href={externalLinks.portal.href}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {externalLinks.demo.label}
+                {externalLinks.portal.label}
                 <svg aria-hidden="true" className="ml-1 inline-block h-3 w-3 opacity-50" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
                 <span className="sr-only"> (opens in a new tab)</span>
               </a>
@@ -345,7 +345,7 @@ export default function HomePage() {
           </Button>
           <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
             <a
-              href={externalLinks.demo.href}
+              href={externalLinks.portal.href}
               target="_blank"
               rel="noopener noreferrer"
             >

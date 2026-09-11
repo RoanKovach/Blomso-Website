@@ -73,12 +73,12 @@ export function SiteFooter() {
               <ul className="mt-3 space-y-2 text-sm">
                 <li>
                   <a
-                    href={externalLinks.demo.href}
+                    href={externalLinks.portal.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center rounded-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                   >
-                    Blomso Portal
+                    {externalLinks.portal.label}
                     <ExternalIcon />
                     <span className="sr-only"> (opens in a new tab)</span>
                   </a>

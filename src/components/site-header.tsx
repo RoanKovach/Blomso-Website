@@ -68,7 +68,6 @@ export function SiteHeader() {
   /** Check if any product route is active */
   function isProductActive(): boolean {
     return (
-      pathname.startsWith("/demo") ||
       pathname.startsWith("/roadmap") ||
       pathname.startsWith("/feedback")
     );
@@ -282,11 +281,11 @@ export function SiteHeader() {
           {/* Portal + persistent CTA — desktop only */}
           <Button asChild size="sm">
             <a
-              href={externalLinks.demo.href}
+              href={externalLinks.portal.href}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Blomso Portal
+              {externalLinks.portal.label}
               <ExternalIcon />
               <span className="sr-only"> (opens in a new tab)</span>
             </a>
@@ -427,12 +426,12 @@ export function SiteHeader() {
             <div className="space-y-3 border-t px-4 py-4">
               <Button asChild size="lg" className="w-full min-h-[44px]">
                 <a
-                  href={externalLinks.demo.href}
+                  href={externalLinks.portal.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMobileOpen(false)}
                 >
-                  Blomso Portal
+                  {externalLinks.portal.label}
                   <ExternalIcon />
                   <span className="sr-only"> (opens in a new tab)</span>
                 </a>

@@ -98,8 +98,8 @@ export default function HomePage() {
               desc: "A value with no source, no date and no method cannot be defended. Every number in Blomso keeps where it came from and what was done to it.",
             },
             {
-              title: "Finding a usable image.",
-              desc: "Bare soil, no cloud, the right week. Hunting for it by hand is where zoning stalls. Blomso searches the archive, ranks the candidates and turns the pick into editable zones.",
+              title: "Work that does not carry over.",
+              desc: "The farmer wants to know what to do on this field. The agronomist has to sign the plan. The researcher has to show why it worked. Each rebuilds the same record from scratch, and what one learns rarely reaches the next. Blomso keeps one record all three can work from.",
             },
           ].map((p) => (
             <Card

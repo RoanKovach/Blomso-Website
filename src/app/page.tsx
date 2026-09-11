@@ -6,6 +6,7 @@ import { getTractionClaims, getVerifiedClaims } from "@/content/claims";
 import { externalLinks } from "@/content/links";
 import { SupportStrip } from "@/components/support-strip";
 import { HeroBg } from "@/components/hero-bg";
+import { TraceNumberDemo } from "@/components/trace-number-demo";
 import { TechstarsTimelineItem } from "@/components/techstars-timeline-item";
 import { CompanyFoundedTimelineItem } from "@/components/company-founded-timeline-item";
 
@@ -251,7 +252,70 @@ export default function HomePage() {
         >
           What the platform does
         </h2>
-        <div className="mt-10 grid gap-6 sm:mt-12 md:grid-cols-2">
+        <p className="mx-auto mt-4 max-w-3xl text-center text-base text-muted-foreground">
+          Audit-ready, source-linked soil and field data for reporting and decisions. Soil is the beachhead. We also ingest sensors, weather, and field notes into the same traceable record, including uploaded PDFs/photos/CSVs that we extract into structured data.
+        </p>
+
+        {/* Collect → Link → Model → Prove (compact four step row) */}
+        <div className="bg-field-map mt-10 grid gap-6 rounded-lg border border-border/60 p-5 sm:grid-cols-2 sm:p-6 lg:grid-cols-4">
+          {[
+            {
+              step: "01",
+              title: "Collect",
+              desc: "Soil lab results, IoT sensor streams, weather data, and field scout notes. Upload PDFs/photos/CSVs or connect sources through the API. We extract key fields into a normalized dataset for aggregation and reporting.",
+            },
+            {
+              step: "02",
+              title: "Link",
+              desc: "Provenance and integrity: every data point is timestamped at capture, anomaly-flagged against expected ranges, and linked to its original source. Lineage is preserved across transformations (raw → extracted fields → standardized units → aggregated views).",
+            },
+            {
+              step: "03",
+              title: "Model (Coming next)",
+              desc: "As the verified dataset grows, we build field baselines and early prediction. Scenario testing and simulation on top of your data, later.",
+            },
+            {
+              step: "04",
+              title: "Prove",
+              desc: "Source-linked reports, dashboards, and alerts with evidence trails, so agronomists and investors can trace any figure back to field-level data.",
+            },
+          ].map((s) => (
+            <div key={s.step}>
+              <p className="text-xs font-semibold text-primary">{s.step}</p>
+              <h3 className="mt-1 text-base font-semibold">{s.title}</h3>
+              <p className="mt-1.5 text-sm text-muted-foreground">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-4 text-sm font-medium text-muted-foreground">
+          Today: dashboards, reports, and evidence links. Next: baselines, benchmarks, and early prediction. Later: scenario testing, simulation, and ranked recommendations.
+        </p>
+
+        {/* Trace a number */}
+        <h3 className="mt-12 text-lg font-semibold">Trace a number</h3>
+        <p className="mt-2 text-sm text-muted-foreground">
+          When you trace a metric, you see its source document, timestamp, QC flags, and the transformation steps used to produce it.
+        </p>
+        <TraceNumberDemo />
+
+        {/* How data integrity works */}
+        <h3 className="mt-12 text-lg font-semibold">How data integrity works</h3>
+        <div className="mt-4 grid gap-4 sm:grid-cols-3">
+          <p className="text-sm text-muted-foreground">
+            <span className="font-medium text-foreground">Source-linked and timestamped.</span>{" "}
+            Every metric traces back to a lab report, sensor reading, or field entry, stamped at capture. No orphaned numbers.
+          </p>
+          <p className="text-sm text-muted-foreground">
+            <span className="font-medium text-foreground">Anomaly flagged.</span>{" "}
+            Automated checks catch readings outside expected ranges, for review before they feed into reports or models.
+          </p>
+          <p className="text-sm text-muted-foreground">
+            <span className="font-medium text-foreground">Export-ready lineage.</span>{" "}
+            Reports and exports include source references, so any figure traces back to its field-level source.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
           {platformFeatures.map((f) => (
             <Card
               key={f.id}

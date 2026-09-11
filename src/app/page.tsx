@@ -73,6 +73,39 @@ export default function HomePage() {
       {/* ── Partners & Programs ─────────────────────────────────── */}
       <SupportStrip />
 
+      {/* ── What gets in the way today ───────────────────────────── */}
+      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
+        <h2 className="text-center text-2xl font-bold tracking-tight sm:text-3xl">
+          What gets in the way today
+        </h2>
+        <div className="mt-8 grid gap-6 sm:mt-10 md:grid-cols-3">
+          {[
+            {
+              title: "Finding a usable image.",
+              desc: "Bare soil, no cloud, the right week. Hunting for it by hand is where zoning stalls. Blomso searches the archive and ranks the candidates for you.",
+            },
+            {
+              title: "Drawing zones by hand.",
+              desc: "Zones drawn from one image and a steady hand are hard to repeat. Blomso generates them from the imagery, then lets you merge, split, cut out and redraw.",
+            },
+            {
+              title: "Files that do not travel.",
+              desc: "A map that stays on a screen is not a plan. Every zone set exports as a shapefile with class, label and acres, ready for the tools you already use.",
+            },
+          ].map((p) => (
+            <Card
+              key={p.title}
+              className="border-border/60 motion-safe:transition-[transform,box-shadow] motion-safe:duration-200 motion-safe:hover:-translate-y-0.5 motion-safe:hover:shadow-md"
+            >
+              <CardHeader>
+                <CardTitle className="text-lg">{p.title}</CardTitle>
+                <CardDescription>{p.desc}</CardDescription>
+              </CardHeader>
+            </Card>
+          ))}
+        </div>
+      </section>
+
       {/* ── Take a deeper dive strip ─────────────────────────────── */}
       <section className="border-y border-border/60 bg-muted/40 px-4 py-8 sm:px-6 sm:py-10">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-6">
@@ -114,39 +147,6 @@ export default function HomePage() {
               </a>
             </Button>
           </div>
-        </div>
-      </section>
-
-      {/* ── What it replaces ──────────────────────────────────────── */}
-      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
-        <h2 className="text-center text-2xl font-bold tracking-tight sm:text-3xl">
-          What it replaces
-        </h2>
-        <div className="mt-8 grid gap-6 sm:mt-10 md:grid-cols-3">
-          {[
-            {
-              title: "Fragmented field truth",
-              desc: "One structured record across labs, sensors, and field notes.",
-            },
-            {
-              title: "Unverifiable claims",
-              desc: "Every metric traceable back to its source.",
-            },
-            {
-              title: "Slow, manual reporting",
-              desc: "Automated report generation with full provenance.",
-            },
-          ].map((p) => (
-            <Card
-              key={p.title}
-              className="border-border/60 motion-safe:transition-[transform,box-shadow] motion-safe:duration-200 motion-safe:hover:-translate-y-0.5 motion-safe:hover:shadow-md"
-            >
-              <CardHeader>
-                <CardTitle className="text-lg">{p.title}</CardTitle>
-                <CardDescription>{p.desc}</CardDescription>
-              </CardHeader>
-            </Card>
-          ))}
         </div>
       </section>
 

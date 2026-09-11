@@ -19,46 +19,62 @@ function ExternalIcon() {
   );
 }
 
+const linkClass =
+  "rounded-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring";
+
+const externalLinkClass = `inline-flex items-center ${linkClass}`;
+
+const columnHeadingClass =
+  "text-xs font-semibold uppercase tracking-wide text-muted-foreground";
+
 export function SiteFooter() {
   return (
     <footer className="border-t bg-muted/40">
       <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-        <div className="flex flex-col gap-8 sm:flex-row sm:justify-between">
-          <Link
-            href="/"
-            className="flex items-center gap-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-            aria-label="Blomso home"
-          >
-            <Image
-              src="/logo-mark.png"
-              alt=""
-              width={28}
-              height={23}
-              className="h-5 w-auto"
-              unoptimized
-            />
-            <span className="text-sm font-semibold tracking-tight">Blomso</span>
-          </Link>
+        <div className="flex flex-col gap-8 sm:flex-row sm:justify-between sm:gap-12">
+          {/* ── Identity ──────────────────────────────────────────── */}
+          <div className="max-w-xs">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+              aria-label="Blomso home"
+            >
+              <Image
+                src="/logo-mark.png"
+                alt=""
+                width={28}
+                height={23}
+                className="h-5 w-auto"
+                unoptimized
+              />
+              <span className="text-sm font-semibold tracking-tight">Blomso</span>
+            </Link>
+            <p className="mt-3 text-sm text-muted-foreground">
+              The decision layer agriculture is missing.
+            </p>
+          </div>
 
-          <nav aria-label="Footer navigation" className="flex gap-12">
+          {/* ── Link columns ──────────────────────────────────────── */}
+          <nav
+            aria-label="Footer navigation"
+            className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-12"
+          >
             {/* Company */}
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                Company
-              </p>
+              <p className={columnHeadingClass}>Company</p>
               <ul className="mt-3 space-y-2 text-sm">
                 <li>
-                  <Link href="/#traction" className="rounded-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
+                  <Link href="/#platform" className={linkClass}>
+                    Mission
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/#traction" className={linkClass}>
                     Traction
                   </Link>
                 </li>
                 <li>
-                  <Link href="/#platform" className="rounded-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
-                    Platform
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="rounded-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
+                  <Link href="/contact" className={linkClass}>
                     Contact
                   </Link>
                 </li>
@@ -67,16 +83,14 @@ export function SiteFooter() {
 
             {/* Product */}
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                Product
-              </p>
+              <p className={columnHeadingClass}>Product</p>
               <ul className="mt-3 space-y-2 text-sm">
                 <li>
                   <a
                     href={externalLinks.portal.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center rounded-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                    className={externalLinkClass}
                   >
                     {externalLinks.portal.label}
                     <ExternalIcon />
@@ -88,7 +102,7 @@ export function SiteFooter() {
                     href={externalLinks.roadmap.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center rounded-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                    className={externalLinkClass}
                   >
                     {externalLinks.roadmap.label}
                     <ExternalIcon />
@@ -100,7 +114,7 @@ export function SiteFooter() {
                     href={externalLinks.feedback.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center rounded-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                    className={externalLinkClass}
                   >
                     {externalLinks.feedback.label}
                     <ExternalIcon />
@@ -109,12 +123,30 @@ export function SiteFooter() {
                 </li>
               </ul>
             </div>
+
+            {/* Connect — only channels that exist in the repo's content */}
+            <div>
+              <p className={columnHeadingClass}>Connect</p>
+              <ul className="mt-3 space-y-2 text-sm">
+                <li>
+                  <Link href="/contact" className={linkClass}>
+                    Contact form
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </nav>
         </div>
 
-        <p className="mt-8 text-xs text-muted-foreground sm:text-center">
-          &copy; {new Date().getFullYear()} Blomso. All rights reserved.
-        </p>
+        {/* ── Bottom row ──────────────────────────────────────────── */}
+        <div className="mt-8 flex flex-col gap-3 border-t border-border/60 pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-xs text-muted-foreground">
+            &copy; {new Date().getFullYear()} Blomso. All rights reserved.
+          </p>
+          <Link href="/contact" className={`text-xs ${linkClass}`}>
+            Request a walkthrough
+          </Link>
+        </div>
       </div>
     </footer>
   );

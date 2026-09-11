@@ -106,50 +106,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Take a deeper dive strip ─────────────────────────────── */}
-      <section className="border-y border-border/60 bg-muted/40 px-4 py-8 sm:px-6 sm:py-10">
-        <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-6">
-          <span className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-            Take a deeper dive
-          </span>
-          <div className="flex flex-wrap justify-center gap-3">
-            <Button asChild variant="outline" size="sm">
-              <a
-                href={externalLinks.portal.href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {externalLinks.portal.label}
-                <svg aria-hidden="true" className="ml-1 inline-block h-3 w-3 opacity-50" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
-                <span className="sr-only"> (opens in a new tab)</span>
-              </a>
-            </Button>
-            <Button asChild variant="outline" size="sm">
-              <a
-                href={externalLinks.roadmap.href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {externalLinks.roadmap.label}
-                <svg aria-hidden="true" className="ml-1 inline-block h-3 w-3 opacity-50" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
-                <span className="sr-only"> (opens in a new tab)</span>
-              </a>
-            </Button>
-            <Button asChild variant="outline" size="sm">
-              <a
-                href={externalLinks.feedback.href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {externalLinks.feedback.label}
-                <svg aria-hidden="true" className="ml-1 inline-block h-3 w-3 opacity-50" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
-                <span className="sr-only"> (opens in a new tab)</span>
-              </a>
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* ── Platform ─────────────────────────────────────────────── */}
       <section
         id="platform"

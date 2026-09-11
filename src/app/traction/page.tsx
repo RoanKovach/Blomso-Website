@@ -20,6 +20,7 @@ export default function TractionRedirectPage() {
 
   return (
     <>
+      <meta name="robots" content="noindex, follow" />
       <meta httpEquiv="refresh" content="0; url=/#traction" />
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
         <p className="text-muted-foreground">

@@ -6,7 +6,6 @@ import { getTractionClaims, getVerifiedClaims } from "@/content/claims";
 import { externalLinks } from "@/content/links";
 import { SupportStrip } from "@/components/support-strip";
 import { HeroBg } from "@/components/hero-bg";
-import { TraceNumberDemo } from "@/components/trace-number-demo";
 import { TechstarsTimelineItem } from "@/components/techstars-timeline-item";
 import { CompanyFoundedTimelineItem } from "@/components/company-founded-timeline-item";
 import { FirstPilotTimelineItem } from "@/components/first-pilot-timeline-item";
@@ -75,19 +74,22 @@ export default function HomePage() {
         <h2 className="text-center text-2xl font-bold tracking-tight sm:text-3xl">
           What gets in the way today
         </h2>
+        <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
+          Blomso builds computer tools for agronomists, growers and scientists. We are starting with agronomists.
+        </p>
         <div className="mt-8 grid gap-6 sm:mt-10 md:grid-cols-3">
           {[
             {
+              title: "Data that never meets.",
+              desc: "Soil labs, satellites, sensors, weather, yield monitors and field notes describe the same acre in different files. Blomso brings them into one working record per field.",
+            },
+            {
+              title: "Numbers you cannot trace.",
+              desc: "A value with no source, no date and no method cannot be defended. Every number in Blomso keeps where it came from and what was done to it.",
+            },
+            {
               title: "Finding a usable image.",
-              desc: "Bare soil, no cloud, the right week. Hunting for it by hand is where zoning stalls. Blomso searches the archive and ranks the candidates for you.",
-            },
-            {
-              title: "Drawing zones by hand.",
-              desc: "Zones drawn from one image and a steady hand are hard to repeat. Blomso generates them from the imagery, then lets you merge, split, cut out and redraw.",
-            },
-            {
-              title: "Files that do not travel.",
-              desc: "A map that stays on a screen is not a plan. Every zone set exports as a shapefile with class, label and acres, ready for the tools you already use.",
+              desc: "Bare soil, no cloud, the right week. Hunting for it by hand is where zoning stalls. Blomso searches the archive, ranks the candidates and turns the pick into editable zones.",
             },
           ].map((p) => (
             <Card
@@ -150,16 +152,6 @@ export default function HomePage() {
             </div>
           ))}
         </div>
-        <p className="mt-4 text-sm font-medium text-muted-foreground">
-          Today: dashboards, reports, and evidence links. Next: baselines, benchmarks, and early prediction. Later: scenario testing, simulation, and ranked recommendations.
-        </p>
-
-        {/* Trace a number */}
-        <h3 className="mt-12 text-lg font-semibold">Trace a number</h3>
-        <p className="mt-2 text-sm text-muted-foreground">
-          When you trace a metric, you see its source document, timestamp, QC flags, and the transformation steps used to produce it.
-        </p>
-        <TraceNumberDemo />
 
         {/* How data integrity works */}
         <h3 className="mt-12 text-lg font-semibold">How data integrity works</h3>
@@ -271,9 +263,6 @@ export default function HomePage() {
                 <li>Simple predictions</li>
                 <li>Agronomy assistant workflows</li>
               </ul>
-              <p className="mt-4 text-sm italic text-muted-foreground">
-                There are steps between these that we are not listing yet.
-              </p>
             </div>
             <div className="rounded-lg border border-border/60 bg-background p-6">
               <h3 className="text-lg font-semibold text-primary">Later</h3>

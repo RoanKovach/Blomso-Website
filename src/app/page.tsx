@@ -116,57 +116,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Traction ─────────────────────────────────────────────── */}
-      {milestones.length > 0 && (
-        <section
-          id="traction"
-          aria-labelledby="traction-heading"
-          className="mx-auto max-w-6xl scroll-mt-20 px-4 py-12 sm:px-6 sm:py-16"
-        >
-          <h2
-            id="traction-heading"
-            className="text-center text-2xl font-bold tracking-tight sm:text-3xl"
-          >
-            Traction
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            Every number traces to its source. Nothing projected, nothing estimated.
-          </p>
-          <Separator className="mt-8" />
-          <div className="relative mt-8">
-            {/* Line: through circle centers, starts at first circle top, ends at last circle bottom */}
-            <div
-              className="absolute bottom-[6px] left-[11px] top-[6px] w-0.5 -translate-x-1/2 bg-border"
-              aria-hidden="true"
-            />
-            <ol className="space-y-6 pl-6">
-              {milestones.map((m) => {
-                if (m.id === "founded") {
-                  return <CompanyFoundedTimelineItem key={m.id} milestone={m} />;
-                }
-                if (m.id === "techstars-2024") {
-                  return <TechstarsTimelineItem key={m.id} milestone={m} />;
-                }
-                return (
-                  <li key={m.id} className="relative">
-                    <span
-                      className="absolute top-1.5 h-3 w-3 -translate-x-1/2 rounded-full bg-primary"
-                      style={{ left: "-13px" }}
-                      aria-hidden="true"
-                    />
-                    <div className="space-y-4">
-                      <p className="font-semibold">
-                        {m.value ?? ""} &mdash; {m.headline}
-                      </p>
-                    </div>
-                  </li>
-                );
-              })}
-            </ol>
-          </div>
-        </section>
-      )}
-
       {/* ── What it replaces ──────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
         <h2 className="text-center text-2xl font-bold tracking-tight sm:text-3xl">
@@ -197,46 +146,6 @@ export default function HomePage() {
               </CardHeader>
             </Card>
           ))}
-        </div>
-      </section>
-
-      {/* ── Biospheric OS ─────────────────────────────────────────── */}
-      <section className="bg-field-map border-t border-border/60 px-4 py-16 sm:px-6 sm:py-20">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="text-center text-2xl font-bold tracking-tight sm:text-3xl">
-            We&rsquo;re building a biospheric OS
-          </h2>
-          <div className="mt-10 grid gap-8 sm:mt-12 md:grid-cols-3">
-            <div className="rounded-lg border border-border/60 bg-background p-6">
-              <h3 className="text-lg font-semibold text-primary">Done</h3>
-              <p className="mt-2 text-sm text-muted-foreground">Ingest → Standardize → QC → Report</p>
-              <ul className="mt-4 list-inside list-disc space-y-1 text-sm text-muted-foreground">
-                <li>Lab and field data ingestion</li>
-                <li>QC + anomaly flags + audit trail</li>
-              </ul>
-            </div>
-            <div className="rounded-lg border border-border/60 bg-background p-6">
-              <h3 className="text-lg font-semibold text-primary">Now</h3>
-              <p className="mt-2 text-sm text-muted-foreground">Baselines → predictions → assistant workflows</p>
-              <ul className="mt-4 list-inside list-disc space-y-1 text-sm text-muted-foreground">
-                <li>Management zones from imagery, in use on real fields</li>
-                <li>Field baselines and context modeling</li>
-                <li>Simple predictions</li>
-                <li>Agronomy assistant workflows</li>
-              </ul>
-              <p className="mt-4 text-sm italic text-muted-foreground">
-                There are steps between these that we are not listing yet.
-              </p>
-            </div>
-            <div className="rounded-lg border border-border/60 bg-background p-6">
-              <h3 className="text-lg font-semibold text-primary">Later</h3>
-              <p className="mt-2 text-sm text-muted-foreground">Digital twin + in-silico trials</p>
-              <ul className="mt-4 list-inside list-disc space-y-1 text-sm text-muted-foreground">
-                <li>Digital twin across practices</li>
-                <li>In-silico trials across biologicals and inputs</li>
-              </ul>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -330,6 +239,97 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Traction ─────────────────────────────────────────────── */}
+      {milestones.length > 0 && (
+        <section
+          id="traction"
+          aria-labelledby="traction-heading"
+          className="mx-auto max-w-6xl scroll-mt-20 px-4 py-12 sm:px-6 sm:py-16"
+        >
+          <h2
+            id="traction-heading"
+            className="text-center text-2xl font-bold tracking-tight sm:text-3xl"
+          >
+            Traction
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
+            Every number traces to its source. Nothing projected, nothing estimated.
+          </p>
+          <Separator className="mt-8" />
+          <div className="relative mt-8">
+            {/* Line: through circle centers, starts at first circle top, ends at last circle bottom */}
+            <div
+              className="absolute bottom-[6px] left-[11px] top-[6px] w-0.5 -translate-x-1/2 bg-border"
+              aria-hidden="true"
+            />
+            <ol className="space-y-6 pl-6">
+              {milestones.map((m) => {
+                if (m.id === "founded") {
+                  return <CompanyFoundedTimelineItem key={m.id} milestone={m} />;
+                }
+                if (m.id === "techstars-2024") {
+                  return <TechstarsTimelineItem key={m.id} milestone={m} />;
+                }
+                return (
+                  <li key={m.id} className="relative">
+                    <span
+                      className="absolute top-1.5 h-3 w-3 -translate-x-1/2 rounded-full bg-primary"
+                      style={{ left: "-13px" }}
+                      aria-hidden="true"
+                    />
+                    <div className="space-y-4">
+                      <p className="font-semibold">
+                        {m.value ?? ""} &mdash; {m.headline}
+                      </p>
+                    </div>
+                  </li>
+                );
+              })}
+            </ol>
+          </div>
+        </section>
+      )}
+
+      {/* ── Biospheric OS ─────────────────────────────────────────── */}
+      <section className="bg-field-map border-t border-border/60 px-4 py-16 sm:px-6 sm:py-20">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="text-center text-2xl font-bold tracking-tight sm:text-3xl">
+            We&rsquo;re building a biospheric OS
+          </h2>
+          <div className="mt-10 grid gap-8 sm:mt-12 md:grid-cols-3">
+            <div className="rounded-lg border border-border/60 bg-background p-6">
+              <h3 className="text-lg font-semibold text-primary">Done</h3>
+              <p className="mt-2 text-sm text-muted-foreground">Ingest → Standardize → QC → Report</p>
+              <ul className="mt-4 list-inside list-disc space-y-1 text-sm text-muted-foreground">
+                <li>Lab and field data ingestion</li>
+                <li>QC + anomaly flags + audit trail</li>
+              </ul>
+            </div>
+            <div className="rounded-lg border border-border/60 bg-background p-6">
+              <h3 className="text-lg font-semibold text-primary">Now</h3>
+              <p className="mt-2 text-sm text-muted-foreground">Baselines → predictions → assistant workflows</p>
+              <ul className="mt-4 list-inside list-disc space-y-1 text-sm text-muted-foreground">
+                <li>Management zones from imagery, in use on real fields</li>
+                <li>Field baselines and context modeling</li>
+                <li>Simple predictions</li>
+                <li>Agronomy assistant workflows</li>
+              </ul>
+              <p className="mt-4 text-sm italic text-muted-foreground">
+                There are steps between these that we are not listing yet.
+              </p>
+            </div>
+            <div className="rounded-lg border border-border/60 bg-background p-6">
+              <h3 className="text-lg font-semibold text-primary">Later</h3>
+              <p className="mt-2 text-sm text-muted-foreground">Digital twin + in-silico trials</p>
+              <ul className="mt-4 list-inside list-disc space-y-1 text-sm text-muted-foreground">
+                <li>Digital twin across practices</li>
+                <li>In-silico trials across biologicals and inputs</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── CTA ─────────────────────────────────────────────────── */}
       <section className="bg-field-gradient bg-grain border-t border-border/60 px-4 py-16 text-center sm:px-6 sm:py-20">
         <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
@@ -341,9 +341,6 @@ export default function HomePage() {
         </p>
         <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
           <Button asChild size="lg" className="w-full sm:w-auto">
-            <Link href="/contact">Request a walkthrough</Link>
-          </Button>
-          <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
             <a
               href={externalLinks.portal.href}
               target="_blank"
@@ -353,6 +350,9 @@ export default function HomePage() {
               <svg aria-hidden="true" className="ml-1 inline-block h-3 w-3 opacity-50" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
               <span className="sr-only"> (opens in a new tab)</span>
             </a>
+          </Button>
+          <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
+            <Link href="/contact">Request a walkthrough</Link>
           </Button>
         </div>
       </section>

@@ -11,8 +11,6 @@ import { Button } from "@/components/ui/button";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/#platform", label: "Platform" },
-  { href: "/#traction", label: "Traction" },
 ] as const;
 
 const productDropdownItems = [
@@ -290,7 +288,7 @@ export function SiteHeader() {
               <span className="sr-only"> (opens in a new tab)</span>
             </a>
           </Button>
-          <Button asChild size="sm">
+          <Button asChild variant="outline" size="sm">
             <Link href="/contact">Request a walkthrough</Link>
           </Button>
         </div>
@@ -436,7 +434,7 @@ export function SiteHeader() {
                   <span className="sr-only"> (opens in a new tab)</span>
                 </a>
               </Button>
-              <Button asChild size="lg" className="w-full min-h-[44px]">
+              <Button asChild variant="outline" size="lg" className="w-full min-h-[44px]">
                 <Link href="/contact" onClick={() => setMobileOpen(false)}>
                   Request a walkthrough
                 </Link>

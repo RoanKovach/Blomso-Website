@@ -1,16 +1,17 @@
 /**
  * External product links — single source of truth.
  *
- * Internal redirect routes (/demo, /feedback, /roadmap) 302 to these
- * URLs so we can swap destinations or add tracking without changing
- * every reference.
+ * Referenced by the nav, footer, hero and deeper-dive strip so we can swap
+ * destinations or add tracking without changing every reference.
+ *
+ * `portal` is the one name for the app across the whole site.
  */
 
 export const externalLinks = {
-  demo: {
+  portal: {
     href: "https://app.blomso.com/",
-    label: "Demo",
-    description: "Try the live product",
+    label: "Blomso Portal",
+    description: "Open the live product",
   },
   feedback: {
     href: "https://blomso.featurebase.app/",

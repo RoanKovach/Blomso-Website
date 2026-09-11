@@ -1,16 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import { TimelinePhotoGrid } from "./timeline-photo-grid";
 
-type TechstarsTimelineItemProps = {
+type StoryTimelineItemProps = {
   milestone: {
     value?: number | null;
     headline: string;
   };
+  /** One or two short lines shown when the entry is expanded. */
+  story: string;
 };
 
-export function TechstarsTimelineItem({ milestone }: TechstarsTimelineItemProps) {
+/**
+ * Timeline entry whose expanded content is narrative only, for milestones
+ * that carry a story but no photos or supporting detail block.
+ */
+export function StoryTimelineItem({ milestone, story }: StoryTimelineItemProps) {
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -35,15 +40,9 @@ export function TechstarsTimelineItem({ milestone }: TechstarsTimelineItemProps)
           </span>
         </button>
         {expanded && (
-          <>
-            <TimelinePhotoGrid />
-            <p className="max-w-2xl text-sm text-muted-foreground">
-              The program that turned the idea into a company, and where our first advisor at Ohio State signed on.
-            </p>
-          </>
+          <p className="max-w-2xl text-sm text-muted-foreground">{story}</p>
         )}
       </div>
     </li>
   );
 }
-

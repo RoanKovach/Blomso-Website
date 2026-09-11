@@ -11,9 +11,6 @@ import { Button } from "@/components/ui/button";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/traction", label: "Traction" },
-  { href: "/platform", label: "Platform" },
-  { href: "/contact", label: "Contact" },
 ] as const;
 
 const productDropdownItems = [
@@ -69,7 +66,6 @@ export function SiteHeader() {
   /** Check if any product route is active */
   function isProductActive(): boolean {
     return (
-      pathname.startsWith("/demo") ||
       pathname.startsWith("/roadmap") ||
       pathname.startsWith("/feedback")
     );
@@ -211,20 +207,6 @@ export function SiteHeader() {
                 );
               })}
 
-              {/* Demo — external */}
-              <li>
-                <a
-                  href={externalLinks.demo.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={cn(linkClass, "text-muted-foreground inline-flex items-center")}
-                >
-                  {externalLinks.demo.label}
-                  <ExternalIcon />
-                  <span className="sr-only"> (opens in a new tab)</span>
-                </a>
-              </li>
-
               {/* Product dropdown */}
               <li
                 ref={dropdownRef}
@@ -294,8 +276,19 @@ export function SiteHeader() {
             </ul>
           </nav>
 
-          {/* Persistent CTA — desktop only */}
+          {/* Portal + persistent CTA — desktop only */}
           <Button asChild size="sm">
+            <a
+              href={externalLinks.portal.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {externalLinks.portal.label}
+              <ExternalIcon />
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          </Button>
+          <Button asChild variant="outline" size="sm">
             <Link href="/contact">Request a walkthrough</Link>
           </Button>
         </div>
@@ -396,21 +389,6 @@ export function SiteHeader() {
                   );
                 })}
 
-                {/* Demo — external */}
-                <li>
-                  <a
-                    href={externalLinks.demo.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex min-h-[44px] items-center rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    {externalLinks.demo.label}
-                    <ExternalIcon />
-                    <span className="sr-only"> (opens in a new tab)</span>
-                  </a>
-                </li>
-
                 {/* Product links — flat in mobile */}
                 <li className="pt-3">
                   <p className={cn(
@@ -443,8 +421,20 @@ export function SiteHeader() {
             </nav>
 
             {/* Mobile CTA */}
-            <div className="border-t px-4 py-4">
+            <div className="space-y-3 border-t px-4 py-4">
               <Button asChild size="lg" className="w-full min-h-[44px]">
+                <a
+                  href={externalLinks.portal.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {externalLinks.portal.label}
+                  <ExternalIcon />
+                  <span className="sr-only"> (opens in a new tab)</span>
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="w-full min-h-[44px]">
                 <Link href="/contact" onClick={() => setMobileOpen(false)}>
                   Request a walkthrough
                 </Link>

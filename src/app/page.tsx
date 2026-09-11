@@ -9,6 +9,7 @@ import { HeroBg } from "@/components/hero-bg";
 import { TraceNumberDemo } from "@/components/trace-number-demo";
 import { TechstarsTimelineItem } from "@/components/techstars-timeline-item";
 import { CompanyFoundedTimelineItem } from "@/components/company-founded-timeline-item";
+import { FirstPilotTimelineItem } from "@/components/first-pilot-timeline-item";
 
 export default function HomePage() {
   const capabilities = getVerifiedClaims("capability");
@@ -270,6 +271,9 @@ export default function HomePage() {
                 if (m.id === "techstars-2024") {
                   return <TechstarsTimelineItem key={m.id} milestone={m} />;
                 }
+                if (m.id === "first-pilot") {
+                  return <FirstPilotTimelineItem key={m.id} milestone={m} />;
+                }
                 return (
                   <li key={m.id} className="relative">
                     <span
@@ -298,18 +302,18 @@ export default function HomePage() {
           </h2>
           <div className="mt-10 grid gap-8 sm:mt-12 md:grid-cols-3">
             <div className="rounded-lg border border-border/60 bg-background p-6">
-              <h3 className="text-lg font-semibold text-primary">Done</h3>
-              <p className="mt-2 text-sm text-muted-foreground">Ingest → Standardize → QC → Report</p>
+              <h3 className="text-lg font-semibold text-primary">Now</h3>
+              <p className="mt-2 text-sm text-muted-foreground">Zones from imagery, editing, export</p>
               <ul className="mt-4 list-inside list-disc space-y-1 text-sm text-muted-foreground">
-                <li>Lab and field data ingestion</li>
-                <li>QC + anomaly flags + audit trail</li>
+                <li>Management zones from satellite imagery, in use on real fields</li>
+                <li>Zone editing: merge, split, cut out, boundary edit</li>
+                <li>Shapefile export into the tools agronomists already use</li>
               </ul>
             </div>
             <div className="rounded-lg border border-border/60 bg-background p-6">
-              <h3 className="text-lg font-semibold text-primary">Now</h3>
-              <p className="mt-2 text-sm text-muted-foreground">Baselines → predictions → assistant workflows</p>
+              <h3 className="text-lg font-semibold text-primary">Next</h3>
+              <p className="mt-2 text-sm text-muted-foreground">Baselines, predictions, assistant workflows</p>
               <ul className="mt-4 list-inside list-disc space-y-1 text-sm text-muted-foreground">
-                <li>Management zones from imagery, in use on real fields</li>
                 <li>Field baselines and context modeling</li>
                 <li>Simple predictions</li>
                 <li>Agronomy assistant workflows</li>

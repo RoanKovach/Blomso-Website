@@ -48,12 +48,12 @@ export function SiteFooter() {
               </p>
               <ul className="mt-3 space-y-2 text-sm">
                 <li>
-                  <Link href="/traction" className="rounded-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
+                  <Link href="/#traction" className="rounded-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
                     Traction
                   </Link>
                 </li>
                 <li>
-                  <Link href="/platform" className="rounded-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
+                  <Link href="/#platform" className="rounded-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
                     Platform
                   </Link>
                 </li>
@@ -78,7 +78,7 @@ export function SiteFooter() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center rounded-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                   >
-                    {externalLinks.demo.label}
+                    Blomso Portal
                     <ExternalIcon />
                     <span className="sr-only"> (opens in a new tab)</span>
                   </a>

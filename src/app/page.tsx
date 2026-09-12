@@ -85,7 +85,7 @@ export default function HomePage() {
           What gets in the way today
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-          Blomso builds computer tools for farmers, agronomists and ag researchers.
+          Farmers, agronomists and ag researchers ask the same question of a field. Blomso builds the data, AI and agentic systems that answer it. Three things get in the way today.
         </p>
         <div className="mt-8 grid gap-6 sm:mt-10 md:grid-cols-3">
           {[

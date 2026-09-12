@@ -40,7 +40,7 @@ export default function HomePage() {
             A Biospheric Operating System rooted in the soil.
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">
-            Blomso is building a biospheric operating system, starting in the soil. Everything that describes a field is fused into one record, so the variation can be seen, decided on, and in time simulated. It starts with management zones, in use on real fields today.
+            Everything that describes a field is fused into one record, so the variation can be seen, decided on, and in time simulated. It starts with management zones, in use on real fields today.
           </p>
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <Button asChild size="lg" className="w-full sm:w-auto">

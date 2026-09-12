@@ -137,7 +137,7 @@ export default function HomePage() {
           How it works
         </h2>
         <p className="mx-auto mt-4 max-w-3xl text-center text-base text-muted-foreground">
-          Everything that describes a field is fused into one common format, so it can be seen, and in time simulated.
+          Blomso builds the data, AI and agentic systems that answer it: connect the information, keep its meaning, and let what is learned accumulate.
         </p>
         <div className="mt-10 grid gap-8 sm:mt-12 md:grid-cols-3">
           {[

@@ -207,6 +207,9 @@ export default function HomePage() {
           <h2 className="text-center text-2xl font-bold tracking-tight sm:text-3xl">
             Where it is going
           </h2>
+          <p className="mx-auto mt-4 max-w-3xl text-center text-muted-foreground">
+            The goal is agriculture that is more productive, more resilient and more profitable, without spending the future to get there. Data and better decisions are how; this is the order.
+          </p>
           <div className="mt-10 grid gap-8 sm:mt-12 md:grid-cols-3">
             <div className="rounded-lg border border-border/60 bg-background p-6">
               <h3 className="text-lg font-semibold text-primary">Now</h3>

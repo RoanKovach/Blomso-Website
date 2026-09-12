@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import type { FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -11,108 +10,95 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 type LeadType = "investor" | "operator";
 
-interface FormState {
-  status: "idle" | "submitting" | "success" | "error";
-  errors: string[];
-}
+/** The one contact channel for the site. */
+const CONTACT_EMAIL = "kalib@blomso.com";
 
-function ContactForm({ leadType }: { leadType: LeadType }) {
-  const [state, setState] = useState<FormState>({ status: "idle", errors: [] });
+/**
+ * The fields compose a prefilled message. There is no backend on the static
+ * export, so the call to action is a plain mailto link rather than a submit.
+ */
+function ContactDetails({ leadType }: { leadType: LeadType }) {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [company, setCompany] = useState("");
+  const [message, setMessage] = useState("");
 
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setState({ status: "submitting", errors: [] });
+  const subject =
+    leadType === "investor"
+      ? "Investor materials request"
+      : "Pilot walkthrough request";
 
-    const fd = new FormData(e.currentTarget);
-    const payload = {
-      type: leadType,
-      name: fd.get("name") as string,
-      email: fd.get("email") as string,
-      company: fd.get("company") as string,
-      message: (fd.get("message") as string) || undefined,
-    };
+  const body = [
+    name && `Name: ${name}`,
+    email && `Email: ${email}`,
+    company && `Company: ${company}`,
+    message && `\n${message}`,
+  ]
+    .filter(Boolean)
+    .join("\n");
 
-    try {
-      const res = await fetch("/api/lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (!res.ok) {
-        const body = await res.json().catch(() => null);
-        const errors =
-          body && Array.isArray(body.errors)
-            ? (body.errors as string[])
-            : ["Something went wrong. Please try again."];
-        setState({ status: "error", errors });
-        return;
-      }
-
-      setState({ status: "success", errors: [] });
-    } catch {
-      setState({ status: "error", errors: ["Network error. Please try again."] });
-    }
-  }
-
-  if (state.status === "success") {
-    return (
-      <div className="py-12 text-center" role="status">
-        <p className="text-lg font-semibold">Thank you.</p>
-        <p className="mt-2 text-sm text-muted-foreground">
-          {leadType === "investor"
-            ? "We\u2019ll send investor materials to your email shortly."
-            : "We\u2019ll be in touch to schedule your pilot walkthrough."}
-        </p>
-      </div>
-    );
-  }
+  const href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}${
+    body ? `&body=${encodeURIComponent(body)}` : ""
+  }`;
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <div className="space-y-6">
       <div className="space-y-2">
         <Label htmlFor={`${leadType}-name`}>Full name</Label>
-        <Input id={`${leadType}-name`} name="name" required autoComplete="name" />
+        <Input
+          id={`${leadType}-name`}
+          name="name"
+          autoComplete="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
       </div>
 
       <div className="space-y-2">
         <Label htmlFor={`${leadType}-email`}>Work email</Label>
-        <Input id={`${leadType}-email`} name="email" type="email" required autoComplete="email" />
+        <Input
+          id={`${leadType}-email`}
+          name="email"
+          type="email"
+          autoComplete="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
       </div>
 
       <div className="space-y-2">
         <Label htmlFor={`${leadType}-company`}>Company</Label>
-        <Input id={`${leadType}-company`} name="company" required autoComplete="organization" />
+        <Input
+          id={`${leadType}-company`}
+          name="company"
+          autoComplete="organization"
+          value={company}
+          onChange={(e) => setCompany(e.target.value)}
+        />
       </div>
 
       <div className="space-y-2">
         <Label htmlFor={`${leadType}-message`}>
-          {leadType === "investor" ? "What materials are you looking for?" : "Tell us about your operation"}
+          {leadType === "investor"
+            ? "What materials are you looking for?"
+            : "Tell us about your operation"}
         </Label>
-        <Textarea id={`${leadType}-message`} name="message" rows={4} />
+        <Textarea
+          id={`${leadType}-message`}
+          name="message"
+          rows={4}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
       </div>
 
-      {state.status === "error" && (
-        <div role="alert" className="rounded-md bg-destructive/10 p-3 text-sm text-destructive">
-          <ul className="list-inside list-disc">
-            {state.errors.map((err) => (
-              <li key={err}>{err}</li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      <Button type="submit" className="w-full" disabled={state.status === "submitting"}>
-        {state.status === "submitting"
-          ? "Sending\u2026"
-          : leadType === "investor"
-            ? "Request investor materials"
-            : "Request pilot access"}
+      <Button asChild className="w-full">
+        <a href={href}>{CONTACT_EMAIL}</a>
       </Button>
       <p className="mt-3 text-center text-xs text-muted-foreground">
         We reply within one business day. No spam.
       </p>
-    </form>
+    </div>
   );
 }
 
@@ -155,7 +141,7 @@ export default function ContactPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <ContactForm leadType="investor" />
+                <ContactDetails leadType="investor" />
               </CardContent>
             </Card>
           </div>
@@ -174,7 +160,7 @@ export default function ContactPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <ContactForm leadType="operator" />
+                <ContactDetails leadType="operator" />
               </CardContent>
             </Card>
           </div>

@@ -52,10 +52,10 @@ export default function HomePage() {
 
         <div className="relative z-20 mx-auto max-w-3xl px-4 py-20 text-center sm:px-6 sm:py-24 lg:py-28">
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            A Biospheric Operating System rooted in the soil.
+            Where does your field vary, and what should each part of it get?
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">
-            Blomso unifies fragmented agricultural data into data-driven digital twins, so AI can test field decisions before you do, turning biological complexity into practical insight.
+            Blomso is building a biospheric operating system, starting in the soil. Everything that describes a field is fused into one record, so the variation can be seen, decided on, and in time simulated. It starts with management zones, in use on real fields today.
           </p>
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <Button asChild size="lg" className="w-full sm:w-auto">

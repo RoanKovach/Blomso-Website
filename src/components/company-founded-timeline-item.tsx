@@ -18,8 +18,30 @@ const OSU_ENGINEERING_ARTICLE =
 const KALIB_PROFILE_ARTICLE =
   "https://www.yahoo.com/news/liberty-union-senior-kalib-riddle-092706220.html";
 
-const inlineLinkClass =
-  "rounded-sm underline underline-offset-4 transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring";
+/** Subtle accent-coloured marker linking out to a supporting source. */
+function SourceLink({ href, label }: { href: string; label: string }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${label} (opens in a new tab)`}
+      className="inline-flex rounded-sm align-baseline text-primary opacity-70 transition-opacity hover:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+    >
+      <svg
+        aria-hidden="true"
+        className="inline-block h-3 w-3"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={2.5}
+        stroke="currentColor"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+      </svg>
+    </a>
+  );
+}
 
 const COMPANY_FOUNDED_PHOTOS = [
   {
@@ -67,29 +89,16 @@ export function CompanyFoundedTimelineItem({
             <TimelinePhotoGrid photos={COMPANY_FOUNDED_PHOTOS} />
             <p className="max-w-2xl text-sm text-muted-foreground">
               By the time they founded Blomso, both had already spent years
-              building. At Ohio State,{" "}
-              <a
-                href={OSU_ENGINEERING_ARTICLE}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={inlineLinkClass}
-              >
-                Roan worked on DNA nanorobotics for targeted drug delivery while
-                also training in research commercialization and entrepreneurship
-                <span className="sr-only"> (opens in a new tab)</span>
-              </a>
-              . Kalib had been{" "}
-              <a
+              building. At Ohio State, Roan worked on DNA nanorobotics for
+              targeted drug delivery while also training in research
+              commercialization and entrepreneurship. Kalib had been developing
+              a carbon-capture concept since eighth grade and spent much of high
+              school trying to turn it into a real venture.{" "}
+              <SourceLink
                 href={KALIB_PROFILE_ARTICLE}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={inlineLinkClass}
-              >
-                developing a carbon-capture concept since eighth grade and spent
-                much of high school trying to turn it into a real venture
-                <span className="sr-only"> (opens in a new tab)</span>
-              </a>
-              . When they met, they brought those technical and entrepreneurial
+                label="Newspaper profile of Kalib"
+              />{" "}
+              When they met, they brought those technical and entrepreneurial
               paths together to build Blomso.
             </p>
           </>

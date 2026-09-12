@@ -80,7 +80,7 @@ export function TimelinePhotoGrid({ photos = DEFAULT_PHOTOS }: { photos?: readon
                     href={captionHref}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-sm underline underline-offset-4 transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                    className="rounded-sm underline-offset-4 transition-colors hover:text-foreground hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                   >
                     {caption}
                     <ExternalIcon />

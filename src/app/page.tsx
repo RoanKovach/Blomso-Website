@@ -139,9 +139,6 @@ export default function HomePage() {
             </div>
           ))}
         </div>
-        <p className="mt-6 text-center text-sm text-muted-foreground">
-          Every number can be traced back to where it came from.
-        </p>
       </section>
 
       {/* ── The story so far ─────────────────────────────────────── */}

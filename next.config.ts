@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   devIndicators: false,
 
   // Static export for shared hosting (public_html)
+  // Amplify's build spec lives in the console, not this repo, and publishes .next
   output: "export",
   trailingSlash: true,
 

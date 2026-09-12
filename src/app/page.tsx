@@ -14,7 +14,7 @@ import { StoryTimelineItem } from "@/components/story-timeline-item";
 /** Narrative shown when a timeline entry without photos is expanded. */
 const milestoneStories: Record<string, string> = {
   "cofounders-meet":
-    "Two Ohio State students, both in research and both building things on the side, end up roommates and start arguing about which system is worth fixing.",
+    "Kalib and Roan both grew up in small rural Ohio communities, Kalib in Baltimore and Roan in Wintersville. As roommates at Ohio State, they spent a lot of time talking about how they could make the world better. Those conversations kept coming back to food: everyone has to eat, yet one of society’s most vital systems remains fragmented, under pressure, and underserved by modern software, data and AI. Building a more resilient agricultural system felt like a problem too important to ignore.",
   "brookside-2025":
     "A soil lab with decades of ground truth and agronomists who do the work. Our first partner with real fields.",
   "bayer-lifehub-2026": "A bigger room for the same idea.",

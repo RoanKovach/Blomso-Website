@@ -14,10 +14,12 @@ const COMPANY_FOUNDED_PHOTOS = [
   {
     src: "/timeline/company-founded-techstars-post.png",
     alt: "Techstars post about Blomso highlighting sustainable agriculture",
+    caption: "Early days: the first Blomso banner and a whiteboard full of plans.",
   },
   {
     src: "/timeline/company-founded-osu-post.png",
     alt: "Ohio State University College of Engineering scholarship luncheon photo",
+    caption: "Pitching at Ohio State’s College of Engineering.",
   },
 ] as const;
 
@@ -51,7 +53,7 @@ export function CompanyFoundedTimelineItem({
           <>
             <TimelinePhotoGrid photos={COMPANY_FOUNDED_PHOTOS} />
             <p className="max-w-2xl text-sm text-muted-foreground">
-              The argument settled on agriculture: the system everything else rests on, running on data that never meets.
+              Roan brought research experience from Ohio State, Kalib brought experience building in agriculture, and the two of them started Blomso to work on it together.
             </p>
           </>
         )}

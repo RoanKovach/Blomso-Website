@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 type Photo = {
   src: string;
   alt: string;
+  /** Optional line shown under the image. */
+  caption?: string;
 };
 
 const DEFAULT_PHOTOS: readonly Photo[] = [
@@ -38,20 +40,26 @@ export function TimelinePhotoGrid({ photos = DEFAULT_PHOTOS }: { photos?: readon
   return (
     <>
       <div className="grid gap-4 pt-2 sm:grid-cols-3">
-        {photos.map(({ src, alt }) => (
-          <button
-            key={src}
-            type="button"
-            onClick={() => setLightboxSrc(src)}
-            className="group relative block overflow-hidden rounded-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-            aria-label={`View full size: ${alt}`}
-          >
-            <img
-              src={src}
-              alt={alt}
-              className="h-40 w-full object-cover transition-transform duration-200 ease-out group-hover:scale-105"
-            />
-          </button>
+        {photos.map(({ src, alt, caption }) => (
+          <figure key={src} className="m-0">
+            <button
+              type="button"
+              onClick={() => setLightboxSrc(src)}
+              className="group relative block w-full overflow-hidden rounded-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+              aria-label={`View full size: ${alt}`}
+            >
+              <img
+                src={src}
+                alt={alt}
+                className="h-40 w-full object-cover transition-transform duration-200 ease-out group-hover:scale-105"
+              />
+            </button>
+            {caption && (
+              <figcaption className="mt-2 text-xs text-muted-foreground">
+                {caption}
+              </figcaption>
+            )}
+          </figure>
         ))}
       </div>
 

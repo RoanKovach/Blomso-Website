@@ -19,7 +19,8 @@ const COMPANY_FOUNDED_PHOTOS = [
   {
     src: "/timeline/company-founded-osu-post.png",
     alt: "Ohio State University College of Engineering scholarship luncheon photo",
-    caption: "Pitching at Ohio State’s College of Engineering.",
+    caption:
+      "At Ohio State’s College of Engineering Scholarship Luncheon, where Roan was invited to speak.",
   },
 ] as const;
 
@@ -53,7 +54,7 @@ export function CompanyFoundedTimelineItem({
           <>
             <TimelinePhotoGrid photos={COMPANY_FOUNDED_PHOTOS} />
             <p className="max-w-2xl text-sm text-muted-foreground">
-              Roan brought research experience from Ohio State, Kalib brought experience building in agriculture, and the two of them started Blomso to work on it together.
+              By the time they founded Blomso, both had already spent years building. At Ohio State, Roan worked on DNA nanorobotics for targeted drug delivery while also training in research commercialization and entrepreneurship. Kalib had been developing a carbon-capture concept since eighth grade and spent much of high school trying to turn it into a real venture. When they met, they brought those technical and entrepreneurial paths together to build Blomso.
             </p>
           </>
         )}

@@ -70,17 +70,18 @@ export function CompanyFoundedTimelineItem({
               building. At Ohio State, Roan worked on DNA nanorobotics for
               targeted drug delivery while also training in research
               commercialization and entrepreneurship. Kalib had been developing
-              a carbon-capture concept since eighth grade and{" "}
+              a carbon-capture concept since eighth grade,{" "}
               <a
                 href={KALIB_PROFILE_ARTICLE}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={inlineLinkClass}
               >
-                spent much of high school trying to turn it into a real venture
+                built it into a venture through high school
                 <span className="sr-only"> (opens in a new tab)</span>
               </a>
-              . When they met, they brought those technical and entrepreneurial
+              , and holds a patent on the formula behind it. When they met, they
+              brought those technical and entrepreneurial
               paths together to build Blomso.
             </p>
           </>

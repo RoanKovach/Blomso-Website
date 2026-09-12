@@ -81,15 +81,15 @@ export default function HomePage() {
           {[
             {
               title: "Data that never meets.",
-              desc: "Soil labs, satellites, sensors, weather, yield monitors and field notes describe the same acre in different files. Blomso brings them into one working record per field.",
+              desc: "Soil labs, satellites, sensors, weather, yield monitors and field notes describe the same acre in different files.",
             },
             {
               title: "Numbers you cannot trace.",
-              desc: "A value with no source, no date and no method cannot be defended. Every number in Blomso keeps where it came from and what was done to it.",
+              desc: "A value with no source, no date and no method cannot be defended.",
             },
             {
               title: "Work that does not carry over.",
-              desc: "The farmer wants to know what to do on this field. The agronomist has to sign the plan. The researcher has to show why it worked. Each rebuilds the same record from scratch, and what one learns rarely reaches the next. Blomso keeps one record all three can work from.",
+              desc: "The farmer wants to know what to do on this field. The agronomist has to sign the plan. The researcher has to show why it worked. Each rebuilds the same record from scratch, and what one learns rarely reaches the next.",
             },
           ].map((p) => (
             <Card

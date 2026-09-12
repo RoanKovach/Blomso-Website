@@ -15,6 +15,10 @@ import { StoryTimelineItem } from "@/components/story-timeline-item";
 const milestoneStories: Record<string, string> = {
   "cofounders-meet":
     "Kalib and Roan both grew up in small rural Ohio communities, Kalib in Baltimore and Roan in Wintersville. As roommates at Ohio State, they spent a lot of time talking about how they could make the world better. Those conversations kept coming back to food: everyone has to eat, yet one of society’s most vital systems remains fragmented, under pressure, and underserved by modern software, data and AI. Building a more resilient agricultural system felt like a problem too important to ignore.",
+  "masschallenge-2024":
+    "After Techstars the question got bigger: what already existed, who else was working on these problems, and why had they not been solved? MassChallenge Switzerland put us in rooms with agriculture companies, research groups and investors from outside the Midwest. Over the following year we traveled to New York, Chicago, Switzerland and England and kept working across Ohio, meeting startups, researchers and the companies already selling into agriculture. Most of what we saw solved one piece well and left the rest disconnected. Blomso was refined around the problems that were still open.",
+  "plugandplay-2025":
+    "Plug and Play Topeka continued that work from inside the industry, alongside the companies and growers whose problems we were trying to solve. It is where the shape of Blomso settled: the data and decision layer between what a field records and what an advisor signs off on.",
   "brookside-2025":
     "A soil lab with decades of ground truth and agronomists who do the work. Our first partner with real fields.",
   "bayer-lifehub-2026": "A bigger room for the same idea.",
@@ -27,7 +31,7 @@ export default function HomePage() {
     <>
       {/* ── Hero ────────────────────────────────────────────────── */}
       <section className="bg-field-gradient bg-grain relative overflow-hidden min-h-[400px] sm:min-h-[420px]">
-        {/* Background photo — falls back to gradient + grain when image fails */}
+        {/* Background photo, falls back to gradient + grain when image fails */}
         <HeroBg />
         {/* Readability overlay */}
         <div
@@ -205,7 +209,7 @@ export default function HomePage() {
             Where we are going
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-center text-muted-foreground">
-            Everyone eats. The goal is agriculture that is more productive, resilient and profitable, without taking from the future. Better data leads to better decisions, which build that future step by step.
+            Everyone eats. The goal is agriculture that is more productive, resilient and profitable, without taking from the future. Better data leads to better decisions. Building the future step by step.
           </p>
           <div className="mt-10 grid gap-8 sm:mt-12 md:grid-cols-3">
             {[

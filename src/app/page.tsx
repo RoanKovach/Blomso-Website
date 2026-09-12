@@ -157,9 +157,6 @@ export default function HomePage() {
           >
             The story so far
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            Dated, in order, nothing projected.
-          </p>
           <Separator className="mt-8" />
           <div className="relative mt-8">
             {/* Line: through circle centers, starts at first circle top, ends at last circle bottom */}

@@ -45,9 +45,6 @@ export function FirstPilotTimelineItem({
               <li>Lab and field data ingestion</li>
               <li>QC + anomaly flags + audit trail</li>
             </ul>
-            <p className="mt-4 max-w-2xl text-sm text-muted-foreground">
-              Real advisors, real fields, real feedback, weekly.
-            </p>
           </div>
         )}
       </div>

@@ -2,6 +2,15 @@
 
 import { useState } from "react";
 import { TimelinePhotoGrid } from "./timeline-photo-grid";
+import { entryLinkClass, expandToggleClass } from "./story-timeline-item";
+
+/** Ohio State newsroom announcement of the inaugural Techstars Columbus class. */
+const TECHSTARS_ANNOUNCEMENT =
+  "https://news.osu.edu/techstars-columbus-and-ohio-state-announce-inaugural-class-of-innovators/";
+
+/** The accelerator's own page for the Ohio State program. */
+const TECHSTARS_ACCELERATOR =
+  "https://www.techstars.com/accelerators/ohio-state-university-accelerator";
 
 type TechstarsTimelineItemProps = {
   milestone: {
@@ -21,24 +30,47 @@ export function TechstarsTimelineItem({ milestone }: TechstarsTimelineItemProps)
         aria-hidden="true"
       />
       <div className="space-y-4">
-        <button
-          type="button"
-          onClick={() => setExpanded((open) => !open)}
-          className="flex items-center gap-2 text-left font-semibold"
-          aria-expanded={expanded}
-        >
+        <div className="flex items-center gap-2 text-left font-semibold">
           <span>
-            {milestone.value ?? ""} &middot; {milestone.headline}
+            {milestone.value ?? ""} &middot;{" "}
+            <a
+              href={TECHSTARS_ANNOUNCEMENT}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={entryLinkClass}
+            >
+              {milestone.headline}
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
           </span>
-          <span className="text-xs font-normal text-muted-foreground">
+          <button
+            type="button"
+            onClick={() => setExpanded((open) => !open)}
+            className={expandToggleClass}
+            aria-expanded={expanded}
+            aria-label={`${expanded ? "Collapse" : "Expand"} timeline for ${milestone.headline}`}
+          >
             {expanded ? "Collapse timeline" : "Expand timeline"}
-          </span>
-        </button>
+          </button>
+        </div>
         {expanded && (
           <>
             <TimelinePhotoGrid />
             <p className="max-w-2xl text-sm text-muted-foreground">
               The program that turned the idea into a company, and where our first advisor at Ohio State signed on.
+            </p>
+            <p className="max-w-2xl text-sm text-muted-foreground">
+              Blomso joined the first{" "}
+              <a
+                href={TECHSTARS_ACCELERATOR}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={entryLinkClass}
+              >
+                Techstars Columbus
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>{" "}
+              cohort as its youngest team. The program brought early funding and hands-on training in how companies get built, and it put the idea in front of people who could break it. We spent those months talking with farmers, agronomists, faculty and extension teams across Ohio, while still finishing coursework and undergraduate research at Ohio State.
             </p>
           </>
         )}

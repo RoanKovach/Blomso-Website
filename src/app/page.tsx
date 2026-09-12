@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { getTractionClaims, getVerifiedClaims } from "@/content/claims";
+import { getTractionClaims } from "@/content/claims";
 import { externalLinks } from "@/content/links";
 import { SupportStrip } from "@/components/support-strip";
 import { HeroBg } from "@/components/hero-bg";
@@ -11,38 +11,56 @@ import { CompanyFoundedTimelineItem } from "@/components/company-founded-timelin
 import { FirstPilotTimelineItem } from "@/components/first-pilot-timeline-item";
 import { StoryTimelineItem } from "@/components/story-timeline-item";
 
-/** Narrative shown when a timeline entry without photos is expanded. */
-const milestoneStories: Record<string, string> = {
-  "cofounders-meet":
-    "Two Ohio State students, both in research and both building things on the side, end up roommates and start arguing about which system is worth fixing.",
-  "brookside-2025":
-    "A soil lab with decades of ground truth and agronomists who do the work. Our first partner with real fields.",
-  "bayer-lifehub-2026": "A bigger room for the same idea.",
+/**
+ * Narrative shown when a timeline entry without photos is expanded, with the
+ * source the program name in that entry line links to.
+ */
+const milestoneStories: Record<string, { story: string; href?: string }> = {
+  "cofounders-meet": {
+    story:
+      "Kalib and Roan both grew up in small rural Ohio communities, Kalib in Baltimore and Roan in Wintersville. As roommates at Ohio State, they spent a lot of time talking about how they could make the world better. Those conversations kept coming back to food: everyone has to eat, yet one of society’s most vital systems remains fragmented, under pressure, and underserved by modern software, data and AI. Building a more resilient agricultural system felt like a problem too important to ignore.",
+  },
+  "masschallenge-2024": {
+    story:
+      "MassChallenge Switzerland put us in rooms with agriculture companies, research groups, and investors from outside the Midwest. Over the following year we traveled to New York, Chicago, Switzerland, and England and kept working across Ohio, meeting startups, researchers, and people throughout agriculture. What we found was not a lack of expertise, data, or technology. Much of it was highly specialized and locally distributed, but disconnected. Blomso began focusing on how those pieces could work together, and on building the foundation for what could come next.",
+    href:
+      "https://masschallenge.org/news/masschallenge-switzerland-2024-early-stage-accelerator-cohort/",
+  },
+  "plugandplay-2025": {
+    story:
+      "Plug and Play Topeka continued that work from inside the industry, alongside the companies and growers whose problems we were trying to solve. It is where the shape of Blomso settled: the data and decision layer between what a field records and what an advisor signs off on.",
+    href:
+      "https://www.prweb.com/releases/plug-and-play-topeka-selects-new-cohort-of-25-agtech-and-animal-health-startups-for-accelerator-program-302228259.html",
+  },
+  "brookside-2025": {
+    story:
+      "Brookside Laboratories, one of North America’s longest-running agricultural laboratory and consultant networks, became Blomso’s first major industry partner. Working alongside its agronomists and consultant community grounded our ideas in real fields, real workflows and decades of practical experience, and showed us where technology could actually make a difference.",
+    href:
+      "https://www.blinc.com/",
+  },
+  "bayer-lifehub-2026": {
+    story:
+      "Bayer and AgStart selected Blomso as one of two winners of the global Golden Ticket III program, bringing the company into Bayer’s LifeHub California open innovation ecosystem. Access to scientists, research infrastructure and the wider agricultural R&D community gave Blomso a new environment to test its ideas, and pushed the team from understanding agricultural decisions toward understanding how agricultural innovation itself could be improved.",
+  },
 };
 
-export default function HomePage() {
-  const capabilities = getVerifiedClaims("capability");
-  const milestones = getTractionClaims("milestone");
+/** Source link for timeline entries that carry no expand of their own. */
+const milestoneLinks: Record<string, string> = {
+  "nvidia-2025": "https://www.nvidia.com/en-us/startups/showcase/",
+};
 
-  const platformFeatures = [
-    {
-      id: "management-zones",
-      headline: "Management zones from imagery",
-      detail:
-        "Search and score satellite scenes, generate zones, edit them as real geometry, export to SMS and GIS.",
-    },
-    ...capabilities.map((c) => ({
-      id: c.id,
-      headline: c.headline,
-      detail: c.detail,
-    })),
-  ];
+/** Matches the entry line link treatment used by the expandable entries. */
+const entryLinkClass =
+  "rounded-sm underline underline-offset-4 transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring";
+
+export default function HomePage() {
+  const milestones = getTractionClaims("milestone");
 
   return (
     <>
       {/* ── Hero ────────────────────────────────────────────────── */}
       <section className="bg-field-gradient bg-grain relative overflow-hidden min-h-[400px] sm:min-h-[420px]">
-        {/* Background photo — falls back to gradient + grain when image fails */}
+        {/* Background photo, falls back to gradient + grain when image fails */}
         <HeroBg />
         {/* Readability overlay */}
         <div
@@ -55,7 +73,7 @@ export default function HomePage() {
             A Biospheric Operating System rooted in the soil.
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">
-            Blomso unifies fragmented agricultural data into data-driven digital twins, so AI can test field decisions before you do, turning biological complexity into practical insight.
+            Everything that describes a field is fused into one record, so the variation can be seen, decided on, and in time simulated. It starts with management zones, in use on real fields today.
           </p>
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <Button asChild size="lg" className="w-full sm:w-auto">
@@ -85,21 +103,21 @@ export default function HomePage() {
           What gets in the way today
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-          Blomso builds computer tools for farmers, agronomists and ag researchers.
+          Farmers, agronomists and researchers are all trying to answer the same question: how do soil, water and yield potential change across this field, and how should each part of it be managed? Today, much of the information needed to answer it is still disconnected. Three things keep that knowledge from compounding.
         </p>
         <div className="mt-8 grid gap-6 sm:mt-10 md:grid-cols-3">
           {[
             {
-              title: "Data that never meets.",
-              desc: "Soil labs, satellites, sensors, weather, yield monitors and field notes describe the same acre in different files. Blomso brings them into one working record per field.",
+              title: "The field is split across systems",
+              desc: "Soil tests, imagery, sensors, weather, yield maps and field notes all describe the same acres, but they rarely come together as one usable picture.",
             },
             {
-              title: "Numbers you cannot trace.",
-              desc: "A value with no source, no date and no method cannot be defended. Every number in Blomso keeps where it came from and what was done to it.",
+              title: "Data loses its context",
+              desc: "A number means little without knowing where it came from, when it was measured, how it was produced and what was happening in the field around it. Without that context, comparison, validation and modeling get harder.",
             },
             {
-              title: "Work that does not carry over.",
-              desc: "The farmer wants to know what to do on this field. The agronomist has to sign the plan. The researcher has to show why it worked. Each rebuilds the same record from scratch, and what one learns rarely reaches the next. Blomso keeps one record all three can work from.",
+              title: "Decisions do not compound",
+              desc: "Farmers, agronomists and researchers rebuild the same context again and again. What one person learns from a field, a season or a trial rarely carries cleanly into the next decision.",
             },
           ].map((p) => (
             <Card
@@ -115,7 +133,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Platform ─────────────────────────────────────────────── */}
+      {/* ── How it works ─────────────────────────────────────────── */}
       <section
         id="platform"
         aria-labelledby="platform-heading"
@@ -125,77 +143,38 @@ export default function HomePage() {
           id="platform-heading"
           className="text-center text-2xl font-bold tracking-tight sm:text-3xl"
         >
-          What the platform does
+          How it works
         </h2>
         <p className="mx-auto mt-4 max-w-3xl text-center text-base text-muted-foreground">
-          Audit-ready, source-linked soil and field data for reporting and decisions. Soil is the beachhead. We also ingest sensors, weather, and field notes into the same traceable record, including uploaded PDFs/photos/CSVs that we extract into structured data.
+          Blomso builds the data, AI and agentic systems that answer it: connect the information, keep its meaning, and let what is learned accumulate.
         </p>
-
-        {/* Collect → Link → Model → Prove (compact four step row) */}
-        <div className="bg-field-map mt-10 grid gap-6 rounded-lg border border-border/60 p-5 sm:grid-cols-2 sm:p-6 lg:grid-cols-4">
+        <div className="mt-10 grid gap-8 sm:mt-12 md:grid-cols-3">
           {[
             {
-              step: "01",
-              title: "Collect",
-              desc: "Soil lab results, IoT sensor streams, weather data, and field scout notes. Upload PDFs/photos/CSVs or connect sources through the API. We extract key fields into a normalized dataset for aggregation and reporting.",
+              title: "Fuse.",
+              desc: "Lab results, satellite imagery, sensors, weather, yield and field notes are brought onto one grid in one format, and every value keeps its source and what was done to it.",
             },
             {
-              step: "02",
-              title: "Link",
-              desc: "Provenance and integrity: every data point is timestamped at capture, anomaly-flagged against expected ranges, and linked to its original source. Lineage is preserved across transformations (raw → extracted fields → standardized units → aggregated views).",
+              title: "See.",
+              desc: "The fused record becomes maps a person can read and edit: management zones, band views, terrain in 3D, legends that say exactly what they measure.",
             },
             {
-              step: "03",
-              title: "Model (Coming next)",
-              desc: "As the verified dataset grows, we build field baselines and early prediction. Scenario testing and simulation on top of your data, later.",
-            },
-            {
-              step: "04",
-              title: "Prove",
-              desc: "Source-linked reports, dashboards, and alerts with evidence trails, so agronomists and investors can trace any figure back to field-level data.",
+              title: "Simulate.",
+              desc: "On that record we build field baselines, then prediction, then simulation, so a practice can be tested before it is planted.",
             },
           ].map((s) => (
-            <div key={s.step}>
-              <p className="text-xs font-semibold text-primary">{s.step}</p>
-              <h3 className="mt-1 text-base font-semibold">{s.title}</h3>
-              <p className="mt-1.5 text-sm text-muted-foreground">{s.desc}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* How data integrity works */}
-        <h3 className="mt-12 text-lg font-semibold">How data integrity works</h3>
-        <div className="mt-4 grid gap-4 sm:grid-cols-3">
-          <p className="text-sm text-muted-foreground">
-            <span className="font-medium text-foreground">Source-linked and timestamped.</span>{" "}
-            Every metric traces back to a lab report, sensor reading, or field entry, stamped at capture. No orphaned numbers.
-          </p>
-          <p className="text-sm text-muted-foreground">
-            <span className="font-medium text-foreground">Anomaly flagged.</span>{" "}
-            Automated checks catch readings outside expected ranges, for review before they feed into reports or models.
-          </p>
-          <p className="text-sm text-muted-foreground">
-            <span className="font-medium text-foreground">Export-ready lineage.</span>{" "}
-            Reports and exports include source references, so any figure traces back to its field-level source.
-          </p>
-        </div>
-
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {platformFeatures.map((f) => (
-            <Card
-              key={f.id}
-              className="border-border/60 motion-safe:transition-[transform,box-shadow] motion-safe:duration-200 motion-safe:hover:-translate-y-0.5 motion-safe:hover:shadow-md"
+            <div
+              key={s.title}
+              className="rounded-lg border border-border/60 bg-background p-6"
             >
-              <CardHeader>
-                <CardTitle className="text-lg">{f.headline}</CardTitle>
-                {f.detail && <CardDescription>{f.detail}</CardDescription>}
-              </CardHeader>
-            </Card>
+              <h3 className="text-lg font-semibold text-primary">{s.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* ── Traction ─────────────────────────────────────────────── */}
+      {/* ── The story so far ─────────────────────────────────────── */}
       {milestones.length > 0 && (
         <section
           id="traction"
@@ -206,11 +185,8 @@ export default function HomePage() {
             id="traction-heading"
             className="text-center text-2xl font-bold tracking-tight sm:text-3xl"
           >
-            Traction
+            The story so far
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            Every number traces to its source. Nothing projected, nothing estimated.
-          </p>
           <Separator className="mt-8" />
           <div className="relative mt-8">
             {/* Line: through circle centers, starts at first circle top, ends at last circle bottom */}
@@ -229,10 +205,15 @@ export default function HomePage() {
                 if (m.id === "first-pilot") {
                   return <FirstPilotTimelineItem key={m.id} milestone={m} />;
                 }
-                const story = milestoneStories[m.id];
-                if (story) {
+                const entry = milestoneStories[m.id];
+                if (entry) {
                   return (
-                    <StoryTimelineItem key={m.id} milestone={m} story={story} />
+                    <StoryTimelineItem
+                      key={m.id}
+                      milestone={m}
+                      story={entry.story}
+                      href={entry.href}
+                    />
                   );
                 }
                 return (
@@ -244,7 +225,20 @@ export default function HomePage() {
                     />
                     <div className="space-y-4">
                       <p className="font-semibold">
-                        {m.value ?? ""} &middot; {m.headline}
+                        {m.value ?? ""} &middot;{" "}
+                        {milestoneLinks[m.id] ? (
+                          <a
+                            href={milestoneLinks[m.id]}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={entryLinkClass}
+                          >
+                            {m.headline}
+                            <span className="sr-only"> (opens in a new tab)</span>
+                          </a>
+                        ) : (
+                          m.headline
+                        )}
                       </p>
                     </div>
                   </li>
@@ -255,39 +249,58 @@ export default function HomePage() {
         </section>
       )}
 
-      {/* ── Biospheric OS ─────────────────────────────────────────── */}
+      {/* ── Where we are going ───────────────────────────────────── */}
       <section className="bg-field-map border-t border-border/60 px-4 py-16 sm:px-6 sm:py-20">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-center text-2xl font-bold tracking-tight sm:text-3xl">
-            We&rsquo;re building a biospheric OS
+            Where we are going
           </h2>
+          <p className="mx-auto mt-4 max-w-3xl text-center text-muted-foreground">
+            Everyone eats. The goal is agriculture that is more productive, resilient and profitable, without taking from the future. Better data leads to better decisions. Building the future step by step.
+          </p>
           <div className="mt-10 grid gap-8 sm:mt-12 md:grid-cols-3">
-            <div className="rounded-lg border border-border/60 bg-background p-6">
-              <h3 className="text-lg font-semibold text-primary">Now</h3>
-              <p className="mt-2 text-sm text-muted-foreground">Zones from imagery, editing, export</p>
-              <ul className="mt-4 list-inside list-disc space-y-1 text-sm text-muted-foreground">
-                <li>Management zones from satellite imagery, in use on real fields</li>
-                <li>Zone editing: merge, split, cut out, boundary edit</li>
-                <li>Shapefile export into the tools agronomists already use</li>
-              </ul>
-            </div>
-            <div className="rounded-lg border border-border/60 bg-background p-6">
-              <h3 className="text-lg font-semibold text-primary">Next</h3>
-              <p className="mt-2 text-sm text-muted-foreground">Baselines, predictions, assistant workflows</p>
-              <ul className="mt-4 list-inside list-disc space-y-1 text-sm text-muted-foreground">
-                <li>Field baselines and context modeling</li>
-                <li>Simple predictions</li>
-                <li>Agronomy assistant workflows</li>
-              </ul>
-            </div>
-            <div className="rounded-lg border border-border/60 bg-background p-6">
-              <h3 className="text-lg font-semibold text-primary">Later</h3>
-              <p className="mt-2 text-sm text-muted-foreground">Digital twin + in-silico trials</p>
-              <ul className="mt-4 list-inside list-disc space-y-1 text-sm text-muted-foreground">
-                <li>Digital twin across practices</li>
-                <li>In-silico trials across biologicals and inputs</li>
-              </ul>
-            </div>
+            {[
+              {
+                stage: "Now",
+                focus: "Map, refine, and export",
+                items: [
+                  "Management zones from satellite imagery",
+                  "Merge, split, cut out, and edit boundaries",
+                  "Export shapefiles into the agronomy tools you already use",
+                ],
+              },
+              {
+                stage: "Next",
+                focus: "Model, predict, and assist",
+                items: [
+                  "Field baselines and context models",
+                  "Practical predictions",
+                  "Assistant workflows that support agronomy decisions",
+                ],
+              },
+              {
+                stage: "Later",
+                focus: "Simulate, test, and optimize",
+                items: [
+                  "Field-scale digital twins for management scenarios",
+                  "In-silico trials of biologicals, inputs, and management strategies",
+                ],
+              },
+            ].map((c) => (
+              <div
+                key={c.stage}
+                className="rounded-lg border border-border/60 bg-background p-6"
+              >
+                <h3 className="text-lg font-semibold text-primary">
+                  {c.stage}: {c.focus}
+                </h3>
+                <ul className="mt-4 list-inside list-disc space-y-1 text-sm text-muted-foreground">
+                  {c.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -295,11 +308,10 @@ export default function HomePage() {
       {/* ── CTA ─────────────────────────────────────────────────── */}
       <section className="bg-field-gradient bg-grain border-t border-border/60 px-4 py-16 text-center sm:px-6 sm:py-20">
         <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
-          See it on your data.
+          See it on your fields.
         </h2>
         <p className="mx-auto mt-4 max-w-lg text-muted-foreground">
-          We&rsquo;ll show a walkthrough tailored to your fields and the
-          evidence you already have.
+          We will show a walkthrough on your fields, ending in the file your tools already open. Blomso does not replace the tools you run; it hands them better inputs.
         </p>
         <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
           <Button asChild size="lg" className="w-full sm:w-auto">

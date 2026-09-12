@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
   // next/image on static hosting
   images: { unoptimized: true },
 
+  // Do not ship browser source maps with the production export
+  productionBrowserSourceMaps: false,
+
   // NOTE: Next "redirects()" does not run on static export.
   // Put redirects in public_html/.htaccess instead.
 };

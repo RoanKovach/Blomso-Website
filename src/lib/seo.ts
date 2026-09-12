@@ -1,4 +1,4 @@
-export const SITE_URL = "https://blomso.com";
+export const SITE_URL = "https://blomso.ai";
 export const SITE_NAME = "Blomso";
 
 /**
@@ -22,7 +22,7 @@ export function pageOG(path: string, title: string, description: string) {
           url: "/opengraph-image",
           width: 1200,
           height: 630,
-          alt: `${SITE_NAME} — A Biospheric Operating System rooted in the soil`,
+          alt: `${SITE_NAME}: A Biospheric Operating System rooted in the soil`,
         },
       ],
     },

@@ -10,14 +10,29 @@ type CompanyFoundedTimelineItemProps = {
   };
 };
 
+/** Ohio State College of Engineering coverage of the scholarship luncheon. */
+const OSU_ENGINEERING_ARTICLE =
+  "https://engineering.osu.edu/news/2025/04/donors-hear-firsthand-how-scholarships-propel-futures";
+
+/** Local newspaper profile covering Kalib's early venture work. */
+const KALIB_PROFILE_ARTICLE =
+  "https://www.lancastereaglegazette.com/story/news/2022/05/22/liberty-union-senior-kalib-riddle-wants-own-business-and-more/9820234002/";
+
+const inlineLinkClass =
+  "rounded-sm underline underline-offset-4 transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring";
+
 const COMPANY_FOUNDED_PHOTOS = [
   {
     src: "/timeline/company-founded-techstars-post.png",
     alt: "Techstars post about Blomso highlighting sustainable agriculture",
+    caption: "Early days: the first Blomso banner and a whiteboard full of plans.",
   },
   {
     src: "/timeline/company-founded-osu-post.png",
     alt: "Ohio State University College of Engineering scholarship luncheon photo",
+    caption:
+      "At Ohio State’s College of Engineering Scholarship Luncheon, where Roan was invited to speak.",
+    captionHref: OSU_ENGINEERING_ARTICLE,
   },
 ] as const;
 
@@ -51,7 +66,23 @@ export function CompanyFoundedTimelineItem({
           <>
             <TimelinePhotoGrid photos={COMPANY_FOUNDED_PHOTOS} />
             <p className="max-w-2xl text-sm text-muted-foreground">
-              The argument settled on agriculture: the system everything else rests on, running on data that never meets.
+              By the time they founded Blomso, both had already spent years
+              building. At Ohio State, Roan worked on DNA nanorobotics for
+              targeted drug delivery while also training in research
+              commercialization and entrepreneurship. Kalib had been developing
+              a carbon-capture concept since eighth grade,{" "}
+              <a
+                href={KALIB_PROFILE_ARTICLE}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={inlineLinkClass}
+              >
+                built it into a venture through high school
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+              , and holds a patent on the formula behind it. When they met, they
+              brought those technical and entrepreneurial
+              paths together to build Blomso.
             </p>
           </>
         )}

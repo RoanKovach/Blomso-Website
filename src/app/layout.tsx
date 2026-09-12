@@ -7,11 +7,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Blomso | Operational results, not promises",
+    default: "Blomso",
     template: "%s | Blomso",
   },
   description:
-    "Soil data you can trust, ready for reporting and decisions. Blomso unifies lab results and field context into a source-linked soil record, then automates QC and reporting.",
+    "Where does your field vary, and what should each part get? Blomso builds the data, AI and agentic systems that answer it, starting with management zones from satellite imagery.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "32x32" },
@@ -19,15 +19,15 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: "/apple-icon", sizes: "180x180", type: "image/png" }],
   },
-  metadataBase: new URL("https://blomso.com"),
+  metadataBase: new URL("https://blomso.ai"),
   openGraph: {
     siteName: "Blomso",
     type: "website",
     locale: "en_US",
-    title: "Blomso | Operational results, not promises",
+    title: "Blomso",
     description:
-      "Soil data you can trust, ready for reporting and decisions. Blomso unifies lab results and field context into a source-linked soil record, then automates QC and reporting.",
-    url: "https://blomso.com/",
+      "Where does your field vary, and what should each part get? Blomso builds the data, AI and agentic systems that answer it, starting with management zones from satellite imagery.",
+    url: "https://blomso.ai/",
   },
   twitter: {
     card: "summary_large_image",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://blomso.com/",
+    canonical: "https://blomso.ai/",
   },
 };
 

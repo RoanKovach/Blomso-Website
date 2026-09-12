@@ -20,7 +20,7 @@ const milestoneStories: Record<string, string> = {
   "plugandplay-2025":
     "Plug and Play Topeka continued that work from inside the industry, alongside the companies and growers whose problems we were trying to solve. It is where the shape of Blomso settled: the data and decision layer between what a field records and what an advisor signs off on.",
   "brookside-2025":
-    "A soil lab with decades of ground truth and agronomists who do the work. Our first partner with real fields.",
+    "Brookside Laboratories, one of North America’s longest-running agricultural laboratory and consultant networks, became Blomso’s first major industry partner. Working alongside its agronomists and consultant community grounded our ideas in real fields, real workflows and decades of practical experience, and showed us where technology could actually make a difference.",
   "bayer-lifehub-2026": "A bigger room for the same idea.",
 };
 

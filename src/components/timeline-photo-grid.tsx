@@ -7,7 +7,26 @@ type Photo = {
   alt: string;
   /** Optional line shown under the image. */
   caption?: string;
+  /** When set, the caption becomes an external link to this source. */
+  captionHref?: string;
 };
+
+/** Arrow-up-right, matching the external link marker used across the site. */
+function ExternalIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      className="ml-1 inline-block h-3 w-3 opacity-50"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={2.5}
+      stroke="currentColor"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+    </svg>
+  );
+}
 
 const DEFAULT_PHOTOS: readonly Photo[] = [
   { src: "/timeline/zoom-grid.png", alt: "Techstars cohort on a video call" },
@@ -40,7 +59,7 @@ export function TimelinePhotoGrid({ photos = DEFAULT_PHOTOS }: { photos?: readon
   return (
     <>
       <div className="grid gap-4 pt-2 sm:grid-cols-3">
-        {photos.map(({ src, alt, caption }) => (
+        {photos.map(({ src, alt, caption, captionHref }) => (
           <figure key={src} className="m-0">
             <button
               type="button"
@@ -56,7 +75,20 @@ export function TimelinePhotoGrid({ photos = DEFAULT_PHOTOS }: { photos?: readon
             </button>
             {caption && (
               <figcaption className="mt-2 text-xs text-muted-foreground">
-                {caption}
+                {captionHref ? (
+                  <a
+                    href={captionHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-sm underline underline-offset-4 transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                  >
+                    {caption}
+                    <ExternalIcon />
+                    <span className="sr-only"> (opens in a new tab)</span>
+                  </a>
+                ) : (
+                  caption
+                )}
               </figcaption>
             )}
           </figure>

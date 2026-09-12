@@ -244,8 +244,7 @@ export default function HomePage() {
           See it on your fields.
         </h2>
         <p className="mx-auto mt-4 max-w-lg text-muted-foreground">
-          We&rsquo;ll show a walkthrough tailored to your fields and the
-          evidence you already have.
+          We will show a walkthrough on your fields, ending in the file your tools already open. Blomso does not replace the tools you run; it hands them better inputs.
         </p>
         <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
           <Button asChild size="lg" className="w-full sm:w-auto">

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { getTractionClaims, getVerifiedClaims } from "@/content/claims";
+import { getTractionClaims } from "@/content/claims";
 import { externalLinks } from "@/content/links";
 import { SupportStrip } from "@/components/support-strip";
 import { HeroBg } from "@/components/hero-bg";
@@ -21,22 +21,7 @@ const milestoneStories: Record<string, string> = {
 };
 
 export default function HomePage() {
-  const capabilities = getVerifiedClaims("capability");
   const milestones = getTractionClaims("milestone");
-
-  const platformFeatures = [
-    {
-      id: "management-zones",
-      headline: "Management zones from imagery",
-      detail:
-        "Search and score satellite scenes, generate zones, edit them as real geometry, export to SMS and GIS.",
-    },
-    ...capabilities.map((c) => ({
-      id: c.id,
-      headline: c.headline,
-      detail: c.detail,
-    })),
-  ];
 
   return (
     <>
@@ -115,7 +100,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Platform ─────────────────────────────────────────────── */}
+      {/* ── How it works ─────────────────────────────────────────── */}
       <section
         id="platform"
         aria-labelledby="platform-heading"
@@ -125,74 +110,38 @@ export default function HomePage() {
           id="platform-heading"
           className="text-center text-2xl font-bold tracking-tight sm:text-3xl"
         >
-          What the platform does
+          How it works
         </h2>
         <p className="mx-auto mt-4 max-w-3xl text-center text-base text-muted-foreground">
-          Audit-ready, source-linked soil and field data for reporting and decisions. Soil is the beachhead. We also ingest sensors, weather, and field notes into the same traceable record, including uploaded PDFs/photos/CSVs that we extract into structured data.
+          Everything that describes a field is fused into one common format, so it can be seen, and in time simulated.
         </p>
-
-        {/* Collect → Link → Model → Prove (compact four step row) */}
-        <div className="bg-field-map mt-10 grid gap-6 rounded-lg border border-border/60 p-5 sm:grid-cols-2 sm:p-6 lg:grid-cols-4">
+        <div className="mt-10 grid gap-8 sm:mt-12 md:grid-cols-3">
           {[
             {
-              step: "01",
-              title: "Collect",
-              desc: "Soil lab results, IoT sensor streams, weather data, and field scout notes. Upload PDFs/photos/CSVs or connect sources through the API. We extract key fields into a normalized dataset for aggregation and reporting.",
+              title: "Fuse.",
+              desc: "Lab results, satellite imagery, sensors, weather, yield and field notes are brought onto one grid in one format, and every value keeps its source and what was done to it.",
             },
             {
-              step: "02",
-              title: "Link",
-              desc: "Provenance and integrity: every data point is timestamped at capture, anomaly-flagged against expected ranges, and linked to its original source. Lineage is preserved across transformations (raw → extracted fields → standardized units → aggregated views).",
+              title: "See.",
+              desc: "The fused record becomes maps a person can read and edit: management zones, band views, terrain in 3D, legends that say exactly what they measure.",
             },
             {
-              step: "03",
-              title: "Model (Coming next)",
-              desc: "As the verified dataset grows, we build field baselines and early prediction. Scenario testing and simulation on top of your data, later.",
-            },
-            {
-              step: "04",
-              title: "Prove",
-              desc: "Source-linked reports, dashboards, and alerts with evidence trails, so agronomists and investors can trace any figure back to field-level data.",
+              title: "Simulate.",
+              desc: "On that record we build field baselines, then prediction, then simulation, so a practice can be tested before it is planted.",
             },
           ].map((s) => (
-            <div key={s.step}>
-              <p className="text-xs font-semibold text-primary">{s.step}</p>
-              <h3 className="mt-1 text-base font-semibold">{s.title}</h3>
-              <p className="mt-1.5 text-sm text-muted-foreground">{s.desc}</p>
+            <div
+              key={s.title}
+              className="rounded-lg border border-border/60 bg-background p-6"
+            >
+              <h3 className="text-lg font-semibold text-primary">{s.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
             </div>
           ))}
         </div>
-
-        {/* How data integrity works */}
-        <h3 className="mt-12 text-lg font-semibold">How data integrity works</h3>
-        <div className="mt-4 grid gap-4 sm:grid-cols-3">
-          <p className="text-sm text-muted-foreground">
-            <span className="font-medium text-foreground">Source-linked and timestamped.</span>{" "}
-            Every metric traces back to a lab report, sensor reading, or field entry, stamped at capture. No orphaned numbers.
-          </p>
-          <p className="text-sm text-muted-foreground">
-            <span className="font-medium text-foreground">Anomaly flagged.</span>{" "}
-            Automated checks catch readings outside expected ranges, for review before they feed into reports or models.
-          </p>
-          <p className="text-sm text-muted-foreground">
-            <span className="font-medium text-foreground">Export-ready lineage.</span>{" "}
-            Reports and exports include source references, so any figure traces back to its field-level source.
-          </p>
-        </div>
-
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {platformFeatures.map((f) => (
-            <Card
-              key={f.id}
-              className="border-border/60 motion-safe:transition-[transform,box-shadow] motion-safe:duration-200 motion-safe:hover:-translate-y-0.5 motion-safe:hover:shadow-md"
-            >
-              <CardHeader>
-                <CardTitle className="text-lg">{f.headline}</CardTitle>
-                {f.detail && <CardDescription>{f.detail}</CardDescription>}
-              </CardHeader>
-            </Card>
-          ))}
-        </div>
+        <p className="mt-6 text-center text-sm text-muted-foreground">
+          Every number can be traced back to where it came from.
+        </p>
       </section>
 
       {/* ── Traction ─────────────────────────────────────────────── */}

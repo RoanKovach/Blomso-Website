@@ -65,7 +65,7 @@ export function SiteFooter() {
               <ul className="mt-3 space-y-2 text-sm">
                 <li>
                   <Link href="/#platform" className={linkClass}>
-                    Mission
+                    How it works
                   </Link>
                 </li>
                 <li>

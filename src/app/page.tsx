@@ -94,7 +94,7 @@ export default function HomePage() {
           What gets in the way today
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-          Farmers, agronomists and researchers are all trying to answer the same question: where does this field vary, and what should each part of it get? Today, much of the information needed to answer it is still disconnected. Three things keep that knowledge from compounding.
+          Farmers, agronomists and researchers are all trying to answer the same question: how do soil, water and yield potential change across this field, and how should each part of it be managed, from sampling and seed rates to fertility and inputs? Today, much of the information needed to answer it is still disconnected. Three things keep that knowledge from compounding.
         </p>
         <div className="mt-8 grid gap-6 sm:mt-10 md:grid-cols-3">
           {[

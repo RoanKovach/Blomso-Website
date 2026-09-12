@@ -144,7 +144,7 @@ export default function HomePage() {
         </p>
       </section>
 
-      {/* ── Traction ─────────────────────────────────────────────── */}
+      {/* ── The story so far ─────────────────────────────────────── */}
       {milestones.length > 0 && (
         <section
           id="traction"
@@ -155,10 +155,10 @@ export default function HomePage() {
             id="traction-heading"
             className="text-center text-2xl font-bold tracking-tight sm:text-3xl"
           >
-            Traction
+            The story so far
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-            Every number traces to its source. Nothing projected, nothing estimated.
+            Dated, in order, nothing projected.
           </p>
           <Separator className="mt-8" />
           <div className="relative mt-8">

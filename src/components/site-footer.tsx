@@ -70,7 +70,7 @@ export function SiteFooter() {
                 </li>
                 <li>
                   <Link href="/#traction" className={linkClass}>
-                    Traction
+                    Story
                   </Link>
                 </li>
                 <li>

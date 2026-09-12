@@ -204,11 +204,11 @@ export default function HomePage() {
         </section>
       )}
 
-      {/* ── Biospheric OS ─────────────────────────────────────────── */}
+      {/* ── Where it is going ────────────────────────────────────── */}
       <section className="bg-field-map border-t border-border/60 px-4 py-16 sm:px-6 sm:py-20">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-center text-2xl font-bold tracking-tight sm:text-3xl">
-            We&rsquo;re building a biospheric OS
+            Where it is going
           </h2>
           <div className="mt-10 grid gap-8 sm:mt-12 md:grid-cols-3">
             <div className="rounded-lg border border-border/60 bg-background p-6">

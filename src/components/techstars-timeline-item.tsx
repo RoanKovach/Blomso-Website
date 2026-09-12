@@ -41,7 +41,7 @@ export function TechstarsTimelineItem({ milestone }: TechstarsTimelineItemProps)
               The program that turned the idea into a company, and where our first advisor at Ohio State signed on.
             </p>
             <p className="max-w-2xl text-sm text-muted-foreground">
-              Blomso joined the first Techstars Columbus cohort as its youngest team. The program brought early funding and hands-on training in how companies get built, and it put the idea in front of people who could break it. We spent those months talking with farmers, agronomists, faculty and extension teams across Ohio, learning where our assumptions held, where they did not, and what agriculture actually needed, while still finishing coursework and undergraduate research at Ohio State. It was also where our first advisor at Ohio State joined the team.
+              Blomso joined the first Techstars Columbus cohort as its youngest team. The program brought early funding and hands-on training in how companies get built, and it put the idea in front of people who could break it. We spent those months talking with farmers, agronomists, faculty and extension teams across Ohio, learning where our assumptions held, where they did not, and what agriculture actually needed, while still finishing coursework and undergraduate research at Ohio State.
             </p>
           </>
         )}

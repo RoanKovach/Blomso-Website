@@ -244,7 +244,7 @@ export default function HomePage() {
       {/* ── CTA ─────────────────────────────────────────────────── */}
       <section className="bg-field-gradient bg-grain border-t border-border/60 px-4 py-16 text-center sm:px-6 sm:py-20">
         <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
-          See it on your data.
+          See it on your fields.
         </h2>
         <p className="mx-auto mt-4 max-w-lg text-muted-foreground">
           We&rsquo;ll show a walkthrough tailored to your fields and the

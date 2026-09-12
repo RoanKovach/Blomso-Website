@@ -6,6 +6,7 @@
     "dev": "next dev",
     "prebuild": "node scripts/generate-hero-bg.mjs",
     "build": "next build",
+    "postbuild": "node scripts/strip-source-maps.mjs",
     "start": "next start",
     "lint": "eslint"
   },

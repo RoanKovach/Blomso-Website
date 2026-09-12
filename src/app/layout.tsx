@@ -31,9 +31,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blomso | Operational results, not promises",
+    title: "Blomso",
     description:
-      "Soil data you can trust, ready for reporting and decisions.",
+      "Where does your field vary, and what should each part get? Blomso builds the data, AI and agentic systems that answer it, starting with management zones from satellite imagery.",
   },
   robots: {
     index: true,

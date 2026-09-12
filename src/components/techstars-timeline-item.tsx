@@ -2,6 +2,11 @@
 
 import { useState } from "react";
 import { TimelinePhotoGrid } from "./timeline-photo-grid";
+import { entryLinkClass, expandToggleClass } from "./story-timeline-item";
+
+/** Ohio State newsroom announcement of the inaugural Techstars Columbus class. */
+const TECHSTARS_ANNOUNCEMENT =
+  "https://news.osu.edu/techstars-columbus-and-ohio-state-announce-inaugural-class-of-innovators/";
 
 type TechstarsTimelineItemProps = {
   milestone: {
@@ -21,19 +26,29 @@ export function TechstarsTimelineItem({ milestone }: TechstarsTimelineItemProps)
         aria-hidden="true"
       />
       <div className="space-y-4">
-        <button
-          type="button"
-          onClick={() => setExpanded((open) => !open)}
-          className="flex items-center gap-2 text-left font-semibold"
-          aria-expanded={expanded}
-        >
+        <div className="flex items-center gap-2 text-left font-semibold">
           <span>
-            {milestone.value ?? ""} &middot; {milestone.headline}
+            {milestone.value ?? ""} &middot;{" "}
+            <a
+              href={TECHSTARS_ANNOUNCEMENT}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={entryLinkClass}
+            >
+              {milestone.headline}
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
           </span>
-          <span className="text-xs font-normal text-muted-foreground">
+          <button
+            type="button"
+            onClick={() => setExpanded((open) => !open)}
+            className={expandToggleClass}
+            aria-expanded={expanded}
+            aria-label={`${expanded ? "Collapse" : "Expand"} timeline for ${milestone.headline}`}
+          >
             {expanded ? "Collapse timeline" : "Expand timeline"}
-          </span>
-        </button>
+          </button>
+        </div>
         {expanded && (
           <>
             <TimelinePhotoGrid />

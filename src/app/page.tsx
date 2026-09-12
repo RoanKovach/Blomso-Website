@@ -11,18 +11,37 @@ import { CompanyFoundedTimelineItem } from "@/components/company-founded-timelin
 import { FirstPilotTimelineItem } from "@/components/first-pilot-timeline-item";
 import { StoryTimelineItem } from "@/components/story-timeline-item";
 
-/** Narrative shown when a timeline entry without photos is expanded. */
-const milestoneStories: Record<string, string> = {
-  "cofounders-meet":
-    "Kalib and Roan both grew up in small rural Ohio communities, Kalib in Baltimore and Roan in Wintersville. As roommates at Ohio State, they spent a lot of time talking about how they could make the world better. Those conversations kept coming back to food: everyone has to eat, yet one of society’s most vital systems remains fragmented, under pressure, and underserved by modern software, data and AI. Building a more resilient agricultural system felt like a problem too important to ignore.",
-  "masschallenge-2024":
-    "MassChallenge Switzerland put us in rooms with agriculture companies, research groups, and investors from outside the Midwest. Over the following year we traveled to New York, Chicago, Switzerland, and England and kept working across Ohio, meeting startups, researchers, and people throughout agriculture. What we found was not a lack of expertise, data, or technology. Much of it was highly specialized and locally distributed, but disconnected. Blomso began focusing on how those pieces could work together, and on building the foundation for what could come next.",
-  "plugandplay-2025":
-    "Plug and Play Topeka continued that work from inside the industry, alongside the companies and growers whose problems we were trying to solve. It is where the shape of Blomso settled: the data and decision layer between what a field records and what an advisor signs off on.",
-  "brookside-2025":
-    "Brookside Laboratories, one of North America’s longest-running agricultural laboratory and consultant networks, became Blomso’s first major industry partner. Working alongside its agronomists and consultant community grounded our ideas in real fields, real workflows and decades of practical experience, and showed us where technology could actually make a difference.",
-  "bayer-lifehub-2026":
-    "Bayer and AgStart selected Blomso as one of two winners of the global Golden Ticket III program, bringing the company into Bayer’s LifeHub California open innovation ecosystem. Access to scientists, research infrastructure and the wider agricultural R&D community gave Blomso a new environment to test its ideas, and pushed the team from understanding agricultural decisions toward understanding how agricultural innovation itself could be improved.",
+/**
+ * Narrative shown when a timeline entry without photos is expanded, with the
+ * source the program name in that entry line links to.
+ */
+const milestoneStories: Record<string, { story: string; href?: string }> = {
+  "cofounders-meet": {
+    story:
+      "Kalib and Roan both grew up in small rural Ohio communities, Kalib in Baltimore and Roan in Wintersville. As roommates at Ohio State, they spent a lot of time talking about how they could make the world better. Those conversations kept coming back to food: everyone has to eat, yet one of society’s most vital systems remains fragmented, under pressure, and underserved by modern software, data and AI. Building a more resilient agricultural system felt like a problem too important to ignore.",
+  },
+  "masschallenge-2024": {
+    story:
+      "MassChallenge Switzerland put us in rooms with agriculture companies, research groups, and investors from outside the Midwest. Over the following year we traveled to New York, Chicago, Switzerland, and England and kept working across Ohio, meeting startups, researchers, and people throughout agriculture. What we found was not a lack of expertise, data, or technology. Much of it was highly specialized and locally distributed, but disconnected. Blomso began focusing on how those pieces could work together, and on building the foundation for what could come next.",
+    href:
+      "https://masschallenge.org/news/masschallenge-switzerland-2024-early-stage-accelerator-cohort/",
+  },
+  "plugandplay-2025": {
+    story:
+      "Plug and Play Topeka continued that work from inside the industry, alongside the companies and growers whose problems we were trying to solve. It is where the shape of Blomso settled: the data and decision layer between what a field records and what an advisor signs off on.",
+    href:
+      "https://www.prweb.com/releases/plug-and-play-topeka-selects-new-cohort-of-25-agtech-and-animal-health-startups-for-accelerator-program-302228259.html",
+  },
+  "brookside-2025": {
+    story:
+      "Brookside Laboratories, one of North America’s longest-running agricultural laboratory and consultant networks, became Blomso’s first major industry partner. Working alongside its agronomists and consultant community grounded our ideas in real fields, real workflows and decades of practical experience, and showed us where technology could actually make a difference.",
+    href:
+      "https://www.blinc.com/",
+  },
+  "bayer-lifehub-2026": {
+    story:
+      "Bayer and AgStart selected Blomso as one of two winners of the global Golden Ticket III program, bringing the company into Bayer’s LifeHub California open innovation ecosystem. Access to scientists, research infrastructure and the wider agricultural R&D community gave Blomso a new environment to test its ideas, and pushed the team from understanding agricultural decisions toward understanding how agricultural innovation itself could be improved.",
+  },
 };
 
 export default function HomePage() {
@@ -177,10 +196,15 @@ export default function HomePage() {
                 if (m.id === "first-pilot") {
                   return <FirstPilotTimelineItem key={m.id} milestone={m} />;
                 }
-                const story = milestoneStories[m.id];
-                if (story) {
+                const entry = milestoneStories[m.id];
+                if (entry) {
                   return (
-                    <StoryTimelineItem key={m.id} milestone={m} story={story} />
+                    <StoryTimelineItem
+                      key={m.id}
+                      milestone={m}
+                      story={entry.story}
+                      href={entry.href}
+                    />
                   );
                 }
                 return (

@@ -94,21 +94,21 @@ export default function HomePage() {
           What gets in the way today
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-          Farmers, agronomists and ag researchers ask the same question of a field. Blomso builds the data, AI and agentic systems that answer it. Three things get in the way today.
+          Farmers, agronomists and researchers are all trying to answer the same question: where does this field vary, and what should each part of it get? Today, much of the information needed to answer it is still disconnected. Three things keep that knowledge from compounding.
         </p>
         <div className="mt-8 grid gap-6 sm:mt-10 md:grid-cols-3">
           {[
             {
-              title: "Data that never meets.",
-              desc: "Soil labs, satellites, sensors, weather, yield monitors and field notes describe the same acre in different files.",
+              title: "The field is split across systems",
+              desc: "Soil tests, imagery, sensors, weather, yield maps and field notes all describe the same acres, but they rarely come together as one usable picture.",
             },
             {
-              title: "Numbers you cannot trace.",
-              desc: "A value with no source, no date and no method cannot be defended.",
+              title: "Data loses its context",
+              desc: "A number means little without knowing where it came from, when it was measured, how it was produced and what was happening in the field around it. Without that context, comparison, validation and modeling get harder.",
             },
             {
-              title: "Work that does not carry over.",
-              desc: "The farmer wants to know what to do on this field. The agronomist has to sign the plan. The researcher has to show why it worked. Each rebuilds the same record from scratch, and what one learns rarely reaches the next.",
+              title: "Decisions do not compound",
+              desc: "Farmers, agronomists and researchers rebuild the same context again and again. What one person learns from a field, a season or a trial rarely carries cleanly into the next decision.",
             },
           ].map((p) => (
             <Card

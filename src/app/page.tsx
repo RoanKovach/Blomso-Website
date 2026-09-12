@@ -201,42 +201,58 @@ export default function HomePage() {
         </section>
       )}
 
-      {/* ── Where it is going ────────────────────────────────────── */}
+      {/* ── Where we are going ───────────────────────────────────── */}
       <section className="bg-field-map border-t border-border/60 px-4 py-16 sm:px-6 sm:py-20">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-center text-2xl font-bold tracking-tight sm:text-3xl">
-            Where it is going
+            Where we are going
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-center text-muted-foreground">
-            The goal is agriculture that is more productive, more resilient and more profitable, without spending the future to get there. Data and better decisions are how; this is the order.
+            Everyone eats. The goal is agriculture that is more productive, resilient and profitable, without taking from the future. Better data leads to better decisions, which build that future step by step.
           </p>
           <div className="mt-10 grid gap-8 sm:mt-12 md:grid-cols-3">
-            <div className="rounded-lg border border-border/60 bg-background p-6">
-              <h3 className="text-lg font-semibold text-primary">Now</h3>
-              <p className="mt-2 text-sm text-muted-foreground">Zones from imagery, editing, export</p>
-              <ul className="mt-4 list-inside list-disc space-y-1 text-sm text-muted-foreground">
-                <li>Management zones from satellite imagery, in use on real fields</li>
-                <li>Zone editing: merge, split, cut out, boundary edit</li>
-                <li>Shapefile export into the tools agronomists already use</li>
-              </ul>
-            </div>
-            <div className="rounded-lg border border-border/60 bg-background p-6">
-              <h3 className="text-lg font-semibold text-primary">Next</h3>
-              <p className="mt-2 text-sm text-muted-foreground">Baselines, predictions, assistant workflows</p>
-              <ul className="mt-4 list-inside list-disc space-y-1 text-sm text-muted-foreground">
-                <li>Field baselines and context modeling</li>
-                <li>Simple predictions</li>
-                <li>Agronomy assistant workflows</li>
-              </ul>
-            </div>
-            <div className="rounded-lg border border-border/60 bg-background p-6">
-              <h3 className="text-lg font-semibold text-primary">Later</h3>
-              <p className="mt-2 text-sm text-muted-foreground">Digital twin + in-silico trials</p>
-              <ul className="mt-4 list-inside list-disc space-y-1 text-sm text-muted-foreground">
-                <li>Digital twin across practices</li>
-                <li>In-silico trials across biologicals and inputs</li>
-              </ul>
-            </div>
+            {[
+              {
+                stage: "Now",
+                focus: "Map, refine, and export",
+                items: [
+                  "Management zones from satellite imagery",
+                  "Merge, split, cut out, and edit boundaries",
+                  "Export shapefiles into the agronomy tools you already use",
+                ],
+              },
+              {
+                stage: "Next",
+                focus: "Model, predict, and assist",
+                items: [
+                  "Field baselines and context models",
+                  "Practical predictions",
+                  "Assistant workflows that support agronomy decisions",
+                ],
+              },
+              {
+                stage: "Later",
+                focus: "Simulate, test, and optimize",
+                items: [
+                  "Field-scale digital twins for management scenarios",
+                  "In-silico trials of biologicals, inputs, and management strategies",
+                ],
+              },
+            ].map((c) => (
+              <div
+                key={c.stage}
+                className="rounded-lg border border-border/60 bg-background p-6"
+              >
+                <h3 className="text-lg font-semibold text-primary">
+                  {c.stage}: {c.focus}
+                </h3>
+                <ul className="mt-4 list-inside list-disc space-y-1 text-sm text-muted-foreground">
+                  {c.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </section>

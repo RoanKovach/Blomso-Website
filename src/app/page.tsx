@@ -44,6 +44,15 @@ const milestoneStories: Record<string, { story: string; href?: string }> = {
   },
 };
 
+/** Source link for timeline entries that carry no expand of their own. */
+const milestoneLinks: Record<string, string> = {
+  "nvidia-2025": "https://www.nvidia.com/en-us/startups/showcase/",
+};
+
+/** Matches the entry line link treatment used by the expandable entries. */
+const entryLinkClass =
+  "rounded-sm underline underline-offset-4 transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring";
+
 export default function HomePage() {
   const milestones = getTractionClaims("milestone");
 
@@ -216,7 +225,20 @@ export default function HomePage() {
                     />
                     <div className="space-y-4">
                       <p className="font-semibold">
-                        {m.value ?? ""} &middot; {m.headline}
+                        {m.value ?? ""} &middot;{" "}
+                        {milestoneLinks[m.id] ? (
+                          <a
+                            href={milestoneLinks[m.id]}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={entryLinkClass}
+                          >
+                            {m.headline}
+                            <span className="sr-only"> (opens in a new tab)</span>
+                          </a>
+                        ) : (
+                          m.headline
+                        )}
                       </p>
                     </div>
                   </li>

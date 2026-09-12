@@ -8,6 +8,10 @@ import { entryLinkClass, expandToggleClass } from "./story-timeline-item";
 const TECHSTARS_ANNOUNCEMENT =
   "https://news.osu.edu/techstars-columbus-and-ohio-state-announce-inaugural-class-of-innovators/";
 
+/** The accelerator's own page for the Ohio State program. */
+const TECHSTARS_ACCELERATOR =
+  "https://www.techstars.com/accelerators/ohio-state-university-accelerator";
+
 type TechstarsTimelineItemProps = {
   milestone: {
     value?: number | null;
@@ -56,7 +60,17 @@ export function TechstarsTimelineItem({ milestone }: TechstarsTimelineItemProps)
               The program that turned the idea into a company, and where our first advisor at Ohio State signed on.
             </p>
             <p className="max-w-2xl text-sm text-muted-foreground">
-              Blomso joined the first Techstars Columbus cohort as its youngest team. The program brought early funding and hands-on training in how companies get built, and it put the idea in front of people who could break it. We spent those months talking with farmers, agronomists, faculty and extension teams across Ohio, while still finishing coursework and undergraduate research at Ohio State.
+              Blomso joined the first{" "}
+              <a
+                href={TECHSTARS_ACCELERATOR}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={entryLinkClass}
+              >
+                Techstars Columbus
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>{" "}
+              cohort as its youngest team. The program brought early funding and hands-on training in how companies get built, and it put the idea in front of people who could break it. We spent those months talking with farmers, agronomists, faculty and extension teams across Ohio, while still finishing coursework and undergraduate research at Ohio State.
             </p>
           </>
         )}

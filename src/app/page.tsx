@@ -46,7 +46,7 @@ const milestoneStories: Record<string, { story: string; href?: string }> = {
 
 /** Source link for timeline entries that carry no expand of their own. */
 const milestoneLinks: Record<string, string> = {
-  "nvidia-2025": "https://www.nvidia.com/en-us/startups/showcase/",
+  "nvidia-2025": "https://www.nvidia.com/en-us/startups/?ncid=no-ncid",
 };
 
 /** Matches the entry line link treatment used by the expandable entries. */

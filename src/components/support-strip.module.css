@@ -1,0 +1,124 @@
+/**
+ * Partner ribbon.
+ *
+ * One track holds the group blocks twice. Translating the track by exactly
+ * -50% of its own width advances it by exactly one copy, so the loop repeats
+ * with no seam. The trailing space is carried as margin on each group rather
+ * than as gap on the track, so both halves are exactly equal in width.
+ */
+
+.viewport {
+  /* Full width of the section, which spans the viewport. clip, not hidden:
+     hidden on one axis would force a scrollport on the other and cut off the
+     vertical bob. */
+  overflow-x: clip;
+  overflow-y: visible;
+  /* reserve room so the strip height is stable before the bob starts */
+  padding-block: 4px;
+  /* logos dissolve at the edges instead of being cut */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 48px,
+    #000 calc(100% - 48px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 48px,
+    #000 calc(100% - 48px),
+    transparent 100%
+  );
+}
+
+.track {
+  display: flex;
+  align-items: flex-start;
+  width: max-content;
+  animation: ribbon 52s linear infinite;
+  will-change: transform;
+}
+
+/* Two of these sit in the track. They are structurally identical, so each is
+   exactly half the track width and the -50% translate lands seam-free. */
+.trackCopy {
+  display: flex;
+  flex: none;
+  align-items: flex-start;
+}
+
+.group {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  /* part of the group's own width, so copy A and copy B measure identically */
+  margin-right: 4rem;
+}
+
+.groupLogos {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Sits inside each link, around the image. Duration and delay are set per
+   logo inline, so neighbours drift out of phase instead of moving in unison.
+   The ribbon transform stays on .track; this element only moves vertically. */
+.bob {
+  display: inline-flex;
+  animation-name: bob;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  will-change: transform;
+}
+
+/* Hovering the strip or tabbing into it holds everything still. */
+.viewport:hover .track,
+.viewport:focus-within .track,
+.viewport:hover .bob,
+.viewport:focus-within .bob {
+  animation-play-state: paused;
+}
+
+@keyframes ribbon {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes bob {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, -4px, 0);
+  }
+}
+
+/* The pre-existing grid, used only when motion is reduced. */
+.staticFallback {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .viewport {
+    display: none;
+  }
+
+  .staticFallback {
+    display: block;
+  }
+
+  .track,
+  .bob {
+    animation: none;
+  }
+}

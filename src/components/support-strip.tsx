@@ -13,18 +13,18 @@ const BAND_ORDER: SupporterBand[] = ["partners", "programs", "ecosystem"];
 
 /**
  * Copies of the group sequence in the track. The ribbon spans the full
- * viewport, so a single copy can be narrower than the screen; with only two,
- * the content runs out at the right edge before the loop wraps. Three copies
- * keep the strip covered on screens up to twice a copy's width. Must match
+ * viewport, so a single copy can be narrower than the screen; with too few,
+ * the content runs out at the right edge before the loop wraps. Four copies
+ * keep the strip covered on screens up to three times a copy's width. Must match
  * the divisor in the ribbon keyframes in support-strip.module.css.
  */
-const RIBBON_COPIES = 3;
+const RIBBON_COPIES = 4;
 
 const HEADING_CLASS =
   "text-xs font-semibold uppercase tracking-wide text-muted-foreground";
 
 const LOGO_CLASS = [
-  "h-[72px] w-auto max-w-[360px] object-contain sm:h-[88px] sm:max-w-[440px]",
+  "h-[54px] w-auto max-w-[270px] object-contain sm:h-[66px] sm:max-w-[330px]",
   "grayscale opacity-60 transition-[filter,opacity] duration-200",
   "hover:grayscale-0 hover:opacity-100 focus-within:grayscale-0 focus-within:opacity-100",
 ].join(" ");
@@ -196,7 +196,7 @@ export function SupportStrip() {
   return (
     <section
       aria-label="Partners and programs"
-      className="border-y border-border/60 bg-muted/40 py-[76px]"
+      className="border-y border-border/60 bg-muted/40 py-12"
     >
       {/* Full width: outside the content container, so the ribbon runs edge
           to edge instead of clipping at the container's sides. */}

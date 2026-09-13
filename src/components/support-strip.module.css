@@ -1,9 +1,9 @@
 /**
  * Partner ribbon.
  *
- * One track holds the group blocks twice. Translating the track by exactly
- * -50% of its own width advances it by exactly one copy, so the loop repeats
- * with no seam. The trailing space is carried as margin on each group rather
+ * One track holds the group blocks four times. Translating the track by
+ * exactly a quarter of its own width advances it by exactly one copy, so the
+ * loop repeats with no seam. The trailing space is carried as margin on each group rather
  * than as gap on the track, so both halves are exactly equal in width.
  */
 
@@ -13,8 +13,9 @@
      vertical bob. */
   overflow-x: clip;
   overflow-y: visible;
-  /* reserve room so the strip height is stable before the bob starts */
-  padding-block: 4px;
+  /* room for the bob below and above, so the edge mask never clips it and
+     the strip height is stable before the bob starts */
+  padding-block: 12px;
   /* logos dissolve at the edges instead of being cut */
   -webkit-mask-image: linear-gradient(
     to right,
@@ -40,8 +41,9 @@
   will-change: transform;
 }
 
-/* Two of these sit in the track. They are structurally identical, so each is
-   exactly half the track width and the -50% translate lands seam-free. */
+/* Four of these sit in the track (RIBBON_COPIES in support-strip.tsx). They
+   are structurally identical, so each is exactly a quarter of the track width
+   and the one-quarter translate lands seam-free. */
 .trackCopy {
   display: flex;
   flex: none;
@@ -53,15 +55,15 @@
   flex: none;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
   /* part of the group's own width, so copy A and copy B measure identically */
-  margin-right: 4rem;
+  margin-right: 6rem;
 }
 
 .groupLogos {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2.25rem;
 }
 
 /* Sits inside each link, around the image. Duration and delay are set per
@@ -90,16 +92,19 @@
     transform: translate3d(0, 0, 0);
   }
   to {
-    transform: translate3d(-50%, 0, 0);
+    /* one copy: keep the divisor equal to RIBBON_COPIES */
+    transform: translate3d(calc(-100% / 4), 0, 0);
   }
 }
 
+/* 16 px of travel, centred on the resting position so logos neither crowd
+   their heading nor drift below the strip. */
 @keyframes bob {
   from {
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 8px, 0);
   }
   to {
-    transform: translate3d(0, -4px, 0);
+    transform: translate3d(0, -8px, 0);
   }
 }
 

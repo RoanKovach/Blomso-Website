@@ -20,6 +20,22 @@ const LOGO_CLASS = [
   "hover:grayscale-0 hover:opacity-100 focus-within:grayscale-0 focus-within:opacity-100",
 ].join(" ");
 
+/** Bob durations between 4 and 6 seconds, cycled per logo. */
+const BOB_DURATIONS = [4.2, 5.4, 4.7, 5.8, 4.4, 5.1, 6.0];
+
+/**
+ * Timing for one logo's bob, keyed by its position in the full list rather
+ * than by copy, so a logo and its duplicate always share a phase. That keeps
+ * the loop free of vertical jumps when the second copy takes over. Negative
+ * delays start each logo mid-cycle, so nothing sits still on load.
+ */
+function bobTiming(phaseIndex: number) {
+  return {
+    animationDuration: `${BOB_DURATIONS[phaseIndex % BOB_DURATIONS.length]}s`,
+    animationDelay: `-${(phaseIndex * 0.7).toFixed(1)}s`,
+  };
+}
+
 function logoImage(s: Supporter) {
   return (
     <img
@@ -38,18 +54,23 @@ function linkLabel(s: Supporter) {
     : `${s.name} (opens in a new tab)`;
 }
 
-/** One logo, wrapped so its bob never fights the ribbon transform. */
+/** One logo. The bob sits inside the link, so the link's box stays still. */
 function RibbonLogo({
   supporter,
-  index,
+  phaseIndex,
   duplicate,
 }: {
   supporter: Supporter;
-  index: number;
+  phaseIndex: number;
   duplicate: boolean;
 }) {
-  const img = logoImage(supporter);
-  const content = supporter.href ? (
+  const bobbing = (
+    <span className={styles.bob} style={bobTiming(phaseIndex)}>
+      {logoImage(supporter)}
+    </span>
+  );
+
+  return supporter.href ? (
     <a
       href={supporter.href}
       target="_blank"
@@ -58,20 +79,11 @@ function RibbonLogo({
       aria-label={linkLabel(supporter)}
       tabIndex={duplicate ? -1 : undefined}
     >
-      {img}
+      {bobbing}
     </a>
   ) : (
     <span className="shrink-0" aria-label={supporter.ariaLabel}>
-      {img}
-    </span>
-  );
-
-  return (
-    <span
-      className={styles.bob}
-      style={{ animationDelay: `${((index % 5) * 0.8).toFixed(1)}s` }}
-    >
-      {content}
+      {bobbing}
     </span>
   );
 }
@@ -80,10 +92,12 @@ function RibbonLogo({
 function RibbonGroup({
   band,
   items,
+  phaseOf,
   duplicate,
 }: {
   band: SupporterBand;
   items: Supporter[];
+  phaseOf: (id: string) => number;
   duplicate: boolean;
 }) {
   if (items.length === 0) return null;
@@ -91,11 +105,11 @@ function RibbonGroup({
     <div className={styles.group}>
       <p className={HEADING_CLASS}>{BAND_LABELS[band]}</p>
       <div className={styles.groupLogos}>
-        {items.map((s, i) => (
+        {items.map((s) => (
           <RibbonLogo
             key={s.id}
             supporter={s}
-            index={i}
+            phaseIndex={phaseOf(s.id)}
             duplicate={duplicate}
           />
         ))}
@@ -143,8 +157,8 @@ function StaticColumn({
 /**
  * Trust band: Official Partners, Programs, Ecosystem.
  *
- * Travels as a continuous ribbon, with the pre-existing static grid shown
- * instead when the viewer prefers reduced motion.
+ * Travels as a continuous full-width ribbon, with the pre-existing static grid
+ * shown instead when the viewer prefers reduced motion.
  *
  * Placement: homepage, below the hero.
  */
@@ -155,12 +169,17 @@ export function SupportStrip() {
     ecosystem: supporters.filter((s) => s.band === "ecosystem"),
   };
 
+  const ordered = BAND_ORDER.flatMap((band) => byBand[band]);
+  const phaseById = new Map(ordered.map((s, i) => [s.id, i]));
+  const phaseOf = (id: string) => phaseById.get(id) ?? 0;
+
   const copy = (duplicate: boolean) =>
     BAND_ORDER.map((band) => (
       <RibbonGroup
         key={`${duplicate ? "dup" : "main"}-${band}`}
         band={band}
         items={byBand[band]}
+        phaseOf={phaseOf}
         duplicate={duplicate}
       />
     ));
@@ -168,26 +187,26 @@ export function SupportStrip() {
   return (
     <section
       aria-label="Partners and programs"
-      className="border-y border-border/60 bg-muted/40 px-4 py-8 sm:px-6"
+      className="border-y border-border/60 bg-muted/40 py-8"
     >
-      <div className="mx-auto max-w-[100rem]">
-        <div className={styles.viewport}>
-          <div className={styles.track}>
-            <div className={styles.trackCopy}>{copy(false)}</div>
-            <div className={styles.trackCopy} aria-hidden="true">
-              {copy(true)}
-            </div>
+      {/* Full width: outside the content container, so the ribbon runs edge
+          to edge instead of clipping at the container's sides. */}
+      <div className={styles.viewport}>
+        <div className={styles.track}>
+          <div className={styles.trackCopy}>{copy(false)}</div>
+          <div className={styles.trackCopy} aria-hidden="true">
+            {copy(true)}
           </div>
         </div>
+      </div>
 
-        <div className={styles.staticFallback}>
-          {/* Fluid columns: fixed minimums here overflowed the viewport at
-              about 1440 and forced the page to scroll sideways. */}
-          <div className="grid justify-items-center gap-8 sm:grid-cols-3">
-            <StaticColumn band="partners" items={byBand.partners} />
-            <StaticColumn band="programs" items={byBand.programs} />
-            <StaticColumn band="ecosystem" items={byBand.ecosystem} />
-          </div>
+      <div className={cn(styles.staticFallback, "mx-auto max-w-[100rem] px-4 sm:px-6")}>
+        {/* Fluid columns: fixed minimums here overflowed the viewport at
+            about 1440 and forced the page to scroll sideways. */}
+        <div className="grid justify-items-center gap-8 sm:grid-cols-3">
+          <StaticColumn band="partners" items={byBand.partners} />
+          <StaticColumn band="programs" items={byBand.programs} />
+          <StaticColumn band="ecosystem" items={byBand.ecosystem} />
         </div>
       </div>
     </section>

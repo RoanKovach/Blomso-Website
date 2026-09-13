@@ -8,12 +8,28 @@
  */
 
 .viewport {
-  /* clip, not hidden: hidden on one axis would force a scrollport on the
-     other and cut off the vertical bob */
+  /* Full width of the section, which spans the viewport. clip, not hidden:
+     hidden on one axis would force a scrollport on the other and cut off the
+     vertical bob. */
   overflow-x: clip;
   overflow-y: visible;
   /* reserve room so the strip height is stable before the bob starts */
   padding-block: 4px;
+  /* logos dissolve at the edges instead of being cut */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 48px,
+    #000 calc(100% - 48px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 48px,
+    #000 calc(100% - 48px),
+    transparent 100%
+  );
 }
 
 .track {
@@ -48,9 +64,16 @@
   gap: 1.5rem;
 }
 
+/* Sits inside each link, around the image. Duration and delay are set per
+   logo inline, so neighbours drift out of phase instead of moving in unison.
+   The ribbon transform stays on .track; this element only moves vertically. */
 .bob {
   display: inline-flex;
-  animation: bob 5s ease-in-out infinite alternate;
+  animation-name: bob;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
   will-change: transform;
 }
 
@@ -73,10 +96,10 @@
 
 @keyframes bob {
   from {
-    transform: translate3d(0, -2px, 0);
+    transform: translate3d(0, 0, 0);
   }
   to {
-    transform: translate3d(0, 2px, 0);
+    transform: translate3d(0, -4px, 0);
   }
 }
 

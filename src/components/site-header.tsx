@@ -289,7 +289,7 @@ export function SiteHeader() {
             </a>
           </Button>
           <Button asChild variant="outline" size="sm">
-            <Link href="/contact">Request a walkthrough</Link>
+            <Link href="/contact">Talk with us</Link>
           </Button>
         </div>
 
@@ -436,7 +436,7 @@ export function SiteHeader() {
               </Button>
               <Button asChild variant="outline" size="lg" className="w-full min-h-[44px]">
                 <Link href="/contact" onClick={() => setMobileOpen(false)}>
-                  Request a walkthrough
+                  Talk with us
                 </Link>
               </Button>
             </div>

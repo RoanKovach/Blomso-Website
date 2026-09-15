@@ -65,7 +65,7 @@ export function SiteFooter() {
               <ul className="mt-3 space-y-2 text-sm">
                 <li>
                   <Link href="/#platform" className={linkClass}>
-                    How it works
+                    Our approach
                   </Link>
                 </li>
                 <li>
@@ -144,7 +144,7 @@ export function SiteFooter() {
             &copy; {new Date().getFullYear()} Blomso. All rights reserved.
           </p>
           <Link href="/contact" className={`text-xs ${linkClass}`}>
-            Request a walkthrough
+            Talk with us
           </Link>
         </div>
       </div>

@@ -73,7 +73,7 @@ export default function HomePage() {
             A Biospheric Operating System rooted in the soil.
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">
-            Everything that describes a field is fused into one record, so the variation can be seen, decided on, and in time simulated. Starting with soil management zones, in use on real fields today.
+            We’re building software and AI to bring a field’s information together, help people understand its variability, and build toward testing management decisions before putting them into practice.
           </p>
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <Button asChild size="lg" className="w-full sm:w-auto">
@@ -88,7 +88,7 @@ export default function HomePage() {
               </a>
             </Button>
             <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
-              <Link href="/contact">Request a walkthrough</Link>
+              <Link href="/contact">Talk with us</Link>
             </Button>
           </div>
         </div>
@@ -103,7 +103,7 @@ export default function HomePage() {
           What gets in the way today
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-center text-muted-foreground">
-          Farmers, agronomists and researchers are all trying to answer the same question: how do soil, water and yield potential change across this field, and how should each part of it be managed? Today, much of the information needed to answer it is still disconnected. Three things keep that knowledge from compounding.
+          Farmers, agronomists and researchers are all trying to answer the same question: how do soil, water and yield potential change across this field, and how should each part of it be managed? Today, much of the information needed to answer it is still disconnected. Three things make that information difficult to connect and carry forward.
         </p>
         <div className="mt-8 grid gap-6 sm:mt-10 md:grid-cols-3">
           {[
@@ -116,8 +116,8 @@ export default function HomePage() {
               desc: "A number means little without knowing where it came from, when it was measured, how it was produced and what was happening in the field around it. Without that context, comparison, validation and modeling get harder.",
             },
             {
-              title: "Decisions do not compound",
-              desc: "Farmers, agronomists and researchers rebuild the same context again and again. What one person learns from a field, a season or a trial rarely carries cleanly into the next decision.",
+              title: "Knowledge stays siloed",
+              desc: "Much of what is learned about a field stays with the person who worked it or within an individual team’s records. That experience is valuable, but difficult to share, connect with other evidence and build on across people and seasons.",
             },
           ].map((p) => (
             <Card
@@ -133,7 +133,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── How it works ─────────────────────────────────────────── */}
+      {/* ── Our approach ─────────────────────────────────────────── */}
       <section
         id="platform"
         aria-labelledby="platform-heading"
@@ -143,24 +143,21 @@ export default function HomePage() {
           id="platform-heading"
           className="text-center text-2xl font-bold tracking-tight sm:text-3xl"
         >
-          How it works
+          Our approach
         </h2>
-        <p className="mx-auto mt-4 max-w-3xl text-center text-base text-muted-foreground">
-          Blomso builds the data, AI and agentic systems that answer it: connect the information, keep its meaning, and let what is learned accumulate.
-        </p>
         <div className="mt-10 grid gap-8 sm:mt-12 md:grid-cols-3">
           {[
             {
               title: "Fuse.",
-              desc: "Lab results, satellite imagery, sensors, weather, yield and field notes are brought onto one grid in one format, and every value keeps its source and what was done to it.",
+              desc: "We’re building ways to bring lab results, satellite imagery, sensors, weather, yield and field notes together while preserving where they came from, when they were collected and how they were processed.",
             },
             {
               title: "See.",
-              desc: "The fused record becomes maps a person can read and edit: management zones, band views, terrain in 3D, legends that say exactly what they measure.",
+              desc: "Our approach centers on maps and information people can inspect, question and refine, bringing the evidence alongside their knowledge of the field.",
             },
             {
               title: "Simulate.",
-              desc: "On that record we build field baselines, then prediction, then simulation, so a practice can be tested before it is planted.",
+              desc: "The longer-term goal is to use that foundation to compare possible management choices before field implementation, with predictions tested against observed outcomes.",
             },
           ].map((s) => (
             <div
@@ -315,18 +312,7 @@ export default function HomePage() {
         </p>
         <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
           <Button asChild size="lg" className="w-full sm:w-auto">
-            <a
-              href={externalLinks.portal.href}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Open the Blomso Portal
-              <svg aria-hidden="true" className="ml-1 inline-block h-3 w-3 opacity-50" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
-              <span className="sr-only"> (opens in a new tab)</span>
-            </a>
-          </Button>
-          <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
-            <Link href="/contact">Request a walkthrough</Link>
+            <Link href="/contact">Talk with us</Link>
           </Button>
         </div>
       </section>

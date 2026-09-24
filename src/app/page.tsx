@@ -78,7 +78,7 @@ export default function HomePage() {
             </span>
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">
-            We connect fragmented field data, help people understand what’s happening and how confident they can be in it, and work toward testing management decisions before putting them into practice.
+            We connect fragmented field data, help you understand what’s happening and how confident you can be in it, and work toward testing management decisions before putting them into practice.
           </p>
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <Button asChild size="lg" className="w-full sm:w-auto">

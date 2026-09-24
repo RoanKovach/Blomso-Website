@@ -205,7 +205,7 @@ export const claims: Claim[] = [
   {
     id: "first-pilot",
     category: "milestone",
-    headline: "First Pilot Launched",
+    headline: "A paid pilot",
     value: 2026,
     evidenceTier: "self",
     verified: true,

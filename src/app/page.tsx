@@ -69,11 +69,16 @@ export default function HomePage() {
         />
 
         <div className="relative z-20 mx-auto max-w-3xl px-4 py-20 text-center sm:px-6 sm:py-24 lg:py-28">
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            A Biospheric Operating System rooted in the soil.
+          <h1 className="font-bold tracking-tight">
+            <span className="block text-[1.375rem] sm:text-4xl lg:text-5xl">
+              A Biospheric Operating System
+            </span>{" "}
+            <span className="mt-1 block text-lg sm:mt-2 sm:text-3xl lg:text-4xl">
+              rooted in the soil
+            </span>
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">
-            We’re building software and AI to bring a field’s information together, help people understand its variability, and build toward testing management decisions before putting them into practice.
+            We connect fragmented field data, help you understand what’s happening and how confident you can be in it, and work toward testing management decisions before putting them into practice.
           </p>
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <Button asChild size="lg" className="w-full sm:w-auto">

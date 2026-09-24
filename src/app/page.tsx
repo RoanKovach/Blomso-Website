@@ -8,7 +8,6 @@ import { SupportStrip } from "@/components/support-strip";
 import { HeroBg } from "@/components/hero-bg";
 import { TechstarsTimelineItem } from "@/components/techstars-timeline-item";
 import { CompanyFoundedTimelineItem } from "@/components/company-founded-timeline-item";
-import { FirstPilotTimelineItem } from "@/components/first-pilot-timeline-item";
 import { StoryTimelineItem } from "@/components/story-timeline-item";
 
 /**
@@ -37,6 +36,10 @@ const milestoneStories: Record<string, { story: string; href?: string }> = {
       "Brookside Laboratories, one of North America’s longest-running agricultural laboratory and consultant networks, became Blomso’s first major industry partner. Working alongside its agronomists and consultant community grounded our ideas in real fields, real workflows and decades of practical experience, and showed us where technology could actually make a difference.",
     href:
       "https://www.blinc.com/",
+  },
+  "first-pilot": {
+    story:
+      "We built a quality-control system for a client’s lab data and learned how much of the work is making measurements comparable.",
   },
   "bayer-lifehub-2026": {
     story:
@@ -211,9 +214,6 @@ export default function HomePage() {
                 }
                 if (m.id === "techstars-2024") {
                   return <TechstarsTimelineItem key={m.id} milestone={m} />;
-                }
-                if (m.id === "first-pilot") {
-                  return <FirstPilotTimelineItem key={m.id} milestone={m} />;
                 }
                 const entry = milestoneStories[m.id];
                 if (entry) {

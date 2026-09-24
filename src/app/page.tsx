@@ -155,15 +155,17 @@ export default function HomePage() {
             {[
               {
                 title: "Fuse.",
-                desc: "We’re building ways to bring lab results, satellite imagery, sensors, weather, yield and field notes together while preserving where they came from, when they were collected and how they were processed.",
+                claim: "Every number keeps its meaning.",
+                desc: "The method, depth and source stay with the value, so labs can be compared.",
               },
               {
                 title: "See.",
-                desc: "Our approach centers on maps and information people can inspect, question and refine, bringing the evidence alongside their knowledge of the field.",
+                claim: "Uncertainty is shown, not hidden.",
+                desc: "When context is missing, the map says so and what it changes.",
               },
               {
                 title: "Simulate.",
-                desc: "The longer-term goal is to use that foundation to compare possible management choices before field implementation, with predictions tested against observed outcomes.",
+                claim: "Work toward testing a decision before it goes in the ground.",
               },
             ].map((s) => (
               <div
@@ -171,10 +173,14 @@ export default function HomePage() {
                 className="rounded-xl border border-band-foreground/25 bg-band-card p-6 text-foreground shadow-lg sm:p-8"
               >
                 <h3 className="text-xl font-semibold text-primary">{s.title}</h3>
-                <p className="mt-3 text-muted-foreground">{s.desc}</p>
+                <p className="mt-3 font-semibold">{s.claim}</p>
+                {s.desc && <p className="mt-2 text-muted-foreground">{s.desc}</p>}
               </div>
             ))}
           </div>
+          <p className="mx-auto mt-10 max-w-2xl text-center text-band-muted sm:mt-12 sm:text-lg">
+            What happens in the field comes back, so the picture gets better with every season.
+          </p>
         </div>
       </section>
 

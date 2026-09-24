@@ -93,9 +93,11 @@
   --sidebar-accent-foreground: #2A5B1A;
   --sidebar-border: #E0E4DD;
   --sidebar-ring: #7ED957;
-  /* Earthy band behind "Our approach": deep sage, not saturated forest.
-     band-foreground on band is 6.4:1, band-muted on band is 5.1:1 (AA). */
-  --band: #4F5D45;
+  /* Band behind "Our approach": the hero field photo under the site's
+     foreground colour (see .bg-band-photo). --band is the fallback when
+     the photo does not load. Text contrast stays above 6:1 even over the
+     photo's brightest pixels. */
+  --band: #1A2414;
   --band-foreground: #F7F5EE;
   --band-muted: #D9DDCF;
   --band-card: #FAF8F2;
@@ -202,4 +204,21 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' fill='none'%3E%3Cpath d='M0 30h120M0 60h120M0 90h120' stroke='%23E0E4DD' stroke-width='0.5'/%3E%3Cpath d='M30 0v120M60 0v120M90 0v120' stroke='%23E0E4DD' stroke-width='0.5'/%3E%3Cpath d='M15 0v120M75 0v120' stroke='%23EDFBE5' stroke-width='0.5'/%3E%3Cpath d='M0 45h120M0 105h120' stroke='%23EDFBE5' stroke-width='0.5'/%3E%3Cpath d='M10 20 Q30 5 50 25 T90 20' stroke='%23D7F5C8' stroke-width='0.75' fill='none'/%3E%3Cpath d='M5 70 Q25 55 55 75 T110 65' stroke='%23D7F5C8' stroke-width='0.75' fill='none'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 120px 120px;
+}
+
+/* The hero field photo, darkened, as a full-width section backdrop. */
+.bg-band-photo {
+  background-color: var(--band);
+  background-image:
+    linear-gradient(rgb(26 36 20 / 0.8), rgb(26 36 20 / 0.86)),
+    url("/hero/hero-bg.jpg");
+  background-image:
+    linear-gradient(rgb(26 36 20 / 0.8), rgb(26 36 20 / 0.86)),
+    image-set(
+      url("/hero/hero-bg.avif") type("image/avif"),
+      url("/hero/hero-bg.webp") type("image/webp"),
+      url("/hero/hero-bg.jpg") type("image/jpeg")
+    );
+  background-position: center;
+  background-size: cover;
 }

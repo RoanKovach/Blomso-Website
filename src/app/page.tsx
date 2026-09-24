@@ -142,7 +142,7 @@ export default function HomePage() {
       <section
         id="platform"
         aria-labelledby="platform-heading"
-        className="scroll-mt-20 bg-band px-4 py-20 text-band-foreground sm:px-6 sm:py-28"
+        className="scroll-mt-20 bg-band-photo px-4 py-20 text-band-foreground sm:px-6 sm:py-28"
       >
         <div className="mx-auto max-w-6xl">
           <h2

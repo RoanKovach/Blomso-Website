@@ -8,7 +8,6 @@ import { SupportStrip } from "@/components/support-strip";
 import { HeroBg } from "@/components/hero-bg";
 import { TechstarsTimelineItem } from "@/components/techstars-timeline-item";
 import { CompanyFoundedTimelineItem } from "@/components/company-founded-timeline-item";
-import { FirstPilotTimelineItem } from "@/components/first-pilot-timeline-item";
 import { StoryTimelineItem } from "@/components/story-timeline-item";
 
 /**
@@ -37,6 +36,10 @@ const milestoneStories: Record<string, { story: string; href?: string }> = {
       "Brookside Laboratories, one of North America’s longest-running agricultural laboratory and consultant networks, became Blomso’s first major industry partner. Working alongside its agronomists and consultant community grounded our ideas in real fields, real workflows and decades of practical experience, and showed us where technology could actually make a difference.",
     href:
       "https://www.blinc.com/",
+  },
+  "first-pilot": {
+    story:
+      "We built a quality-control system for a client’s lab data and learned how much of the work is making measurements comparable.",
   },
   "bayer-lifehub-2026": {
     story:
@@ -142,37 +145,45 @@ export default function HomePage() {
       <section
         id="platform"
         aria-labelledby="platform-heading"
-        className="mx-auto max-w-6xl scroll-mt-20 px-4 py-16 sm:px-6 sm:py-20"
+        className="scroll-mt-20 bg-band-photo px-4 py-20 text-band-foreground sm:px-6 sm:py-28"
       >
-        <h2
-          id="platform-heading"
-          className="text-center text-2xl font-bold tracking-tight sm:text-3xl"
-        >
-          Our approach
-        </h2>
-        <div className="mt-10 grid gap-8 sm:mt-12 md:grid-cols-3">
-          {[
-            {
-              title: "Fuse.",
-              desc: "We’re building ways to bring lab results, satellite imagery, sensors, weather, yield and field notes together while preserving where they came from, when they were collected and how they were processed.",
-            },
-            {
-              title: "See.",
-              desc: "Our approach centers on maps and information people can inspect, question and refine, bringing the evidence alongside their knowledge of the field.",
-            },
-            {
-              title: "Simulate.",
-              desc: "The longer-term goal is to use that foundation to compare possible management choices before field implementation, with predictions tested against observed outcomes.",
-            },
-          ].map((s) => (
-            <div
-              key={s.title}
-              className="rounded-lg border border-border/60 bg-background p-6"
-            >
-              <h3 className="text-lg font-semibold text-primary">{s.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
-            </div>
-          ))}
+        <div className="mx-auto max-w-6xl">
+          <h2
+            id="platform-heading"
+            className="text-center text-2xl font-bold tracking-tight sm:text-3xl"
+          >
+            Our approach
+          </h2>
+          <div className="mt-10 grid gap-8 sm:mt-12 md:grid-cols-3">
+            {[
+              {
+                title: "Fuse.",
+                claim: "Every number keeps its meaning.",
+                desc: "The method, depth and source stay with the value, so labs can be compared.",
+              },
+              {
+                title: "See.",
+                claim: "Uncertainty is shown, not hidden.",
+                desc: "When context is missing, the map says so and what it changes.",
+              },
+              {
+                title: "Simulate.",
+                claim: "Work toward testing a decision before it goes in the ground.",
+              },
+            ].map((s) => (
+              <div
+                key={s.title}
+                className="rounded-xl border border-band-foreground/25 bg-band-card p-6 text-foreground shadow-lg sm:p-8"
+              >
+                <h3 className="text-xl font-semibold text-primary">{s.title}</h3>
+                <p className="mt-3 font-semibold">{s.claim}</p>
+                {s.desc && <p className="mt-2 text-muted-foreground">{s.desc}</p>}
+              </div>
+            ))}
+          </div>
+          <p className="mx-auto mt-10 max-w-2xl text-center text-band-muted sm:mt-12 sm:text-lg">
+            What happens in the field comes back, so the picture gets better with every season.
+          </p>
         </div>
       </section>
 
@@ -203,9 +214,6 @@ export default function HomePage() {
                 }
                 if (m.id === "techstars-2024") {
                   return <TechstarsTimelineItem key={m.id} milestone={m} />;
-                }
-                if (m.id === "first-pilot") {
-                  return <FirstPilotTimelineItem key={m.id} milestone={m} />;
                 }
                 const entry = milestoneStories[m.id];
                 if (entry) {

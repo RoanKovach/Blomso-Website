@@ -38,6 +38,10 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-band: var(--band);
+  --color-band-foreground: var(--band-foreground);
+  --color-band-muted: var(--band-muted);
+  --color-band-card: var(--band-card);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -89,6 +93,12 @@
   --sidebar-accent-foreground: #2A5B1A;
   --sidebar-border: #E0E4DD;
   --sidebar-ring: #7ED957;
+  /* Earthy band behind "Our approach": deep sage, not saturated forest.
+     band-foreground on band is 6.4:1, band-muted on band is 5.1:1 (AA). */
+  --band: #4F5D45;
+  --band-foreground: #F7F5EE;
+  --band-muted: #D9DDCF;
+  --band-card: #FAF8F2;
 }
 
 .dark {

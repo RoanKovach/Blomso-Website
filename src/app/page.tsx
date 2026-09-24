@@ -142,37 +142,39 @@ export default function HomePage() {
       <section
         id="platform"
         aria-labelledby="platform-heading"
-        className="mx-auto max-w-6xl scroll-mt-20 px-4 py-16 sm:px-6 sm:py-20"
+        className="scroll-mt-20 bg-band px-4 py-20 text-band-foreground sm:px-6 sm:py-28"
       >
-        <h2
-          id="platform-heading"
-          className="text-center text-2xl font-bold tracking-tight sm:text-3xl"
-        >
-          Our approach
-        </h2>
-        <div className="mt-10 grid gap-8 sm:mt-12 md:grid-cols-3">
-          {[
-            {
-              title: "Fuse.",
-              desc: "We’re building ways to bring lab results, satellite imagery, sensors, weather, yield and field notes together while preserving where they came from, when they were collected and how they were processed.",
-            },
-            {
-              title: "See.",
-              desc: "Our approach centers on maps and information people can inspect, question and refine, bringing the evidence alongside their knowledge of the field.",
-            },
-            {
-              title: "Simulate.",
-              desc: "The longer-term goal is to use that foundation to compare possible management choices before field implementation, with predictions tested against observed outcomes.",
-            },
-          ].map((s) => (
-            <div
-              key={s.title}
-              className="rounded-lg border border-border/60 bg-background p-6"
-            >
-              <h3 className="text-lg font-semibold text-primary">{s.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
-            </div>
-          ))}
+        <div className="mx-auto max-w-6xl">
+          <h2
+            id="platform-heading"
+            className="text-center text-2xl font-bold tracking-tight sm:text-3xl"
+          >
+            Our approach
+          </h2>
+          <div className="mt-10 grid gap-8 sm:mt-12 md:grid-cols-3">
+            {[
+              {
+                title: "Fuse.",
+                desc: "We’re building ways to bring lab results, satellite imagery, sensors, weather, yield and field notes together while preserving where they came from, when they were collected and how they were processed.",
+              },
+              {
+                title: "See.",
+                desc: "Our approach centers on maps and information people can inspect, question and refine, bringing the evidence alongside their knowledge of the field.",
+              },
+              {
+                title: "Simulate.",
+                desc: "The longer-term goal is to use that foundation to compare possible management choices before field implementation, with predictions tested against observed outcomes.",
+              },
+            ].map((s) => (
+              <div
+                key={s.title}
+                className="rounded-xl border border-band-foreground/25 bg-band-card p-6 text-foreground shadow-lg sm:p-8"
+              >
+                <h3 className="text-xl font-semibold text-primary">{s.title}</h3>
+                <p className="mt-3 text-muted-foreground">{s.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

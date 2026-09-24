@@ -8,25 +8,59 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
-type LeadType = "investor" | "operator";
-
 /** The one contact channel for the site. */
 const CONTACT_EMAIL = "kalib@blomso.com";
+
+type ContactPath = {
+  id: string;
+  /** Who the path is for, shown on the tab. */
+  audience: string;
+  /** The action, used as the card title, the button label and the subject. */
+  action: string;
+  description: string;
+  messageLabel: string;
+};
+
+const CONTACT_PATHS: ContactPath[] = [
+  {
+    id: "agronomist",
+    audience: "Agronomist or crop consultant",
+    action: "See the Zone Builder on your fields",
+    description: "Tell us which fields you work on and we’ll walk through the Zone Builder on them.",
+    messageLabel: "Tell us about the fields you work on",
+  },
+  {
+    id: "grower",
+    audience: "Grower or operator",
+    action: "Request a pilot",
+    description: "Tell us about your operation and we’ll set up a tailored walkthrough.",
+    messageLabel: "Tell us about your operation",
+  },
+  {
+    id: "partner",
+    audience: "Lab, software or research partner",
+    action: "Work with us",
+    description: "Tell us what you work on and where it could connect.",
+    messageLabel: "What are you working on?",
+  },
+  {
+    id: "investor",
+    audience: "Investor",
+    action: "Request investor materials",
+    description: "Receive our deck, data room summary, and key metrics.",
+    messageLabel: "What materials are you looking for?",
+  },
+];
 
 /**
  * The fields compose a prefilled message. There is no backend on the static
  * export, so the call to action is a plain mailto link rather than a submit.
  */
-function ContactDetails({ leadType }: { leadType: LeadType }) {
+function ContactDetails({ path }: { path: ContactPath }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
   const [message, setMessage] = useState("");
-
-  const subject =
-    leadType === "investor"
-      ? "Investor materials request"
-      : "Pilot walkthrough request";
 
   const body = [
     name && `Name: ${name}`,
@@ -37,16 +71,16 @@ function ContactDetails({ leadType }: { leadType: LeadType }) {
     .filter(Boolean)
     .join("\n");
 
-  const href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}${
+  const href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(path.action)}${
     body ? `&body=${encodeURIComponent(body)}` : ""
   }`;
 
   return (
     <div className="space-y-6">
       <div className="space-y-2">
-        <Label htmlFor={`${leadType}-name`}>Full name</Label>
+        <Label htmlFor={`${path.id}-name`}>Full name</Label>
         <Input
-          id={`${leadType}-name`}
+          id={`${path.id}-name`}
           name="name"
           autoComplete="name"
           value={name}
@@ -55,9 +89,9 @@ function ContactDetails({ leadType }: { leadType: LeadType }) {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor={`${leadType}-email`}>Work email</Label>
+        <Label htmlFor={`${path.id}-email`}>Work email</Label>
         <Input
-          id={`${leadType}-email`}
+          id={`${path.id}-email`}
           name="email"
           type="email"
           autoComplete="email"
@@ -67,9 +101,9 @@ function ContactDetails({ leadType }: { leadType: LeadType }) {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor={`${leadType}-company`}>Company</Label>
+        <Label htmlFor={`${path.id}-company`}>Company</Label>
         <Input
-          id={`${leadType}-company`}
+          id={`${path.id}-company`}
           name="company"
           autoComplete="organization"
           value={company}
@@ -78,13 +112,9 @@ function ContactDetails({ leadType }: { leadType: LeadType }) {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor={`${leadType}-message`}>
-          {leadType === "investor"
-            ? "What materials are you looking for?"
-            : "Tell us about your operation"}
-        </Label>
+        <Label htmlFor={`${path.id}-message`}>{path.messageLabel}</Label>
         <Textarea
-          id={`${leadType}-message`}
+          id={`${path.id}-message`}
           name="message"
           rows={4}
           value={message}
@@ -92,12 +122,14 @@ function ContactDetails({ leadType }: { leadType: LeadType }) {
         />
       </div>
 
-      <Button asChild className="w-full">
-        <a href={href}>{CONTACT_EMAIL}</a>
-      </Button>
-      <p className="mt-3 text-center text-xs text-muted-foreground">
-        We reply within one business day. No spam.
-      </p>
+      <div>
+        <Button asChild className="w-full">
+          <a href={href}>{path.action}</a>
+        </Button>
+        <p className="mt-2 text-center text-xs text-muted-foreground">
+          Opens an email to {CONTACT_EMAIL}
+        </p>
+      </div>
     </div>
   );
 }
@@ -109,63 +141,45 @@ export default function ContactPage() {
         Get in touch
       </h1>
       <p className="mt-4 text-base text-muted-foreground sm:text-lg">
-        Choose the path that fits. We&apos;ll respond within one business day.
+        Choose the path that fits.
       </p>
 
-      <Tabs defaultValue="investor" className="mt-10 sm:mt-12">
-        <TabsList className="grid h-11 w-full grid-cols-2 sm:h-9">
-          <TabsTrigger
-            value="investor"
-            className="data-[state=active]:border-primary data-[state=active]:font-semibold data-[state=inactive]:text-muted-foreground/60"
-          >
-            Investor
-          </TabsTrigger>
-          <TabsTrigger
-            value="operator"
-            className="data-[state=active]:border-primary data-[state=active]:font-semibold data-[state=inactive]:text-muted-foreground/60"
-          >
-            Operator
-          </TabsTrigger>
+      <Tabs defaultValue={CONTACT_PATHS[0].id} className="mt-10 sm:mt-12">
+        <TabsList className="grid w-full grid-cols-2 gap-1 group-data-[orientation=horizontal]/tabs:h-auto sm:grid-cols-4">
+          {CONTACT_PATHS.map((path) => (
+            <TabsTrigger
+              key={path.id}
+              value={path.id}
+              className="h-full min-h-11 whitespace-normal py-2 leading-tight data-[state=active]:border-primary data-[state=active]:font-semibold data-[state=inactive]:text-muted-foreground/60"
+            >
+              {path.audience}
+            </TabsTrigger>
+          ))}
         </TabsList>
 
-        <TabsContent value="investor" className="mt-6" forceMount={undefined}>
-          <div
-            key="investor"
-            className="motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-1 motion-safe:duration-200"
-          >
-            <Card>
-              <CardHeader>
-                <CardTitle>Request investor materials</CardTitle>
-                <CardDescription>
-                  Receive our deck, data room summary, and key metrics.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ContactDetails leadType="investor" />
-              </CardContent>
-            </Card>
-          </div>
-        </TabsContent>
-
-        <TabsContent value="operator" className="mt-6" forceMount={undefined}>
-          <div
-            key="operator"
-            className="motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-1 motion-safe:duration-200"
-          >
-            <Card>
-              <CardHeader>
-                <CardTitle>Request a pilot</CardTitle>
-                <CardDescription>
-                  Tell us about your operation and we&apos;ll set up a tailored walkthrough.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ContactDetails leadType="operator" />
-              </CardContent>
-            </Card>
-          </div>
-        </TabsContent>
+        {CONTACT_PATHS.map((path) => (
+          <TabsContent key={path.id} value={path.id} className="mt-6">
+            <div
+              key={path.id}
+              className="motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-1 motion-safe:duration-200"
+            >
+              <Card>
+                <CardHeader>
+                  <CardTitle>{path.action}</CardTitle>
+                  <CardDescription>{path.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ContactDetails path={path} />
+                </CardContent>
+              </Card>
+            </div>
+          </TabsContent>
+        ))}
       </Tabs>
+
+      <p className="mt-6 text-center text-sm text-muted-foreground">
+        We reply within one business day. No spam.
+      </p>
     </div>
   );
 }

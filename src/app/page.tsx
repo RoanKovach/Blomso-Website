@@ -158,17 +158,15 @@ export default function HomePage() {
             {[
               {
                 title: "Fuse.",
-                claim: "Every number keeps its meaning.",
-                desc: "The method, depth and source stay with the value, so labs can be compared.",
+                desc: "Bring soil, terrain, imagery, yield and field records together into one digital field while preserving what each observation means.",
               },
               {
                 title: "See.",
-                claim: "Uncertainty is shown, not hidden.",
-                desc: "When context is missing, the map says so and what it changes.",
+                desc: "Turn that digital field into maps and visualizations people can interpret, compare and use for decisions while keeping uncertainty visible.",
               },
               {
                 title: "Simulate.",
-                claim: "Work toward testing a decision before it goes in the ground.",
+                desc: "Build toward testing management choices and their possible outcomes before putting them into practice.",
               },
             ].map((s) => (
               <div
@@ -176,13 +174,12 @@ export default function HomePage() {
                 className="rounded-xl border border-band-foreground/25 bg-band-card p-6 text-foreground shadow-lg sm:p-8"
               >
                 <h3 className="text-xl font-semibold text-primary">{s.title}</h3>
-                <p className="mt-3 font-semibold">{s.claim}</p>
-                {s.desc && <p className="mt-2 text-muted-foreground">{s.desc}</p>}
+                <p className="mt-3 text-muted-foreground">{s.desc}</p>
               </div>
             ))}
           </div>
           <p className="mx-auto mt-10 max-w-2xl text-center text-band-muted sm:mt-12 sm:text-lg">
-            What happens in the field comes back, so the picture gets better with every season.
+            What happens in the field feeds back into the system, improving what can be understood and tested next.
           </p>
         </div>
       </section>

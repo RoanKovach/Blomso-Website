@@ -154,28 +154,19 @@ export default function HomePage() {
           >
             Our approach
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-center text-band-muted sm:text-lg">
-            Three capabilities, in order. Each one depends on the one before it.
-          </p>
           <div className="mt-10 grid gap-8 sm:mt-12 md:grid-cols-3">
             {[
               {
                 title: "Fuse.",
-                claim: "Bring the field together without losing what the data means.",
-                desc: "Soil tests, terrain, satellite imagery, yield files and field records become one digital field, and each observation keeps where it came from, when it was collected and how it was measured.",
-                example: "Two labs' phosphorus can sit on one map and still mean what each lab measured.",
+                desc: "Bring soil, terrain, imagery, yield and field records together into one digital field while preserving what each observation means.",
               },
               {
                 title: "See.",
-                claim: "Turn the digital field into something people can use.",
-                desc: "Variability as maps and layers, evidence compared across them, and uncertainty shown where it exists, so an agronomist can read what is happening and decide with it.",
-                example: "A management zone carries how it was made: which images, which breaks, how many acres.",
+                desc: "Turn that digital field into maps and visualizations people can interpret, compare and use for decisions while keeping uncertainty visible.",
               },
               {
                 title: "Simulate.",
-                claim: "Test what could happen before changing the field.",
-                desc: "We are building toward models that use the fused field to compare management choices, predict outcomes and check those predictions against what happens next.",
-                marker: "Where we are heading.",
+                desc: "Build toward testing management choices and their possible outcomes before putting them into practice.",
               },
             ].map((s) => (
               <div
@@ -183,21 +174,12 @@ export default function HomePage() {
                 className="rounded-xl border border-band-foreground/25 bg-band-card p-6 text-foreground shadow-lg sm:p-8"
               >
                 <h3 className="text-xl font-semibold text-primary">{s.title}</h3>
-                <p className="mt-3 font-semibold">{s.claim}</p>
-                <p className="mt-2 text-muted-foreground">{s.desc}</p>
-                {s.example && (
-                  <p className="mt-4 text-sm italic text-muted-foreground">{s.example}</p>
-                )}
-                {s.marker && (
-                  <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                    {s.marker}
-                  </p>
-                )}
+                <p className="mt-3 text-muted-foreground">{s.desc}</p>
               </div>
             ))}
           </div>
           <p className="mx-auto mt-10 max-w-2xl text-center text-band-muted sm:mt-12 sm:text-lg">
-            What happens in the field comes back, so every season improves what we can see, test and understand.
+            What happens in the field feeds back into the system, improving what can be understood and tested next.
           </p>
         </div>
       </section>
